@@ -17,8 +17,7 @@ export default defineConfig({
             '@configs': resolve(__dirname, './src/configs'),
             '@services': resolve(__dirname, './src/services'),
             '@store': resolve(__dirname, './src/store'),
-            test: resolve(__dirname, './test/unit'),
-            'test-mocks': resolve(__dirname, './test/unit/__mocks__'),
+            test: resolve(__dirname, './test'),
         },
     },
 });

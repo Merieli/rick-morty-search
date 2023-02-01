@@ -47,13 +47,16 @@ Run Locally
   git clone https://link-to-project
 
 # Go to the project directory
-  cd my-project
+  cd pokedex
 
 # Install dependencies
   npm install
 
 # Start the server
-  npm run start
+  npm run dev
+
+# Commit changes
+  npm run commit
 ```
 
 
