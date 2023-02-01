@@ -54,11 +54,13 @@ Run Locally
 
 # Start the server
   npm run dev
+```
 
+work
+```bash
 # Commit changes
   npm run commit
 ```
-
 
 ## :octocat: Contributing
 
