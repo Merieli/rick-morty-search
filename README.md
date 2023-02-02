@@ -33,7 +33,7 @@
 
 ## ⚡ Tech Stack
 
-**Client:** <img src="https://img.icons8.com/color/48/000000/vue-js.png" width="18px"/> Vue.js, <img src="https://img.icons8.com/color/48/000000/typescript.png" width="18px"/> TypeScript, <img src="https://img.icons8.com/color/48/000000/tailwind_css.png" width="18px"/> Tailwind, <img src="https://img.icons8.com/color/48/000000/sass-avatar.png" width="18px"/> SASS, <img src="https://vue-styleguidist.github.io/assets/logo.png" width="18px"/> Vue Styleguidist
+**Client:** <img src="https://img.icons8.com/color/48/000000/vue-js.png" width="18px"/> Vue.js, <img src="https://img.icons8.com/color/48/000000/typescript.png" width="18px"/> TypeScript, <img src="https://img.icons8.com/color/48/000000/tailwind_css.png" width="18px"/> Tailwind, <img src="https://vue-styleguidist.github.io/assets/logo.png" width="18px"/> Vue Styleguidist
 
 **Server:** Node, Express
 
@@ -60,6 +60,12 @@ work
 ```bash
 # Commit changes
   npm run commit
+
+# Generate first release to Changelog
+npm run changelog-first
+
+# Generate new release to Changelog
+npm run changelog
 ```
 
 ## :octocat: Contributing
