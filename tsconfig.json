@@ -18,12 +18,9 @@
             "@components/*": ["./src/components"],
             "@views/*": ["./src/views"],
             "@composable/*": ["./src/composable"],
-            "@constants/*": ["./src/support/constants"],
-            "@helpers/*": ["./src/support/helpers"],
-            "@types/*": ["./src/types"],
-            "@configs/*": ["./src/configs"],
-            "@services/*": ["./src/services"],
-            "@store/*": ["./src/store"],
+            "@domain/*": ["./src/domain"],
+            "@http/*": ["./src/infrastructure/http"],
+            "@store/*": ["./src/infrastructure/store"],
             "test/*": ["./test/unit"]
         }
     },

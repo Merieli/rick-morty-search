@@ -1,5 +1,5 @@
 {
-    "name": "pokedex",
+    "name": "rickmortysearch",
     "private": true,
     "version": "0.0.0",
     "type": "module",
@@ -10,7 +10,7 @@
         "test": "vitest",
         "test-coverage": "vitest run --coverage",
         "lint:js": "eslint src --ext .ts,.vue",
-        "commit": "cz", 
+        "commit": "cz",
         "changelog-first": "release -- --first-release",
         "changelog": "release"
     },

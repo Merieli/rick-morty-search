@@ -3,7 +3,7 @@
     <br>
     <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/th5xamgrr6se0x5ro4g6.png" alt="Logo" width="120">
     <br><br>
-    Project Title
+    Rick & Morty Search
 </h1>
 
 <p align="center">
@@ -35,7 +35,7 @@
 
 **Client:** <img src="https://img.icons8.com/color/48/000000/vue-js.png" width="18px"/> Vue.js, <img src="https://img.icons8.com/color/48/000000/typescript.png" width="18px"/> TypeScript, <img src="https://img.icons8.com/color/48/000000/tailwind_css.png" width="18px"/> Tailwind, <img src="https://vue-styleguidist.github.io/assets/logo.png" width="18px"/> Vue Styleguidist
 
-**Server:** Node, Express
+**Server:** API GraphQL
 
 <br>
 
