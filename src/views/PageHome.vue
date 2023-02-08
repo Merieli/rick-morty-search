@@ -1,7 +1,11 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import BaseHeader from '@/components/BaseHeader.vue';
+import SearchActions from '@/components/SearchActions.vue';
+</script>
 
 <template>
-    <header></header>
+    <BaseHeader />
+    <SearchActions />
 </template>
 
 <style lang="postcss" scoped></style>

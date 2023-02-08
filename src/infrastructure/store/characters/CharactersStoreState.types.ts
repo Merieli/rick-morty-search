@@ -1,3 +1,6 @@
+import { Character } from '@domain/character/Character.type';
+
 export interface CharactersStoreState {
-    characters: any[];
+    characters: Character[];
+    isLoading: boolean;
 }

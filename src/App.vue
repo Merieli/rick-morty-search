@@ -1,16 +1,11 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import PageHome from '@views/PageHome.vue';
+</script>
 
 <template>
-    <div class="teste"></div>
-    <v-alert class="" text="Hello World" />
+    <v-app>
+        <PageHome />
+    </v-app>
 </template>
 
-<style lang="postcss" scoped>
-.teste {
-    @apply bg-meri-low h-5 w-full;
-
-    &:hover {
-        @apply bg-meri-mid;
-    }
-}
-</style>
+<style lang="postcss" scoped></style>

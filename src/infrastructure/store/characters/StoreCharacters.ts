@@ -4,6 +4,7 @@ import getAllCharacters from './actions/getAllCharacters';
 
 const state = (): CharactersStoreState => ({
     characters: [],
+    isLoading: false,
 });
 
 const getters = {};
