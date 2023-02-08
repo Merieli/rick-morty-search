@@ -23,6 +23,7 @@
     "devDependencies": {
         "@commitlint/cli": "^17.4.2",
         "@commitlint/config-conventional": "^17.4.2",
+        "@mdi/font": "^7.1.96",
         "@typescript-eslint/eslint-plugin": "^5.49.0",
         "@typescript-eslint/parser": "^5.49.0",
         "@vitejs/plugin-vue": "^4.0.0",
