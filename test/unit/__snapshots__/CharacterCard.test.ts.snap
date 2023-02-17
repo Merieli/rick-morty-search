@@ -1,0 +1,9 @@
+// Vitest Snapshot v1
+
+exports[`CharacterCard > 🧪 Unidade: > Dado um componente Quando renderizado Então deve ter o mesmo snapshot gravado 1`] = `
+"<section>
+  <p data-character=\\"id\\">1</p>
+  <h2 data-character=\\"name\\">Teste</h2>
+  <p data-character=\\"species\\">Human</p><img src=\\"algumaimage.png\\" alt=\\"Imagem A\\" data-character=\\"image\\">
+</section>"
+`;
