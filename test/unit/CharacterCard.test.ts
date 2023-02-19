@@ -1,6 +1,5 @@
 import CharacterCard from '@components/CharacterCard.vue';
 import { mount, VueWrapper } from '@vue/test-utils';
-import { describe, expect, test } from 'vitest';
 
 describe('CharacterCard', () => {
     const wrapper: VueWrapper = mount(CharacterCard, {
@@ -33,14 +32,13 @@ describe('CharacterCard', () => {
         test('Dado um card de personagem Quando renderizado Então deve exibir o Id', () => {
             const id = wrapper.find('[data-character="id"]').text();
 
-            expect(id).toEqual('1');
+            expect(id).toEqual('#1');
         });
 
         test('Dado um card de personagem Quando renderizado Então deve exibir a imagem', () => {
-            const image = wrapper.find('[data-character="image"]');
+            const image = wrapper.find('[data-character="card"]');
 
-            expect(image.attributes('src')).toBe('algumaimage.png');
-            expect(image.attributes('alt')).toBe('Imagem A');
+            expect(image.attributes('style')).toContain('algumaimage.png');
         });
     });
 });
