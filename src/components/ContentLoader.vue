@@ -14,7 +14,7 @@ const SHIMMER_COLOR = '#ffffff';
 const props = defineProps({
     type: {
         type: String,
-        default: LOADER_TYPES.rectangle,
+        default: [LOADER_TYPES.rectangle],
         validator(value: LoaderTypesValues) {
             return Object.values(LOADER_TYPES).includes(value);
         },
