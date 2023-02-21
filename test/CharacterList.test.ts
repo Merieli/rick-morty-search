@@ -13,7 +13,7 @@ describe('CharacterList.vue', () => {
             test('Dado uma lista de personagens Quando renderizada Então deve mostrar a quantidade de personagens total', () => {
                 const qtd = wrapper.find('[data-list="qtd"]');
 
-                expect(qtd.text()).toBe('100 characters');
+                expect(qtd.text()).toBe('100 Characters');
             });
 
             test('Dado uma lista de personagens Quando renderizada Então deve mostrar o card de personagens', () => {
@@ -21,8 +21,14 @@ describe('CharacterList.vue', () => {
 
                 expect(qtd).toHaveLength(1);
             });
+
+            test('Dado uma lista de personagens Quando renderizada Então deve exibir um botão para carregar mais personagens', () => {
+                const buttonLoadMore = wrapper.findAll('[data-list="button-load-more"]');
+
+                expect(buttonLoadMore).toHaveLength(1);
+            });
         });
-        describe('🧠 Comportamento:', () => {});
-        describe('🐕 Navegação:', () => {});
+        // describe('🧠 Comportamento:', () => {});
+        // describe('🐕 Navegação:', () => {});
     });
 });

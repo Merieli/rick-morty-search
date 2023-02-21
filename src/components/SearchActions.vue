@@ -1,6 +1,4 @@
-<script setup lang="ts">
-const props = defineProps([]);
-</script>
+<script setup lang="ts"></script>
 
 <template>
     <div class="search-actions">
@@ -24,10 +22,10 @@ const props = defineProps([]);
 
 <style lang="postcss" scoped>
 .search-actions {
-    @apply w-full px-7 pt-4;
+    @apply w-full px-10 pt-4;
 
     &__button {
-        @apply w-full my-4 bg-meri-mid text-white font-bold;
+        @apply w-full my-4 bg-meri-mid text-white font-bold rounded-2xl;
     }
 
     &__icon-button {

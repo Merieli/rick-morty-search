@@ -18,7 +18,7 @@
             "@assets/*": ["./src/assets/*"],
             "@components/*": ["./src/components/*"],
             "@views/*": ["./src/views/*"],
-            "@composable/*": ["./src/composable/*"],
+            "@composables/*": ["./src/composables/*"],
             "@domain/*": ["./src/domain/*"],
             "@http/*": ["./src/infrastructure/http/*"],
             "@store/*": ["./src/infrastructure/store/*"],

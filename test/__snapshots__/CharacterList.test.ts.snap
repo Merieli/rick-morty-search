@@ -1,0 +1,22 @@
+// Vitest Snapshot v1
+
+exports[`CharacterList.vue > Integração/Componente > 👀 Renderização: > Dado o componente Quando renderizado Então deve possuir html equivalente ao Snapshot gravado 1`] = `
+"<section class=\\"character-list\\" data-v-c3db22c7=\\"\\">
+  <h4 class=\\"character-list__qtd\\" data-list=\\"qtd\\" data-v-c3db22c7=\\"\\">100 Characters</h4>
+  <section class=\\"character-card\\" data-character=\\"card\\" style=\\"background-image: url(https://rickandmortyapi.com/api/character/avatar/1.jpeg);\\" data-list=\\"card\\" data-v-82d09848=\\"\\" data-v-c3db22c7=\\"\\">
+    <p class=\\"character-card__id\\" data-character=\\"id\\" data-v-82d09848=\\"\\">#1</p>
+    <h2 class=\\"character-card__name\\" data-character=\\"name\\" data-v-82d09848=\\"\\">Teste</h2>
+    <div class=\\"character-card__tag\\" data-character=\\"species\\" data-v-82d09848=\\"\\">Human</div>
+  </section>
+  <div class=\\"h-10\\" data-v-c3db22c7=\\"\\"></div>
+  <div class=\\"card-loading\\" data-v-73c53457=\\"\\" data-v-c3db22c7=\\"\\">
+    <div class=\\"card-loading__content bg-gray-300 skeleton-loader\\" data-v-7049fcc4=\\"\\" data-v-73c53457=\\"\\">
+      <div class=\\"skeleton-loader__shimmer bg-gray-300\\" data-v-7049fcc4=\\"\\"></div>
+    </div>
+    <div class=\\"card-loading__content bg-gray-300 skeleton-loader\\" data-v-7049fcc4=\\"\\" data-v-73c53457=\\"\\">
+      <div class=\\"skeleton-loader__shimmer bg-gray-300\\" data-v-7049fcc4=\\"\\"></div>
+    </div>
+  </div>
+  <v-btn class=\\"character-list__button\\" variant=\\"tonal\\" data-list=\\"button-load-more\\" data-v-c3db22c7=\\"\\">Load more</v-btn>
+</section>"
+`;

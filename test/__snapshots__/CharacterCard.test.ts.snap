@@ -1,6 +1,6 @@
 // Vitest Snapshot v1
 
-exports[`CharacterCard > 🧪 Unidade: > Dado um componente Quando renderizado Então deve ter o mesmo snapshot gravado 1`] = `
+exports[`CharacterCard > Integração/Componente > 👀 Renderização: > Dado um componente Quando renderizado Então deve ter o mesmo snapshot gravado 1`] = `
 "<section class=\\"character-card\\" data-character=\\"card\\" style=\\"background-image: url(algumaimage.png);\\" data-v-82d09848=\\"\\">
   <p class=\\"character-card__id\\" data-character=\\"id\\" data-v-82d09848=\\"\\">#1</p>
   <h2 class=\\"character-card__name\\" data-character=\\"name\\" data-v-82d09848=\\"\\">Teste</h2>

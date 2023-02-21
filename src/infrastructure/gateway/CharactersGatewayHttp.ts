@@ -1,8 +1,9 @@
+import { CharactersResponseApi } from '@/domain/';
 import { FetchAdapter } from '../http';
 const baseUrl = import.meta.env.VITE_API_URL;
 
 export default class CharactersGatewayHttp {
-    async getAll(): Promise<any> {
+    async getAll(): Promise<CharactersResponseApi> {
         const httpClient = new FetchAdapter();
         const queryAllCharacters = `
             query getAllCharacters {
@@ -11,9 +12,7 @@ export default class CharactersGatewayHttp {
                         id
                         name
                         image
-                        status
-                        gender
-                        type
+                        specie
                     }
                     info {
                         count
@@ -21,12 +20,12 @@ export default class CharactersGatewayHttp {
                         next
                         prev
                     }
-                  }
+                }
             }
         `;
 
         const charactersData = await httpClient.post(baseUrl, queryAllCharacters);
 
-        return charactersData;
+        return charactersData.data;
     }
 }

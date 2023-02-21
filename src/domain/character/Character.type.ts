@@ -9,3 +9,5 @@ export interface Character {
     lastEpisode?: string;
     origin?: string;
 }
+
+export type CharacterCard = Pick<Character, 'id' | 'name' | 'image' | 'specie'>;

@@ -1,11 +1,6 @@
 import { defineStore } from 'pinia';
-import { CharactersStoreState } from './CharactersStoreState.types';
 import getAllCharacters from './actions/getAllCharacters';
-
-const state = (): CharactersStoreState => ({
-    characters: [],
-    isLoading: false,
-});
+import { CharactersStoreState } from './CharactersStoreState.types';
 
 const getters = {};
 
@@ -13,7 +8,12 @@ const actions = {
     getAllCharacters,
 };
 
-export const useCounterStore = defineStore('characters', {
-    state,
+export const useCharactersStore = defineStore('characters', {
+    state: (): CharactersStoreState => {
+        return {
+            characters: [],
+            isLoading: false,
+        };
+    },
     actions,
 });

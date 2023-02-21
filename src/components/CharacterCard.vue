@@ -33,7 +33,7 @@ const props = defineProps({
 
 <style lang="postcss" scoped>
 .character-card {
-    @apply p-4 rounded-2xl shadow-2xl font-sans;
+    @apply p-4 rounded-2xl shadow-2xl font-sans text-gray-500;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: bottom right;
@@ -46,14 +46,13 @@ const props = defineProps({
     }
 
     &__id {
-        @apply pb-2;
-        color: #7a7d80;
+        @apply pb-2 text-gray-500;
     }
 
     &__tag {
         @apply px-2 py-1;
         border-radius: 30px;
-        background-color: #7a7d80;
+        background-color: text-gray-300;
         display: inline-block;
     }
 

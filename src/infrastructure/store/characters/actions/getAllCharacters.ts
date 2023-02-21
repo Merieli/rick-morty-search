@@ -1,15 +1,21 @@
 import CharactersGatewayHttp from '../../../gateway/CharactersGatewayHttp';
 import { CharactersStoreState } from '../CharactersStoreState.types';
 
-export default function getAllCharacters(this: CharactersStoreState): void {
+export default async function getAllCharacters(this: CharactersStoreState): Promise<void> {
     try {
         this.isLoading = true;
-        const response = new CharactersGatewayHttp();
-        response.getAll().then((all) => (this.characters = all.data.characters.results));
-        console.log(this.characters);
+        const api = new CharactersGatewayHttp();
+        const response = await api.getAll().then((response) => response.characters.results);
+
+        if (!response) {
+            throw Error();
+        }
+        this.characters = response;
     } catch (error) {
         console.error((error as any).message);
         // lançar uma mensagem diferente para cada código de erro
+        //logError()  //função para exibir o erro para o usuário
+        //logErrorDev()  //função para imprimir o erro no console
     } finally {
         this.isLoading = false;
     }

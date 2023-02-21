@@ -24,7 +24,7 @@ const toggleFilter = () => {
 
 <style lang="postcss" scoped>
 .base-header {
-    @apply pl-4 py-4;
+    @apply pl-4 py-7;
     display: contents;
 
     &__title {
