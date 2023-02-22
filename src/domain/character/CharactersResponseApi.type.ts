@@ -1,13 +1,11 @@
 import { Character } from './Character.type';
 
 export interface CharactersResponseApi {
-    characters: {
-        info: {
-            count: number;
-            next: number;
-            pages: number;
-            prev: null | number;
-        };
-        results: Character[];
+    info: {
+        count: number;
+        pages: number;
+        next: null | number;
+        prev: null | number;
     };
+    results: Character[];
 }

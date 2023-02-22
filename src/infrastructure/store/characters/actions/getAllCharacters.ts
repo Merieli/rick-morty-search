@@ -5,16 +5,16 @@ export default async function getAllCharacters(this: CharactersStoreState): Prom
     try {
         this.isLoading = true;
         const api = new CharactersGatewayHttp();
-        const response = await api.getAll().then((response) => response.characters.results);
+        const response = await api.getAll();
+        this.characters = response.results;
 
-        if (!response) {
-            throw Error();
+        if (this.characters == undefined) {
+            throw new Error('Nenhum personagem está salvo na api');
         }
-        this.characters = response;
     } catch (error) {
-        console.error((error as any).message);
         // lançar uma mensagem diferente para cada código de erro
-        //logError()  //função para exibir o erro para o usuário
+        //logError('Action getAllCharacters', error)  //função para exibir o erro para o usuário
+        console.error('[Error]', (error as Error).stack ? (error as Error).stack : (error as Error).message);
         //logErrorDev()  //função para imprimir o erro no console
     } finally {
         this.isLoading = false;

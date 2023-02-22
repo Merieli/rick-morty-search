@@ -12,7 +12,7 @@ export default class CharactersGatewayHttp {
                         id
                         name
                         image
-                        specie
+                        species
                     }
                     info {
                         count
@@ -26,6 +26,6 @@ export default class CharactersGatewayHttp {
 
         const charactersData = await httpClient.post(baseUrl, queryAllCharacters);
 
-        return charactersData.data;
+        return charactersData.data.characters;
     }
 }

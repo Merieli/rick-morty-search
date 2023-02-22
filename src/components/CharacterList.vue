@@ -1,28 +1,38 @@
 <script setup lang="ts">
 import CharacterCard from '@/components/CharacterCard.vue';
 import { useCharactersStore } from '@/infrastructure/store/characters';
+import { ref } from 'vue';
 import CardLoading from './CardLoading.vue';
+
+// const CharacterCard = defineAsyncComponent(() => import('@/components/CharacterCard.vue'));
+
 const props = defineProps({});
+
+const showCharacters = ref(false);
 
 const store = useCharactersStore();
 
-store.getAllCharacters();
+const characters = await store.getAllCharacters();
 </script>
 
 <template>
     <section class="character-list">
         <h4 class="character-list__qtd" data-list="qtd">100 Characters</h4>
-
-        <CharacterCard
-            name="Teste"
-            :id="1"
-            species="Human"
-            image="https://rickandmortyapi.com/api/character/avatar/1.jpeg"
-            alt-image="nada por aqui"
-            data-list="card"
-        />
-        <div class="h-10">{{ store.characters[0] }}</div>
-        <CardLoading />
+        <Suspense>
+            <CharacterCard
+                name="Teste"
+                :id="1"
+                species="Human"
+                image="https://rickandmortyapi.com/api/character/avatar/1.jpeg"
+                alt-image="nada por aqui"
+                data-list="card"
+            />
+            <!-- <template #default>
+            </template> -->
+            <template #fallback>
+                <CardLoading />
+            </template>
+        </Suspense>
         <v-btn class="character-list__button" variant="tonal" data-list="button-load-more">Load more</v-btn>
     </section>
 </template>
