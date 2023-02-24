@@ -9,6 +9,14 @@ export class FetchAdapter implements HttpClient {
 
             throw SyntaxError(`API Response ${error}`);
         }
+
+        return response.json();
+    }
+
+    private async handleGraphQlErrors(response: any) {
+        if (response.errors) {
+            throw Error(`API Response ${response.errors}`);
+        }
         return response;
     }
 
@@ -23,8 +31,10 @@ export class FetchAdapter implements HttpClient {
                 query: queryGraphql,
                 variables: {},
             }),
-        }).then(this.handleErrors);
+        })
+            .then(this.handleErrors)
+            .then(this.handleGraphQlErrors);
 
-        return response.json();
+        return response.data;
     }
 }

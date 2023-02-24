@@ -1,3 +1,4 @@
+import { logError } from '@/helpers/logError';
 import CharactersGatewayHttp from '../../../gateway/CharactersGatewayHttp';
 import { CharactersStoreState } from '../CharactersStoreState.types';
 
@@ -7,15 +8,14 @@ export default async function getAllCharacters(this: CharactersStoreState): Prom
         const api = new CharactersGatewayHttp();
         const response = await api.getAll();
         this.characters = response.results;
-
-        if (this.characters == undefined) {
-            throw new Error('Nenhum personagem está salvo na api');
-        }
+        this.characters = undefined as any;
     } catch (error) {
-        // lançar uma mensagem diferente para cada código de erro
-        //logError('Action getAllCharacters', error)  //função para exibir o erro para o usuário
-        console.error('[Error]', (error as Error).stack ? (error as Error).stack : (error as Error).message);
-        //logErrorDev()  //função para imprimir o erro no console
+        const { code, message } = logError('Action getAllCharacters', error);
+        if (code === 404) {
+            window.alert('Os personagens não foram encontrados. Contate-nos, para determinarmos as próximas etapas.');
+        }
+        console.log('>>>>>', message);
+        //notification()  //função para exibir o erro para o usuário
     } finally {
         this.isLoading = false;
     }

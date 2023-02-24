@@ -22,6 +22,8 @@
             "@domain/*": ["./src/domain/*"],
             "@http/*": ["./src/infrastructure/http/*"],
             "@store/*": ["./src/infrastructure/store/*"],
+            "@helpers/*": ["./src/infrastructure/helpers/*"],
+
             "test/*": ["./test/unit/*"]
         },
         "types": [
