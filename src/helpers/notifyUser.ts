@@ -3,19 +3,27 @@ interface ErrorMessages {
 }
 
 export const errorMessagesForUser: ErrorMessages = {
-    400: `%details% - possible invalid user input]`,
-    401: `%details% - without authorization]`,
-    403: `%details% - there is something wrong with the server response]`,
-    404: `%details% - the requested feature cannot be found]`,
-    409: `%details% - possible version conflict or existing restriction]`,
-    500: `%details% - something unknown went wrong]`,
-    503: `Algo deu errado com o servidor ao %action%, mas é provável que funcione novamente em breve. Tente novamente em alguns instantes, e se ainda não estiver funcionando, entre em contato com o suporte.`,
-    504: `Parece que você está sem conexão. Verifique sua internet e tente outra vez`,
+    400: 'Ao %action% houve um erro de validação. Atente-se para as regras da entrada e tente novamente.',
+    401: 'Você não te permissão para %action%! Tente com uma conta diferente.',
+    403: 'Algo deu errado, com a resposta do servidor ao tentar %action%.',
+    404: 'Ao %action% não foram encontrados resultados. Contate-nos, para determinarmos as próximas etapas.',
+    409: 'Algo deu errado ao %actiob%, mas é provável que funcione novamente em breve. Verifique novamente em alguns instantes e, se ainda não estiver funcionando, entre em contato com o suporte.',
+    500: 'Contate-nos. Algo está errado em ao %action%. Entre em contato com o suporte, para que eles possam determinar as próximas etapas.',
+    503: 'Algo deu errado com o servidor ao %action%, mas é provável que funcione novamente em breve. Tente novamente em alguns instantes, e se ainda não estiver funcionando, entre em contato com o suporte.',
+    504: 'Parece que você está sem conexão. Verifique sua internet e tente outra vez',
 };
 
-export const notifyUser = (code: number, action: string) => {
+export class notifyUser {
+    private message: string;
+
+    constructor(code: number, action: string) {
+        if (!code) {
+            code = 500;
+        }
+        this.message = errorMessagesForUser[code].replaceAll('%action%', action);
+    }
+
     // método para inserir a mensagem em uma determinada tag HTML e limpar depois de um tempo
     // método para interromper o app exibindo uma página de erro
     // método para exibir um modal de notificação com o erro
-    // se não houver um code do erro  ele será 500
-};
+}

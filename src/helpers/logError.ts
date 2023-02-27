@@ -6,7 +6,6 @@ export interface ApiError extends Error {
 
 interface logError {
     code: number;
-    message: string;
 }
 
 interface ErrorMessages {
@@ -33,5 +32,5 @@ export const logError = (details: string, error: unknown): logError => {
     const text = `${header} ${err.stack ?? err.message}`;
     console.error(text);
 
-    return { code, message: err.message };
+    return { code };
 };

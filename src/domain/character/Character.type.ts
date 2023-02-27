@@ -5,9 +5,9 @@ export interface Character {
     status: string;
     gender?: string;
     location?: string;
-    specie?: string;
+    species?: string;
     lastEpisode?: string;
     origin?: string;
 }
 
-export type CharacterCard = Pick<Character, 'id' | 'name' | 'image' | 'specie'>;
+export type CharacterCard = Pick<Character, 'id' | 'name' | 'image' | 'species'>;
