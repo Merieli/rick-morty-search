@@ -1,7 +1,7 @@
 {
     "name": "rickmortysearch",
     "private": true,
-    "version": "0.0.0",
+    "version": "0.0.1",
     "type": "module",
     "scripts": {
         "dev": "vite --open",
@@ -10,9 +10,11 @@
         "test": "vitest",
         "test-coverage": "vitest run --coverage",
         "lint": "eslint src --ext .ts,.vue",
+        "format": "prettier --write .",
         "commit": "cz",
         "changelog-first": "release -- --first-release",
-        "changelog": "release"
+        "changelog": "standard-version",
+        "prepare": "husky install"
     },
     "dependencies": {
         "@types/node": "^18.11.18",
@@ -30,7 +32,6 @@
         "@vue/test-utils": "^2.2.8",
         "autoprefixer": "^10.4.13",
         "commitizen": "^4.3.0",
-        "cz-conventional-changelog": "^3.3.0",
         "eslint": "^8.36.0",
         "eslint-config-airbnb-typescript": "^17.0.0",
         "eslint-config-prettier": "^8.6.0",
