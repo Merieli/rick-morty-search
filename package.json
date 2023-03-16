@@ -9,7 +9,7 @@
         "preview": "vite preview",
         "test": "vitest",
         "test-coverage": "vitest run --coverage",
-        "lint:js": "eslint src --ext .ts,.vue",
+        "lint": "eslint src --ext .ts,.vue",
         "commit": "cz",
         "changelog-first": "release -- --first-release",
         "changelog": "release"
@@ -31,7 +31,8 @@
         "autoprefixer": "^10.4.13",
         "commitizen": "^4.3.0",
         "cz-conventional-changelog": "^3.3.0",
-        "eslint": "^8.32.0",
+        "eslint": "^8.36.0",
+        "eslint-config-airbnb-typescript": "^17.0.0",
         "eslint-config-prettier": "^8.6.0",
         "eslint-plugin-vue": "^9.9.0",
         "husky": "^8.0.3",
