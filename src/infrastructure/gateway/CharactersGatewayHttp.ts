@@ -1,10 +1,11 @@
 import { CharactersResponseApi } from '@/domain/';
-import { FetchAdapter } from '../http';
-const baseUrl = import.meta.env.VITE_API_URL;
+import { FetchAdapter } from '@http/index';
 
 export default class CharactersGatewayHttp {
+    private baseUrl = import.meta.env.VITE_API_URL;
+
     async getAll(): Promise<CharactersResponseApi> {
-        const httpClient = new FetchAdapter();
+        const httpClient = new FetchAdapter(this.baseUrl);
         const queryAllCharacters = `
             query getAllCharacters {
                 characters(page: 1){
@@ -24,7 +25,7 @@ export default class CharactersGatewayHttp {
             }
         `;
 
-        const charactersData = await httpClient.post(baseUrl, queryAllCharacters);
+        const charactersData = await httpClient.post<any>(queryAllCharacters);
 
         return charactersData.data.characters;
     }

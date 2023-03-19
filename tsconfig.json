@@ -26,9 +26,7 @@
 
             "test/*": ["./test/unit/*"]
         },
-        "types": [
-            "node", "vitest/globals"
-        ],
+        "types": ["node", "vitest/globals"]
     },
     "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "test/**/*.test.ts", "test/**/*.ts"],
     "references": [{ "path": "./tsconfig.node.json" }]

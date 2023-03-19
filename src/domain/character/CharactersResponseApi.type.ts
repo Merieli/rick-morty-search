@@ -1,4 +1,4 @@
-import { Character } from './Character.type';
+import { Character } from './Character.interface';
 
 export interface CharactersResponseApi {
     info: {

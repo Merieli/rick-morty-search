@@ -58,6 +58,9 @@ Run Locally
 
 work
 ```bash
+# Para o primeiro release:
+npm run release -- --first-release
+
 # Commit changes
   npm run commit
 

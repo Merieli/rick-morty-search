@@ -1,30 +1,24 @@
-<script lang="ts">
-const SHIMMER_COLOR = '#ededed';
-</script>
-
 <script setup lang="ts">
-import { hexToRgb, isHexColor } from '@composables/index';
 import { computed, toRefs } from 'vue';
 
-const props = defineProps({
-    bgClass: {
-        type: String,
-        default: 'bg-gray-300',
-    },
-    shimmerColor: {
-        type: String,
-        default: SHIMMER_COLOR,
-    },
-    cssClass: {
-        type: String,
-        default: '',
-    },
+import { hexToRgb, isHexColor } from '@composables/index';
+
+interface PropsSkeletonLoader {
+    bgClass?: string;
+    cssClass?: string;
+    shimmerColor?: string;
+}
+const shimmerColorValue = '#ededed';
+const props = withDefaults(defineProps<PropsSkeletonLoader>(), {
+    bgClass: 'bg-gray-300',
+    cssClass: '',
+    shimmerColor: '#ededed',
 });
 
 const { bgClass, cssClass, shimmerColor } = toRefs(props);
 
 const shimmerStyle = computed(() => {
-    const rgb = isHexColor(shimmerColor.value) ? hexToRgb(shimmerColor.value) : SHIMMER_COLOR;
+    const rgb = isHexColor(shimmerColor.value) ? hexToRgb(shimmerColor.value) : shimmerColorValue;
 
     return {
         backgroundImage: `linear-gradient(90deg, rgba(${rgb}, 0) 0%, rgba(${rgb}, 0.2) 40%, rgba(${rgb}, 0.5) 60%, rgba(${rgb}, 0))`,

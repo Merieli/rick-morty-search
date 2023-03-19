@@ -15,10 +15,12 @@ export const errorMessagesForUser: ErrorMessages = {
 
 export class notifyUser {
     private message: string;
+    private code: number;
 
     constructor(code: number, action: string) {
+        this.code = code;
         if (!code) {
-            code = 500;
+            this.code = 500;
         }
         this.message = errorMessagesForUser[code].replaceAll('%action%', action);
     }

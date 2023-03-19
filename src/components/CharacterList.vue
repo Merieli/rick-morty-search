@@ -1,15 +1,14 @@
 <script setup lang="ts">
-import CharacterCard from '@/components/CharacterCard.vue';
-import { useCharactersStore } from '@/infrastructure/store/characters';
 import { ref } from 'vue';
+
+import { useCharactersStore } from '@/infrastructure/store/characters';
+import CharacterCard from '@components/CharacterCard.vue';
+
 import CardLoading from './CardLoading.vue';
 
 // const CharacterCard = defineAsyncComponent(() => import('@/components/CharacterCard.vue'));
-
-const props = defineProps({});
-
+// const props = defineProps({});
 const showCharacters = ref(false);
-
 const store = useCharactersStore();
 
 const characters = await store.getAllCharacters();
@@ -20,8 +19,8 @@ const characters = await store.getAllCharacters();
         <h4 class="character-list__qtd" data-list="qtd">100 Characters</h4>
         <Suspense>
             <CharacterCard
-                name="Teste"
                 :id="1"
+                name="Teste"
                 species="Human"
                 image="https://rickandmortyapi.com/api/character/avatar/1.jpeg"
                 alt-image="nada por aqui"

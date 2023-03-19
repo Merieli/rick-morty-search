@@ -1,4 +1,8 @@
+# Directories:
 zgen/*
 node_modules/*
-dist/*
+dist/
+coverage/
+
+# Files:
 *.md

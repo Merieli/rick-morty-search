@@ -1,7 +1,9 @@
-import HttpClient from './HttpClient.type';
+import HttpClient from './HttpClient.interface';
 
 export class FetchAdapter implements HttpClient {
-    private async handleErrors(response: Response) {
+    constructor(private url: string) {}
+
+    private static async handleErrors(response: Response) {
         if (!response.ok) {
             const isJson = response.headers.get('content-type')?.includes('application/json');
             const data = isJson ? await response.json() : null;
@@ -13,15 +15,15 @@ export class FetchAdapter implements HttpClient {
         return response.json();
     }
 
-    private async handleGraphQlErrors(response: any) {
+    private static async handleGraphQlErrors(response: any) {
         if (response.errors) {
             throw Error(`API Response ${response.errors}`);
         }
         return response;
     }
 
-    async post(url: string, queryGraphql: string): Promise<any> {
-        const response = await fetch(url, {
+    async post<T>(queryGraphql: string): Promise<T> {
+        const response = await fetch(this.url, {
             method: 'POST',
             mode: 'cors',
             headers: {
@@ -32,8 +34,8 @@ export class FetchAdapter implements HttpClient {
                 variables: {},
             }),
         })
-            .then(this.handleErrors)
-            .then(this.handleGraphQlErrors);
+            .then(FetchAdapter.handleErrors)
+            .then(FetchAdapter.handleGraphQlErrors);
 
         return response.data;
     }

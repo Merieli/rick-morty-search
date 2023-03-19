@@ -1,2 +1,2 @@
-export * from './character/Character.type';
+export * from './character/Character.interface';
 export * from './character/CharactersResponseApi.type';

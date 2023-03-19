@@ -1,0 +1,76 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": ["airbnb-base", "plugin:@typescript-eslint/recommended", "plugin:vue/vue3-recommended", "prettier"],
+    "plugins": ["vue", "@typescript-eslint"],
+    "parserOptions": {
+        "parser": "@typescript-eslint/parser",
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "overrides": [],
+    "rules": {
+        // No permit prefix or sufix to interface
+        "@typescript-eslint/naming-convention": [
+            "error",
+            {
+                "selector": "interface",
+                "format": ["PascalCase"],
+                "custom": {
+                    "regex": "(^I[A-Z]|^Interface|Interface$)",
+                    "match": false
+                }
+            }
+        ],
+
+        // Allow class constructor empty with parameters
+        "no-useless-constructor": "off",
+
+        // Allow single lines be together on classes
+        "lines-between-class-members": ["error", "always", { "exceptAfterSingleLine": true }],
+
+        // Disable export default requirement
+        "import/prefer-default-export": "off",
+
+        // Allow use of unary operators
+        "no-plusplus": "off",
+
+        // Disabilita a regra para uso do pinia no projeto
+        "no-param-reassign": ["error", { "props": false }],
+
+        "import/no-extraneous-dependencies": "off",
+        "import/no-unresolved": "off",
+        "import/extensions": [
+            "error",
+            "never",
+            {
+                "json": "always",
+                "vue": "always",
+                "type": "always",
+                "interface": "always"
+            }
+        ],
+        "import/order": [
+            "error",
+            {
+                "newlines-between": "always",
+                "pathGroups": [
+                    {
+                        "pattern": "vue",
+                        "group": "builtin",
+                        "position": "before"
+                    },
+                    {
+                        "pattern": "@*/**",
+                        "group": "external",
+                        "position": "before"
+                    }
+                ],
+                "pathGroupsExcludedImportTypes": ["vue"],
+                "groups": ["builtin", "external", "index", "sibling", "parent", "internal", "object", "type"]
+            }
+        ]
+    }
+}
