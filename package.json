@@ -11,7 +11,7 @@
         "test-coverage": "vitest run --coverage",
         "lint": "eslint src --ext .ts,.vue",
         "format": "prettier --write .",
-        "commit": "cz",
+        "commit": "git commit -m ''",
         "release": "standard-version",
         "release:minor": "standard-version --release-as minor",
         "release:patch": "standard-version --release-as patch",
