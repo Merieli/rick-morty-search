@@ -7,12 +7,24 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Directories
 node_modules
 dist
 dist-ssr
+coverage
+
+# Files
 *.local
+# ---- dotenv environment variable files
+.env
+.env.development
+.env.test.local
+.env.production
+.env.local
+
 
 # Editor directories and files
+.history
 .vscode
 !.vscode/extensions.json
 .idea
@@ -22,13 +34,3 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-
-# Local History for Visual Studio Code
-.history/
-
-# dotenv environment variable files
-.env
-.env.development.local
-.env.test.local
-.env.production.local
-.env.local
