@@ -23,11 +23,10 @@
             "@http/*": ["./src/infrastructure/http/*"],
             "@store/*": ["./src/infrastructure/store/*"],
             "@helpers/*": ["./src/infrastructure/helpers/*"],
-
-            "test/*": ["./test/unit/*"]
+            "tests/*": ["tests/*"]
         },
         "types": ["node", "vitest/globals"]
     },
-    "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "test/**/*.test.ts", "test/**/*.ts"],
+    "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "tests/**/*.test.ts", "tests/**/*.ts"],
     "references": [{ "path": "./tsconfig.node.json" }]
 }

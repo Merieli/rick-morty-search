@@ -1,37 +1,34 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-import { useCharactersStore } from '@/infrastructure/store/characters';
-import CharacterCard from '@components/CharacterCard.vue';
-
-import CardLoading from './CardLoading.vue';
+import CharacterCard from './CharacterCard.vue';
 
 // const CharacterCard = defineAsyncComponent(() => import('@/components/CharacterCard.vue'));
 // const props = defineProps({});
 const showCharacters = ref(false);
-const store = useCharactersStore();
+// const store = useCharactersStore();
 
-const characters = await store.getAllCharacters();
+// const characters = store.getAllCharacters();
 </script>
 
 <template>
     <section class="character-list">
         <h4 class="character-list__qtd" data-list="qtd">100 Characters</h4>
-        <Suspense>
-            <CharacterCard
-                :id="1"
-                name="Teste"
-                species="Human"
-                image="https://rickandmortyapi.com/api/character/avatar/1.jpeg"
-                alt-image="nada por aqui"
-                data-list="card"
-            />
-            <!-- <template #default>
+        <!-- <Suspense> -->
+        <CharacterCard
+            :id="1"
+            name="Teste"
+            species="Human"
+            image="https://rickandmortyapi.com/api/character/avatar/1.jpeg"
+            alt-image="nada por aqui"
+            data-list="card"
+        />
+        <!-- <template #default>
             </template> -->
-            <template #fallback>
+        <!-- <template #fallback>
                 <CardLoading />
-            </template>
-        </Suspense>
+            </template> -->
+        <!-- </Suspense> -->
         <v-btn class="character-list__button" variant="tonal" data-list="button-load-more">Load more</v-btn>
     </section>
 </template>

@@ -42,7 +42,7 @@ describe('CharacterCard', () => {
                 expect(image.attributes('style')).toContain('algumaimage.png');
             });
         });
-        describe('🧠 Comportamento:', () => {});
-        describe('🐕 Navegação:', () => {});
+        // describe('🧠 Comportamento:', () => {});
+        // describe('🐕 Navegação:', () => {});
     });
 });

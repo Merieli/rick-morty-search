@@ -58,17 +58,20 @@ Run Locally
 
 work
 ```bash
-# Para o primeiro release:
-npm run release -- --first-release
+# Generate first release:
+  npm run release -- --first-release
+
+# Generate release minor
+  npm run release:minor
+
+# Generate release patch
+  npm run release:patch
+
+# Generate release major
+  npm run release:major
 
 # Commit changes
   npm run commit
-
-# Generate first release to Changelog
-npm run changelog-first
-
-# Generate new release to Changelog
-npm run changelog
 ```
 
 ## :octocat: Contributing

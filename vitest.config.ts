@@ -1,5 +1,7 @@
-import vue from '@vitejs/plugin-vue';
 import { resolve } from 'path';
+
+import vue from '@vitejs/plugin-vue';
+
 import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
@@ -7,7 +9,8 @@ export default defineConfig({
     test: {
         globals: true,
         environment: 'jsdom',
-        include: ['test/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+        include: ['tests/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+        mockReset: true,
     },
     resolve: {
         alias: {
@@ -19,7 +22,7 @@ export default defineConfig({
             '@domain': resolve(__dirname, './src/domain'),
             '@http': resolve(__dirname, './src/infrastructure/http'),
             '@store': resolve(__dirname, './src/infrastructure/store'),
-            test: resolve(__dirname, './test/unit'),
+            test: resolve(__dirname, './tests'),
         },
     },
 });
