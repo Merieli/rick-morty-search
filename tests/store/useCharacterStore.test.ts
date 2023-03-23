@@ -1,16 +1,12 @@
-import { useCharactersStore } from '@/infrastructure/store/characters';
-
 import { createPinia, setActivePinia } from 'pinia';
+
+import { useCharactersStore } from '@/infrastructure/store/characters';
 
 describe('nomeComponent', () => {
     setActivePinia(createPinia());
     const store = useCharactersStore();
 
     describe('🧪 Unidade:', () => {
-        test('Dado contexto Quando eventos Então resultado', () => {
-            vi.mocked(store.characters);
-        });
-
         test('Dado os personagens Quando inicializado Então deve ser um array vazio', () => {
             expect(store.characters).toStrictEqual([]);
         });

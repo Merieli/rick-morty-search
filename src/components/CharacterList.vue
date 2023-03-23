@@ -3,7 +3,7 @@ import { ref } from 'vue';
 
 import CharacterCard from './CharacterCard.vue';
 
-// const CharacterCard = defineAsyncComponent(() => import('@/components/CharacterCard.vue'));
+// const CharacterCard = defineAsyncComponent(() => import('@components/CharacterCard.vue'));
 // const props = defineProps({});
 const showCharacters = ref(false);
 // const store = useCharactersStore();

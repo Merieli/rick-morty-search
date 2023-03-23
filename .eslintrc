@@ -3,8 +3,14 @@
         "browser": true,
         "es2021": true
     },
-    "extends": ["airbnb-base", "plugin:@typescript-eslint/recommended", "plugin:vue/vue3-recommended", "prettier"],
-    "plugins": ["vue", "@typescript-eslint"],
+    "extends": [
+        "airbnb-base",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:vue/vue3-recommended",
+        "plugin:vitest/all",
+        "prettier"
+    ],
+    "plugins": ["vue", "@typescript-eslint", "filename-rules", "vitest"],
     "parserOptions": {
         "parser": "@typescript-eslint/parser",
         "ecmaVersion": "latest",
@@ -37,7 +43,7 @@
         // Allow use of unary operators
         "no-plusplus": "off",
 
-        // Disabilita a regra para uso do pinia no projeto
+        // Allow use of pinia in project
         "no-param-reassign": ["error", { "props": false }],
 
         "import/no-extraneous-dependencies": "off",
@@ -55,22 +61,35 @@
         "import/order": [
             "error",
             {
-                "newlines-between": "always",
                 "pathGroups": [
                     {
                         "pattern": "vue",
-                        "group": "builtin",
-                        "position": "before"
+                        "group": "builtin"
                     },
                     {
-                        "pattern": "@*/**",
-                        "group": "external",
-                        "position": "before"
+                        "pattern": "./App.vue",
+                        "group": "builtin",
+                        "position": "after"
+                    },
+                    {
+                        "pattern": "@vue/test-utils|pinia|vitest|vuetify",
+                        "group": "external"
+                    },
+                    {
+                        "pattern": "^@(?!vue)*/**",
+                        "group": "internal"
                     }
                 ],
-                "pathGroupsExcludedImportTypes": ["vue"],
+                "pathGroupsExcludedImportTypes": ["internal"],
                 "groups": ["builtin", "external", "index", "sibling", "parent", "internal", "object", "type"]
             }
-        ]
+        ],
+
+        // Nomeclature to Filename
+        "filename-rules/match": [2, { ".vue": "PascalCase", ".ts": "/[A-Za-z]+(?:[A-Z][a-z]+)*/" }],
+
+        // Vitest:
+        "vitest/prefer-lowercase-title": "off",
+        "vitest/consistent-test-it": ["error", { "fn": "test", "withinDescribe": "test" }]
     }
 }

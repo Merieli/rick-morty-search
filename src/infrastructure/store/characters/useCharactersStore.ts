@@ -1,9 +1,9 @@
 import { Ref, ref } from 'vue';
 
-import { Character } from '@/domain';
-import CharactersGatewayHttp from '@/infrastructure/gateway/CharactersGatewayHttp';
-
+import { Character } from '@domain/index';
 import { defineStore } from 'pinia';
+
+import CharactersGatewayHttp from '@/infrastructure/gateway/CharactersGatewayHttp';
 
 export const useCharactersStore = defineStore('characters', () => {
     const characters: Ref<Character[]> = ref([]);

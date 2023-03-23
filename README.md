@@ -70,6 +70,9 @@ work
 # Generate release major
   npm run release:major
 
+# Run tests
+  npm run test
+
 # Commit changes
   npm run commit
 ```

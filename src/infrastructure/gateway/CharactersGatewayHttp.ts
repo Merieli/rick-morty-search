@@ -1,5 +1,6 @@
-import { CharactersResponseApi } from '@/domain/';
 import { FetchAdapter } from '@http/index';
+
+import { CharactersResponseApi } from '@/domain/';
 
 export default class CharactersGatewayHttp {
     private baseUrl = import.meta.env.VITE_API_URL;
