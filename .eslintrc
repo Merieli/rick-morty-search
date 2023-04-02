@@ -46,6 +46,9 @@
         // Allow use of pinia in project
         "no-param-reassign": ["error", { "props": false }],
 
+        // Allow console error and warn
+       "no-console": ["error", { "allow": ["warn", "error"] }],
+
         "import/no-extraneous-dependencies": "off",
         "import/no-unresolved": "off",
         "import/extensions": [

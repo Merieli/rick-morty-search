@@ -37,9 +37,9 @@ describe('CharacterCard', () => {
             });
 
             test('Dado um card de personagem Quando renderizado Então deve exibir a imagem', () => {
-                const image = wrapper.find('[data-character="card"]');
+                const image = wrapper.find('[data-character="image"]');
 
-                expect(image.attributes('style')).toContain('algumaimage.png');
+                expect(image.attributes('src')).toBe('algumaimage.png');
             });
         });
         // describe('🧠 Comportamento:', () => {});

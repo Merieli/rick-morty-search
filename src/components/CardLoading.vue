@@ -6,6 +6,10 @@ import SkeletonLoader from './SkeletonLoader.vue';
     <div class="card-loading">
         <SkeletonLoader css-class="card-loading__content"> </SkeletonLoader>
         <SkeletonLoader css-class="card-loading__content"> </SkeletonLoader>
+        <SkeletonLoader css-class="card-loading__content"> </SkeletonLoader>
+        <SkeletonLoader css-class="card-loading__content"> </SkeletonLoader>
+        <SkeletonLoader css-class="card-loading__content"> </SkeletonLoader>
+        <SkeletonLoader css-class="card-loading__content"> </SkeletonLoader>
     </div>
 </template>
 

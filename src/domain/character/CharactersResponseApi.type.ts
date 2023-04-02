@@ -9,3 +9,7 @@ export interface CharactersResponseApi {
     };
     results: Character[];
 }
+
+export interface CharactersResponseDataApi {
+    characters: CharactersResponseApi;
+}

@@ -1,7 +1,7 @@
 {
     "name": "rickmortysearch",
     "private": true,
-    "version": "0.0.1",
+    "version": "0.1.0",
     "type": "module",
     "scripts": {
         "dev": "vite --open",
@@ -13,8 +13,8 @@
         "format": "prettier --write .",
         "commit": "git commit -m ''",
         "release": "standard-version",
-        "release:minor": "standard-version --release-as minor",
         "release:patch": "standard-version --release-as patch",
+        "release:minor": "standard-version --release-as minor",
         "release:major": "standard-version --release-as major",
         "prepare": "husky install"
     },
@@ -28,6 +28,7 @@
         "@commitlint/cli": "^17.4.2",
         "@commitlint/config-conventional": "^17.4.2",
         "@mdi/font": "^7.1.96",
+        "@pinia/testing": "^0.0.15",
         "@typescript-eslint/eslint-plugin": "^5.55.0",
         "@typescript-eslint/parser": "^5.55.0",
         "@vitejs/plugin-vue": "^4.0.0",
