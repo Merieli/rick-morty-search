@@ -1,12 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     content: ['./index.html', './src/**/*.{vue,ts,tsx}'],
-    screens: {
-        sm: '480px',
-        md: '768px',
-        lg: '976px',
-        xl: '1440px',
-    },
     theme: {
         extend: {},
         colors: {
@@ -47,6 +41,15 @@ module.exports = {
                 800: '#1f2937',
                 900: '#111827',
             },
+        },
+        screens: {
+            sm: '480px',
+            tablet: '640px',
+            md: '768px',
+            lg: '976px',
+            laptop: '1024px',
+            desktop: '1280px',
+            xl: '1440px',
         },
     },
     plugins: [],
