@@ -7,11 +7,10 @@ export class FetchAdapter implements HttpClient {
         if (!response.ok) {
             const isJson = response.headers.get('content-type')?.includes('application/json');
             const data = isJson ? await response.json() : null;
-            const error = (data && data.message) || response.status;
+            const error = (data && data.errors[0].message) || response.status;
 
             throw SyntaxError(`API Response ${error}`);
         }
-
         return response.json();
     }
 

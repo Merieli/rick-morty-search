@@ -1,6 +1,6 @@
 import { FetchAdapter } from '@http/index';
 
-import { CharactersResponseApi } from '@/domain/';
+import { CharactersResponseApi, CharactersResponseDataApi } from '@/domain/';
 
 export default class CharactersGatewayHttp {
     private baseUrl = import.meta.env.VITE_API_URL;
@@ -26,8 +26,8 @@ export default class CharactersGatewayHttp {
             }
         `;
 
-        const charactersData = await httpClient.post<any>(queryAllCharacters);
+        const charactersData = await httpClient.post<CharactersResponseDataApi>(queryAllCharacters);
 
-        return charactersData.data.characters;
+        return charactersData.characters;
     }
 }

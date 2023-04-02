@@ -1,7 +1,7 @@
 export interface ApiError extends Error {
     statusCode: number;
     message: string;
-    data?: any;
+    data?: unknown;
 }
 
 interface ErrorToLog {
@@ -23,6 +23,12 @@ const errorMessages: ErrorMessages = {
     504: '[Error in %details% - ]',
 };
 
+/**
+ *
+ * @param {string} details - description of error reason
+ * @param error - captured error
+ * @returns
+ */
 export const logError = (details: string, error: unknown): ErrorToLog => {
     const err = error as ApiError;
 
@@ -30,7 +36,7 @@ export const logError = (details: string, error: unknown): ErrorToLog => {
 
     const header: string = errorMessages[code].replace('%details%', details);
     const text = `${header} ${err.stack ?? err.message}`;
-    console.error(text);
+    console.error(new Error(text));
 
     return { code };
 };
