@@ -24,10 +24,11 @@ const errorMessages: ErrorMessages = {
 };
 
 /**
+ * Print the error to the console
  *
  * @param {string} details - description of error reason
  * @param error - captured error
- * @returns
+ * @returns { ErrorToLog } - prepared error status
  */
 export const logError = (details: string, error: unknown): ErrorToLog => {
     const err = error as ApiError;

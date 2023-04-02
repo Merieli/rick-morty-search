@@ -61,11 +61,11 @@ work
 # Generate first release:
   npm run release -- --first-release
 
-# Generate release minor
-  npm run release:minor
-
 # Generate release patch
   npm run release:patch
+
+# Generate release minor
+  npm run release:minor
 
 # Generate release major
   npm run release:major

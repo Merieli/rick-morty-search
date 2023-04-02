@@ -5,6 +5,11 @@ import { CharactersResponseApi, CharactersResponseDataApi } from '@/domain/';
 export default class CharactersGatewayHttp {
     private baseUrl = import.meta.env.VITE_API_URL;
 
+    /**
+     * Get all api characters to list
+     *
+     * @returns {Promise<CharactersResponseApi>} - characters with data to list
+     */
     async getAll(): Promise<CharactersResponseApi> {
         const httpClient = new FetchAdapter(this.baseUrl);
         const queryAllCharacters = `

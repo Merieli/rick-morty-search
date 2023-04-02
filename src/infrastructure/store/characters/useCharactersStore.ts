@@ -10,6 +10,9 @@ export const useCharactersStore = defineStore('characters', () => {
     const listOfCharacters: Ref<Character[]> = ref([]);
     const isLoading: Ref<boolean> = ref(false);
 
+    /**
+     * Action to get all characters of api and save in state
+     */
     const getAllCharacters = async (): Promise<void> => {
         try {
             isLoading.value = true;
