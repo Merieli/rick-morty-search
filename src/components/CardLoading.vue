@@ -15,11 +15,13 @@ import SkeletonLoader from './SkeletonLoader.vue';
 
 <style lang="postcss" scoped>
 .card-loading {
-    @apply flex justify-between;
+    @apply flex justify-between flex-wrap;
+    @apply w-full;
 
     &__content {
-        @apply h-28 rounded-2xl;
-        width: calc((100% - 1.2rem) / 2);
+        @apply h-36 rounded-2xl;
+        @apply w-full sm:w-[calc((100%-1.2rem)/2)] md:w-[calc((100%-2.4rem)/3)] lg:w-[calc((100%-3.6rem)/4)];
+        /* width: calc((100% - 1.2rem) / 2); */
     }
 }
 </style>

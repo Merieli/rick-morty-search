@@ -9,7 +9,8 @@ exports[`CharacterList.vue > Integração/Componente > 👀 Renderização: > Da
       <h2 class=\\"character-card__name\\" data-character=\\"name\\" data-v-82d09848=\\"\\">Rick teste</h2>
       <div class=\\"character-card__tag\\" data-character=\\"species\\" style=\\"background-color: rgb(242, 163, 139);\\" data-v-82d09848=\\"\\">Human</div>
     </section>
+    <!--v-if-->
   </main>
-  <v-btn-stub class=\\"character-list__button\\" variant=\\"tonal\\" data-list=\\"button-load-more\\" data-v-c3db22c7=\\"\\"></v-btn-stub>
+  <v-btn-stub class=\\"character-list__button\\" variant=\\"tonal\\" data-list=\\"button-load-more\\" disabled=\\"false\\" data-v-c3db22c7=\\"\\"></v-btn-stub>
 </section>"
 `;

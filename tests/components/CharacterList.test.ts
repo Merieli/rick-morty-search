@@ -62,6 +62,15 @@ describe('CharacterList.vue', () => {
 
                 expect(store.getAllCharacters).toHaveBeenCalledTimes(1);
             });
+
+            test('Dado um botão de carregar mais personagens Quando clicado Então deve chamar a action para buscar mais personagens da próxima página', async () => {
+                const { wrapper, store } = setupWrapper();
+                const buttonLoadMore = wrapper.find('[data-list="button-load-more"]');
+
+                await buttonLoadMore.trigger('click');
+
+                expect(store.getAllCharacters).toHaveBeenCalledTimes(2);
+            });
         });
         // describe('🐕 Navegação:', () => {});
     });

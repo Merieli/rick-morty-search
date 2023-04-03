@@ -14,16 +14,18 @@ onMounted(async () => {
 const openCharacter = (id: number) => {
     console.warn('Abriu o personagem', id);
 };
+
+const loadMoreCharacters = async () => {
+    await store.getAllCharacters();
+};
 </script>
 
 <template>
     <section class="character-list">
         <h4 class="character-list__qtd" data-list="qtd">{{ store.listOfCharacters.length }} Characters</h4>
         <main class="character-list__cards">
-            <CardLoading v-if="store.isLoading" />
             <CharacterCard
                 v-for="(character, index) in store.listOfCharacters"
-                v-else
                 :id="Number(character.id)"
                 :key="index"
                 :name="character.name"
@@ -33,9 +35,18 @@ const openCharacter = (id: number) => {
                 data-list="card"
                 @click="openCharacter(character.id)"
             />
+            <CardLoading v-if="!store.isLoading" />
         </main>
 
-        <v-btn class="character-list__button" variant="tonal" data-list="button-load-more">Load more</v-btn>
+        <v-btn
+            class="character-list__button"
+            variant="tonal"
+            data-list="button-load-more"
+            :disabled="store.nextPage === 0"
+            @click="loadMoreCharacters"
+        >
+            Load more
+        </v-btn>
     </section>
 </template>
 

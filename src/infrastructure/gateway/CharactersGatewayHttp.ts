@@ -10,12 +10,12 @@ export default class CharactersGatewayHttp {
      *
      * @returns {Promise<CharactersResponseApi>} - characters with data to list
      */
-    async getAll(): Promise<CharactersResponseApi> {
+    async getAll(page?: number): Promise<CharactersResponseApi> {
         const httpClient = new FetchAdapter(this.baseUrl);
         const queryAllCharacters = `
             query getAllCharacters {
-                characters(page: 1){
-                    results{
+                characters(page: ${page}) {
+                    results {
                         id
                         name
                         image
