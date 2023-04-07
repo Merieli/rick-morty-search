@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`CharacterCard > Integração/Componente > 👀 Renderização: > Dado um componente Quando renderizado Então deve ter o mesmo snapshot gravado 1`] = `
-"<section class=\\"character-card\\" data-character=\\"card\\" data-v-82d09848=\\"\\"><img class=\\"character-card__image\\" data-character=\\"image\\" src=\\"algumaimage.png\\" alt=\\"character Teste\\" data-v-82d09848=\\"\\">
+"<section class=\\"character-card\\" data-character=\\"card\\" data-v-82d09848=\\"\\"><img class=\\"character-card__image\\" data-character=\\"image\\" src=\\"algumaimage.png\\" alt=\\"Imagem A\\" data-v-82d09848=\\"\\">
   <p class=\\"character-card__id\\" data-character=\\"id\\" data-v-82d09848=\\"\\">#1</p>
   <h2 class=\\"character-card__name\\" data-character=\\"name\\" data-v-82d09848=\\"\\">Teste</h2>
   <div class=\\"character-card__tag\\" data-character=\\"species\\" style=\\"background-color: rgb(242, 163, 139);\\" data-v-82d09848=\\"\\">Human</div>
