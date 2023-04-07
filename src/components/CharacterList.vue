@@ -22,7 +22,9 @@ const loadMoreCharacters = async () => {
 
 <template>
     <section class="character-list">
-        <h4 class="character-list__qtd" data-list="qtd">{{ store.listOfCharacters.length }} Characters</h4>
+        <h4 v-if="!store.isLoading" class="character-list__qtd" data-list="qtd">
+            {{ store.listOfCharacters.length }} Characters
+        </h4>
         <main class="character-list__cards">
             <CharacterCard
                 v-for="(character, index) in store.listOfCharacters"
@@ -31,11 +33,11 @@ const loadMoreCharacters = async () => {
                 :name="character.name"
                 :species="character.species || ''"
                 :image="character.image"
-                alt-image="nada por aqui"
+                :alt-image="`${character.name} of specie ${character.species}`"
                 data-list="card"
                 @click="openCharacter(character.id)"
             />
-            <CardLoading v-if="!store.isLoading" />
+            <CardLoading v-if="store.isLoading" />
         </main>
 
         <v-btn
@@ -55,16 +57,18 @@ const loadMoreCharacters = async () => {
     @apply px-10 flex flex-col justify-center items-center;
 
     &__qtd {
-        @apply pb-6 font-semibold text-lg text-gray-500;
+        @apply pt-4 pb-6 font-semibold text-lg text-gray-500 text-left;
+        @apply w-full;
     }
 
     &__cards {
-        @apply py-2 flex flex-row justify-start flex-wrap gap-2.5;
+        @apply py-2 flex flex-row justify-between flex-wrap;
     }
 
     &__button {
-        @apply rounded-2xl w-10/12 md:w-1/2 m-auto mt-6 bg-meri-mid text-white font-sans
-        text-lg;
+        @apply rounded-2xl  m-auto mt-6 mb-8 bg-meri-mid text-white text-lg;
+        @apply aria-pressed:ring-2;
+        @apply w-10/12 md:w-1/2;
     }
 }
 </style>

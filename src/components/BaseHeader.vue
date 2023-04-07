@@ -23,7 +23,7 @@ const toggleFilter = () => {
 
 <style lang="postcss" scoped>
 .base-header {
-    @apply pl-4 py-7;
+    @apply pl-4 py-7 fixed;
     display: contents;
 
     &__title {
@@ -37,5 +37,10 @@ const toggleFilter = () => {
             @apply opacity-60;
         }
     }
+}
+</style>
+<style>
+.base-header .v-toolbar__content {
+    background-color: theme('colors.gray.150');
 }
 </style>

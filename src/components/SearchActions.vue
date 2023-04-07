@@ -3,11 +3,12 @@
 <template>
     <div class="search-actions">
         <v-text-field
+            class="search-actions__input"
             append-inner-icon="mdi-magnify"
             label="Pesquise por um personagem"
-            placeholder="Ex: Rick"
+            placeholder="Ex: Morty Smith"
             density="compact"
-            variant="outlined"
+            variant="solo"
             single-line
             hide-details
         ></v-text-field>
@@ -15,14 +16,12 @@
             Gerar aleatório
             <v-icon class="search-actions__icon-button" icon="mdi-reload" right></v-icon>
         </v-btn>
-        <!-- :loading="loading" -->
-        <!-- @click:append-inner="onClick" -->
     </div>
 </template>
 
 <style lang="postcss" scoped>
 .search-actions {
-    @apply w-full px-10 pt-4;
+    @apply w-full px-10 pt-4 bg-gray-150;
 
     &__button {
         @apply w-full my-4 bg-meri-mid text-white font-bold rounded-2xl;
@@ -31,5 +30,24 @@
     &__icon-button {
         @apply ml-3;
     }
+}
+</style>
+
+<style>
+.search-actions__input .v-field--variant-solo {
+    border-radius: 100px;
+    box-shadow: none;
+    padding: 5px;
+}
+
+.search-actions__input .v-icon {
+    background-color: theme('colors.gray.100');
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+}
+
+.search-actions__input .v-field__append-inner {
+    padding-top: 0;
 }
 </style>
