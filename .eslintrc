@@ -93,6 +93,8 @@
 
         // Vitest:
         "vitest/prefer-lowercase-title": "off",
+        // Allow import mocks
+        "vitest/no-mocks-import": "off",
         "vitest/consistent-test-it": ["error", { "fn": "test", "withinDescribe": "test" }]
     }
 }

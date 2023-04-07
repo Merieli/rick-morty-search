@@ -32,6 +32,7 @@ module.exports = {
             },
             gray: {
                 100: '#f3f4f6',
+                150: '#eff3f6',
                 200: '#e5e7eb',
                 300: '#d1d5db',
                 400: '#a1a1aa',
@@ -50,6 +51,10 @@ module.exports = {
             laptop: '1024px',
             desktop: '1280px',
             xl: '1440px',
+        },
+        fontFamily: {
+            sans: ['Graphik', 'sans-serif'],
+            serif: ['Merriweather', 'serif'],
         },
     },
     plugins: [],
