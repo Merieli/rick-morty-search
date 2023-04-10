@@ -21,10 +21,14 @@
 
 <style lang="postcss" scoped>
 .search-actions {
-    @apply w-full px-10 pt-4 bg-gray-150;
+    @apply px-10 pt-4 
+        bg-gray-150
+        w-full;
 
     &__button {
-        @apply w-full my-4 bg-meri-mid text-white font-bold rounded-2xl;
+        @apply my-4 bg-meri-mid rounded-2xl
+            text-white font-bold 
+            w-full;
     }
 
     &__icon-button {
@@ -41,6 +45,7 @@
 }
 
 .search-actions__input .v-icon {
+    cursor: pointer;
     background-color: theme('colors.gray.100');
     border-radius: 100%;
     width: 40px;

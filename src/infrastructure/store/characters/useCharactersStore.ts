@@ -1,4 +1,4 @@
-import { Ref, ref } from 'vue';
+import { reactive, Ref, ref } from 'vue';
 
 import { Character } from '@domain/index';
 import { defineStore } from 'pinia';
@@ -7,9 +7,13 @@ import { logError } from '@/helpers/logError';
 import CharactersGatewayHttp from '@/infrastructure/gateway/CharactersGatewayHttp';
 
 export const useCharactersStore = defineStore('characters', () => {
-    const listOfCharacters: Ref<Character[]> = ref([]);
-    const lastPage: Ref<number> = ref(0);
-    const nextPage: Ref<number> = ref(1);
+    const allCharacters: Ref<Character[]> = ref([]);
+    const charactersPerPage: Ref<Record<number, Character[]>> = ref({});
+    const pagination = reactive({
+        currentPage: 1,
+        total: 0,
+        results: 0,
+    });
 
     const isLoading: Ref<boolean> = ref(false);
 
@@ -20,15 +24,19 @@ export const useCharactersStore = defineStore('characters', () => {
         try {
             isLoading.value = true;
             const api = new CharactersGatewayHttp();
-            if (nextPage.value <= lastPage.value || lastPage.value === 0) {
-                const response = await api.getAll(nextPage.value);
+            const response = await api.getAll(pagination.currentPage);
 
-                const newList = listOfCharacters.value.concat(response.results);
-                listOfCharacters.value = newList;
+            Object.defineProperty(charactersPerPage.value, pagination.currentPage, {
+                get() {
+                    return response.results;
+                },
+            });
 
-                lastPage.value = response.info.pages;
-                nextPage.value = response.info.next || 0;
-            }
+            const newList = allCharacters.value.concat(response.results);
+            allCharacters.value = newList;
+
+            pagination.total = response.info.pages;
+            pagination.results = response.info.count;
         } catch (error) {
             const { code } = logError('Action getAllCharacters', error);
             // notifyUser(code, 'imprimir todos os personagens')  //função para exibir o erro para o usuário
@@ -38,9 +46,9 @@ export const useCharactersStore = defineStore('characters', () => {
     };
 
     return {
-        listOfCharacters,
-        lastPage,
-        nextPage,
+        allCharacters,
+        charactersPerPage,
+        pagination,
         isLoading,
         getAllCharacters,
     };
