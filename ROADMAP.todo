@@ -1,8 +1,8 @@
 Tasks:
     ☐ Lista de Personagens/ filtro
         ✔ Listar os personagens @started(23-03-21 18:12) @done(23-04-02 16:38) @lasted(1w4d22h26m41s)
-        ☐ Carregar mais personagens @started(23-04-03 06:31)
-        ☐ Filtrar personagem por categoria @started(23-02-07 16:49)
+        ✔ Paginação para carregar mais personagens @started(23-04-03 06:31) @done(23-04-09 16:16) @lasted(6d9h45m51s)
+        ☐ Filtrar personagem por categoria
         ☐ Abrir as características do personagem
         ☐ Pesquisar pelo nome de um personagem
         ☐ Gerar um personagem aleatório

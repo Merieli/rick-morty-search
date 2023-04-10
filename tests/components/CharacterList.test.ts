@@ -1,30 +1,36 @@
 import CharacterList from '@components/CharacterList.vue';
 import { createTestingPinia } from '@pinia/testing';
 import { mount } from '@vue/test-utils';
+import { createVuetify } from 'vuetify';
 import { mockStoreCharacters } from './__mocks__/mockStoreCharacters';
 
 import { useCharactersStore } from '@/infrastructure/store/characters';
 
 describe('CharacterList.vue', () => {
-    const setupWrapper = () => ({
-        wrapper: mount(CharacterList, {
-            global: {
-                plugins: [
-                    createTestingPinia({
-                        initialState: {
-                            characters: {
-                                listOfCharacters: mockStoreCharacters,
-                            },
-                        },
-                    }),
-                ],
-                stubs: {
-                    'v-btn': true,
+    const setupWrapper = () => {
+        const pinia = createTestingPinia({
+            initialState: {
+                characters: {
+                    pagination: {
+                        currentPage: 1,
+                        total: 1,
+                        results: 10,
+                    },
+                    charactersPerPage: mockStoreCharacters,
                 },
             },
-        }),
-        store: useCharactersStore(),
-    });
+        });
+        const vuetify = createVuetify();
+
+        return {
+            wrapper: mount(CharacterList, {
+                global: {
+                    plugins: [pinia, vuetify],
+                },
+            }),
+            store: useCharactersStore(),
+        };
+    };
 
     describe('Integração/Componente', () => {
         describe('👀 Renderização:', () => {
@@ -34,12 +40,12 @@ describe('CharacterList.vue', () => {
                 expect(wrapper.html()).toMatchSnapshot();
             });
 
-            test('Dado uma lista de personagens Quando renderizada Então deve mostrar a quantidade de personagens total', () => {
+            test('Dado uma lista de personagens Quando renderizada Então deve mostrar a quantidade total de resultados encontrados em todas as páginas', () => {
                 const { wrapper } = setupWrapper();
-                const qtd = wrapper.find('[data-list="qtd"]');
-                const totalOfCharacters = mockStoreCharacters.length;
+                const qtd = wrapper.find('[data-list="results"]');
+                const totalOfCharacters = 10;
 
-                expect(qtd.text()).toBe(`${totalOfCharacters} Characters`);
+                expect(qtd.text()).toBe(`${totalOfCharacters} results`);
             });
 
             test('Dado uma lista de personagens Quando renderizada Então deve mostrar o card de personagens', () => {
@@ -51,9 +57,9 @@ describe('CharacterList.vue', () => {
 
             test('Dado uma lista de personagens Quando renderizada Então deve exibir um botão para carregar mais personagens', () => {
                 const { wrapper } = setupWrapper();
-                const buttonLoadMore = wrapper.findAll('[data-list="button-load-more"]');
+                const loadPage = wrapper.findAll('[data-list="pagination"]');
 
-                expect(buttonLoadMore).toHaveLength(1);
+                expect(loadPage).toHaveLength(1);
             });
         });
         describe('🧠 Comportamento:', () => {
@@ -65,9 +71,10 @@ describe('CharacterList.vue', () => {
 
             test('Dado um botão de carregar mais personagens Quando clicado Então deve chamar a action para buscar mais personagens da próxima página', async () => {
                 const { wrapper, store } = setupWrapper();
-                const buttonLoadMore = wrapper.find('[data-list="button-load-more"]');
+                const loadPage = wrapper.find('[data-list="pagination"]');
+                const event = vi.fn();
 
-                await buttonLoadMore.trigger('click');
+                await loadPage.trigger('click');
 
                 expect(store.getAllCharacters).toHaveBeenCalledTimes(2);
             });

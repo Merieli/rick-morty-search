@@ -8,7 +8,7 @@ describe('nomeComponent', () => {
 
     describe('🧪 Unidade:', () => {
         test('Dado os personagens Quando inicializado Então deve ser um array vazio', () => {
-            expect(store.listOfCharacters).toStrictEqual([]);
+            expect(store.charactersPerPage).toStrictEqual({});
         });
 
         test('Dado o loading Quando inicilizado Então deve ser false', () => {
