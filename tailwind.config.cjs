@@ -2,7 +2,11 @@
 module.exports = {
     content: ['./index.html', './src/**/*.{vue,ts,tsx}'],
     theme: {
-        extend: {},
+        extend: {
+            boxShadow: {
+                sprawled: '0px 10px 51px -5px rgba(183, 189, 193, 0.3)',
+            },
+        },
         colors: {
             transparent: 'transparent',
             white: '#FFFFFF',
@@ -44,13 +48,14 @@ module.exports = {
             },
         },
         screens: {
-            sm: '480px',
-            tablet: '640px',
-            md: '768px',
-            lg: '976px',
+            sm: { min: '480px', max: '767px' },
+            md: { min: '768px', max: '975px' },
+            lg: { min: '976px', max: '1439px' },
+            xl: '1440px',
+            mobile: '480px',
+            tablet: '768px',
             laptop: '1024px',
             desktop: '1280px',
-            xl: '1440px',
         },
         fontFamily: {
             sans: ['Graphik', 'sans-serif'],
