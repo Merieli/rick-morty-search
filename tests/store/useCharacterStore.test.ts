@@ -22,5 +22,15 @@ describe('nomeComponent', () => {
 
             expect(store.getAllCharacters).toHaveBeenCalledTimes(1);
         });
+
+        test('Dado a action findCharacterByName Quando chamada Então deve ter ser executada uma única vez', async () => {
+            store.findCharacterByName = vi.fn().mockResolvedValue('Sucess');
+            const nameToSearch = 'Morty';
+
+            await store.findCharacterByName(nameToSearch);
+
+            expect(store.findCharacterByName).toHaveBeenCalledTimes(1);
+            expect(store.findCharacterByName).toHaveBeenCalledWith(nameToSearch);
+        });
     });
 });

@@ -9,8 +9,23 @@ exports[`CharacterList.vue > Integração/Componente > 👀 Renderização: > Da
       <h2 class=\\"character-card__name\\" data-character=\\"name\\" data-v-82d09848=\\"\\">Rick teste</h2>
       <div class=\\"character-card__tag\\" data-character=\\"species\\" style=\\"background-color: rgb(242, 163, 139);\\" data-v-82d09848=\\"\\">Human</div>
     </section>
+    <section class=\\"character-card animation-push\\" data-character=\\"card\\" tabindex=\\"0\\" data-list=\\"card\\" data-v-82d09848=\\"\\" data-v-c3db22c7=\\"\\"><img class=\\"character-card__image\\" data-character=\\"image\\" src=\\"https://image.com/morty.png\\" alt=\\"Morty teste of specie Human\\" data-v-82d09848=\\"\\">
+      <p class=\\"character-card__id\\" data-character=\\"id\\" data-v-82d09848=\\"\\">#2</p>
+      <h2 class=\\"character-card__name\\" data-character=\\"name\\" data-v-82d09848=\\"\\">Morty teste</h2>
+      <div class=\\"character-card__tag\\" data-character=\\"species\\" style=\\"background-color: rgb(242, 163, 139);\\" data-v-82d09848=\\"\\">Human</div>
+    </section>
+    <section class=\\"character-card animation-push\\" data-character=\\"card\\" tabindex=\\"0\\" data-list=\\"card\\" data-v-82d09848=\\"\\" data-v-c3db22c7=\\"\\"><img class=\\"character-card__image\\" data-character=\\"image\\" src=\\"https://image.com/jerry.png\\" alt=\\"Jerry Smith of specie Human\\" data-v-82d09848=\\"\\">
+      <p class=\\"character-card__id\\" data-character=\\"id\\" data-v-82d09848=\\"\\">#3</p>
+      <h2 class=\\"character-card__name\\" data-character=\\"name\\" data-v-82d09848=\\"\\">Jerry Smith</h2>
+      <div class=\\"character-card__tag\\" data-character=\\"species\\" style=\\"background-color: rgb(242, 163, 139);\\" data-v-82d09848=\\"\\">Human</div>
+    </section>
+    <section class=\\"character-card animation-push\\" data-character=\\"card\\" tabindex=\\"0\\" data-list=\\"card\\" data-v-82d09848=\\"\\" data-v-c3db22c7=\\"\\"><img class=\\"character-card__image\\" data-character=\\"image\\" src=\\"https://image.com/jerry-rick.png\\" alt=\\"Jerry Smith Rick of specie Human\\" data-v-82d09848=\\"\\">
+      <p class=\\"character-card__id\\" data-character=\\"id\\" data-v-82d09848=\\"\\">#4</p>
+      <h2 class=\\"character-card__name\\" data-character=\\"name\\" data-v-82d09848=\\"\\">Jerry Smith Rick</h2>
+      <div class=\\"character-card__tag\\" data-character=\\"species\\" style=\\"background-color: rgb(242, 163, 139);\\" data-v-82d09848=\\"\\">Human</div>
+    </section>
     <!--v-if-->
   </main>
-  <v-pagination modelvalue=\\"1\\" length=\\"1\\" total-visible=\\"4\\" rounded=\\"circle\\" data-list=\\"pagination\\" data-v-c3db22c7=\\"\\"></v-pagination>
+  <v-pagination modelvalue=\\"1\\" length=\\"1\\" total-visible=\\"4\\" rounded=\\"circle\\" data-list=\\"pagination\\" variant=\\"elevated\\" active-color=\\"meri-light\\" data-v-c3db22c7=\\"\\"></v-pagination>
 </section>"
 `;
