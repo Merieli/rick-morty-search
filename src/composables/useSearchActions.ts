@@ -3,6 +3,11 @@ import { useCharactersStore } from '@/infrastructure/store/characters';
 export const useSearchActions = () => {
     const store = useCharactersStore();
 
+    /**
+     * Searches for the desired name in the characters already loaded and saved in the store,
+     * and saves it in the search characters list
+     * @param text - name of character
+     */
     const search = (text: string) => {
         if (text && text.length >= 3) {
             store.$patch((state) => {
@@ -25,10 +30,17 @@ export const useSearchActions = () => {
         }
     };
 
+    /**
+     * Clears search term and search results
+     */
     const clearSearch = () => {
         store.$patch({ search: { text: '', characters: [] } });
     };
 
+    /**
+     * Search for the character name in the api and save the list and the term searched
+     * in the store
+     */
     const searchInApi = async () => {
         store.$patch({ isLoading: true });
 

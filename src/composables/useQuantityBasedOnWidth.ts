@@ -6,6 +6,9 @@ export const useQuantityBasedOnWidth = () => {
         widthWindow.value = window.innerWidth;
     };
 
+    /**
+     * Calculates the total load cards displayed for each screen width size
+     */
     const totalOfCardsLoading: ComputedRef<number> = computed(() => {
         if (widthWindow.value > 976) return 16;
 
@@ -14,6 +17,10 @@ export const useQuantityBasedOnWidth = () => {
         return 6;
     });
 
+    /**
+     * Calculates the total pages of the pagination component displayed according to the
+     * screen width
+     */
     const totalOfPagination: ComputedRef<number> = computed(() => {
         if (widthWindow.value > 1024) return 5;
 
