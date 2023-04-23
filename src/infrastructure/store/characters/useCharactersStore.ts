@@ -1,4 +1,4 @@
-import { Ref, ref } from 'vue';
+import { computed, reactive, Ref, ref } from 'vue';
 
 import { Character } from '@domain/index';
 import { defineStore } from 'pinia';
@@ -6,9 +6,38 @@ import { defineStore } from 'pinia';
 import { logError } from '@/helpers/logError';
 import CharactersGatewayHttp from '@/infrastructure/gateway/CharactersGatewayHttp';
 
+interface Pagination {
+    currentPage: number;
+    total: number;
+    results: number;
+}
+
+interface Search {
+    text: string;
+    characters: Character[];
+    pagination: Pagination;
+}
+
 export const useCharactersStore = defineStore('characters', () => {
-    const listOfCharacters: Ref<Character[]> = ref([]);
+    const allCharacters: Ref<Character[]> = ref([]);
+    const charactersPerPage: Ref<Record<number, Character[]>> = ref({});
+    const search: Search = reactive({
+        text: '',
+        characters: [],
+        pagination: {
+            currentPage: 1,
+            total: 0,
+            results: 0,
+        },
+    });
+    const pagination: Pagination = reactive({
+        currentPage: 1,
+        total: 0,
+        results: 0,
+    });
     const isLoading: Ref<boolean> = ref(false);
+
+    const isSearching = computed(() => search.characters && search.characters.length > 0);
 
     /**
      * Action to get all characters of api and save in state
@@ -17,8 +46,19 @@ export const useCharactersStore = defineStore('characters', () => {
         try {
             isLoading.value = true;
             const api = new CharactersGatewayHttp();
-            const response = await api.getAll();
-            listOfCharacters.value = response.results;
+            const response = await api.getAll(pagination.currentPage);
+
+            Object.defineProperty(charactersPerPage.value, pagination.currentPage, {
+                get() {
+                    return response.results;
+                },
+            });
+
+            const newList = allCharacters.value.concat(response.results);
+            allCharacters.value = newList;
+
+            pagination.total = response.info.pages;
+            pagination.results = response.info.count;
         } catch (error) {
             const { code } = logError('Action getAllCharacters', error);
             // notifyUser(code, 'imprimir todos os personagens')  //função para exibir o erro para o usuário
@@ -27,9 +67,31 @@ export const useCharactersStore = defineStore('characters', () => {
         }
     };
 
+    const findCharacterByName = async (name: string) => {
+        try {
+            isLoading.value = true;
+            search.text = name;
+            const api = new CharactersGatewayHttp();
+            const response = await api.findByName(name, 1);
+
+            search.characters = response.results;
+            search.pagination.total = response.info.pages;
+            search.pagination.results = response.info.count;
+        } catch (error) {
+            const { code } = logError('Action findCharacterByName', error);
+        } finally {
+            isLoading.value = false;
+        }
+    };
+
     return {
-        listOfCharacters,
+        allCharacters,
+        charactersPerPage,
+        search,
+        pagination,
         isLoading,
+        isSearching,
         getAllCharacters,
+        findCharacterByName,
     };
 });

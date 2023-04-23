@@ -8,7 +8,7 @@ describe('nomeComponent', () => {
 
     describe('🧪 Unidade:', () => {
         test('Dado os personagens Quando inicializado Então deve ser um array vazio', () => {
-            expect(store.listOfCharacters).toStrictEqual([]);
+            expect(store.charactersPerPage).toStrictEqual({});
         });
 
         test('Dado o loading Quando inicilizado Então deve ser false', () => {
@@ -21,6 +21,16 @@ describe('nomeComponent', () => {
             await store.getAllCharacters();
 
             expect(store.getAllCharacters).toHaveBeenCalledTimes(1);
+        });
+
+        test('Dado a action findCharacterByName Quando chamada Então deve ter ser executada uma única vez', async () => {
+            store.findCharacterByName = vi.fn().mockResolvedValue('Sucess');
+            const nameToSearch = 'Morty';
+
+            await store.findCharacterByName(nameToSearch);
+
+            expect(store.findCharacterByName).toHaveBeenCalledTimes(1);
+            expect(store.findCharacterByName).toHaveBeenCalledWith(nameToSearch);
         });
     });
 });

@@ -91,8 +91,12 @@
         // Nomeclature to Filename
         "filename-rules/match": [2, { ".vue": "PascalCase", ".ts": "/[A-Za-z]+(?:[A-Z][a-z]+)*/" }],
 
-        // Vitest:
+        // ======== Vitest:
         "vitest/prefer-lowercase-title": "off",
-        "vitest/consistent-test-it": ["error", { "fn": "test", "withinDescribe": "test" }]
+        // Allow import mocks
+        "vitest/no-mocks-import": "off",
+        "vitest/consistent-test-it": ["error", { "fn": "test", "withinDescribe": "test" }],
+        // Allow hooks
+        "vitest/no-hooks": "off"
     }
 }

@@ -24,7 +24,7 @@ defineProps({
 
 const colorToTag: Record<string, string> = {
     Human: '#f2a38b',
-    Alien: '#ddf4ed',
+    Alien: '#8cafa5',
     Robot: '#7b464c',
     Cyborg: '#feffce',
     Vampire: '#cdc2b3',
@@ -33,8 +33,8 @@ const colorToTag: Record<string, string> = {
 </script>
 
 <template>
-    <section class="character-card" data-character="card">
-        <img class="character-card__image" data-character="image" :src="image" :alt="`character ${name}`" />
+    <section class="character-card animation-push" data-character="card" tabindex="0">
+        <img class="character-card__image" data-character="image" :src="image" :alt="altImage" />
         <p class="character-card__id" data-character="id">#{{ id }}</p>
         <h2 class="character-card__name" data-character="name">{{ name }}</h2>
         <div
@@ -48,15 +48,43 @@ const colorToTag: Record<string, string> = {
 </template>
 
 <style lang="postcss" scoped>
-.character-card {
-    @apply p-4 rounded-2xl shadow-xl font-sans text-gray-600 flex flex-col items-start justify-center min-h-min;
+.animation-push {
+    @apply transition ease-in delay-75  hover:-translate-y-1 hover:scale-105;
+}
 
-    @apply w-full sm:w-[calc((100%-1.2rem)/2)] md:w-[calc((100%-2.4rem)/3)] lg:w-[calc((100%-3.6rem)/4)];
-    border: 0.5px solid theme('colors.gray.300');
+.character-card {
+    --spacing: 1.2rem;
+    --two-cards: calc((100% - var(--spacing)) / 2);
+    --three-cards: calc((100% - (var(--spacing) * 2)) / 3);
+    --four-cards: calc((100% - (var(--spacing) * 3)) / 4);
+
+    @apply font-sans text-gray-600 
+        flex flex-col items-start justify-center 
+        rounded-2xl shadow-sprawled
+        p-4 mb-5 mr-0 mobile:mr-[1.2rem]
+        cursor-pointer focus:outline-none focus:ring  
+        hover:shadow-xl
+        min-h-max w-full 
+        sm:w-[var(--two-cards)] 
+        md:w-[var(--three-cards)]  
+        lg:w-[var(--four-cards)] 
+        xl:w-[var(--four-cards)];
+
+    &:nth-child(2n) {
+        @apply sm:mr-0;
+    }
+
+    &:nth-child(3n) {
+        @apply md:mr-0;
+    }
+
+    &:nth-child(4n) {
+        @apply lg:mr-0 xl:mr-0;
+    }
 
     &__image {
-        @apply w-full max-w-[150px] self-center;
-        border-radius: 100%;
+        @apply self-center rounded-full
+            w-full max-w-[150px];
     }
 
     &__id,
@@ -69,12 +97,14 @@ const colorToTag: Record<string, string> = {
     }
 
     &__tag {
-        @apply px-2 py-1 inline-block;
-        border-radius: 30px;
+        @apply px-2 py-1  
+            text-white text-center
+            inline-block rounded-3xl;
     }
 
     &__name {
-        @apply font-bold text-lg pb-2;
+        @apply font-bold text-lg 
+            pb-2;
     }
 }
 </style>

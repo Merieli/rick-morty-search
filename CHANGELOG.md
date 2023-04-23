@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.2.0](https://github.com/Merieli/rick-morty-search/compare/v0.1.0...v0.2.0) (2023-04-23)
+
+
+### Features
+
+* add load more characters ([f3c8ec2](https://github.com/Merieli/rick-morty-search/commit/f3c8ec2a5cdea202a555cceca467932c7f53fcb6))
+* add paginate to characters ([02d3395](https://github.com/Merieli/rick-morty-search/commit/02d33959a08067b41238537a5c2d4cbbc3141e52))
+* search by character name ([8255cfe](https://github.com/Merieli/rick-morty-search/commit/8255cfebae79f4ece84839af2ec4ffac3352a5b6))
+
 ## 0.1.0 (2023-04-02)
 
 
