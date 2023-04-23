@@ -3,6 +3,9 @@ module.exports = {
     content: ['./index.html', './src/**/*.{vue,ts,tsx}'],
     theme: {
         extend: {
+            animation: {
+                'short-spin': 'spin 0.3s ease',
+            },
             boxShadow: {
                 sprawled: '0px 10px 51px -5px rgba(183, 189, 193, 0.3)',
             },

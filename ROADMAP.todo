@@ -4,10 +4,11 @@ Tasks:
         ✔ Paginação para carregar mais personagens @started(23-04-03 06:31) @done(23-04-09 16:16) @lasted(6d9h45m51s)
         ☐ Filtrar personagem por categoria
         ☐ Abrir as características do personagem
-        ☐ Pesquisar pelo nome de um personagem
+        ✔ Pesquisar pelo nome de um personagem @started(23-04-10 07:06) @done(23-04-23 08:54) @lasted(1w6d1h48m23s)
         ☐ Gerar um personagem aleatório
     ☐ Características do Personagem
     ☐ Notificar usuário de erros
+    ☐ Rodapé com informações do projeto
     
 -----------
 Done:
