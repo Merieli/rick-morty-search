@@ -39,9 +39,3 @@ All notable changes to this project will be documented in this file. See [standa
 * error handle to request Graphql ([dde5abb](https://github.com/Merieli/rick-morty-search/commit/dde5abbd82bc935f8aa26a5d73b84a19c0deb991))
 * hadle errors fetch ([585dd13](https://github.com/Merieli/rick-morty-search/commit/585dd137652ad32717250bfcc3c335fb7b5442ad))
 * **home:** components of top ([27ff8b9](https://github.com/Merieli/rick-morty-search/commit/27ff8b97e266f7d49f3bce95eb466f22762ccedb))
-
-# Changelog
-
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
-
-<!-- https://github.com/dylang/changelog -->

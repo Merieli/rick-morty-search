@@ -58,7 +58,7 @@ describe('useSearchActions', () => {
             expect(store.search.characters).toHaveLength(0);
         });
 
-        test('Dado a função para limpar a pesquisa Quando executada após uma pesquisa Então deve limpar a lista de personagens e o termo pesquisado', () => {
+        test('Dado a função para limpar a pesquisa Quando executada após uma pesquisa Então deve limpar a lista de personagens, o termo pesquisado, a lista de personagens aleatórios e também retornar para false a exibição de random', () => {
             const { search, clearSearch } = useSearchActions();
             const store = useCharactersStore();
             const nameToSearch = 'Rick';
@@ -69,6 +69,8 @@ describe('useSearchActions', () => {
 
             expect(store.search.text).toBe('');
             expect(store.search.characters).toHaveLength(0);
+            expect(store.random.character).toHaveLength(0);
+            expect(store.random.show).toBeFalsy();
         });
 
         test('Dado a função de pesquisar na API Quando executada Então deve chamar o método de busca de personagem por nome da store', async () => {
@@ -82,6 +84,16 @@ describe('useSearchActions', () => {
 
             expect(spyFindCharacterByName).toHaveBeenCalledTimes(1);
             expect(spyFindCharacterByName).toHaveBeenCalledWith(nameToSearch);
+        });
+
+        test('Dado a função para buscar um personagem aleatório na API Quando executada Então deve chamar o método de gerar personagem na store', async () => {
+            const { searchRandomCharacter } = useSearchActions();
+            const store = useCharactersStore();
+            const spyGenerateRandomCharacter = vi.spyOn(store, 'generateRandomCharacter');
+
+            await searchRandomCharacter();
+
+            expect(spyGenerateRandomCharacter).toHaveBeenCalledTimes(1);
         });
     });
 });

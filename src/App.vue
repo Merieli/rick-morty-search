@@ -8,4 +8,8 @@ import PageHome from '@views/PageHome.vue';
     </v-app>
 </template>
 
-<style lang="postcss" scoped></style>
+<style>
+.v-application__wrap {
+    align-items: center;
+}
+</style>

@@ -32,5 +32,13 @@ describe('nomeComponent', () => {
             expect(store.findCharacterByName).toHaveBeenCalledTimes(1);
             expect(store.findCharacterByName).toHaveBeenCalledWith(nameToSearch);
         });
+
+        test('Dado a action generateRandomCharacter Quando chamada Então deve ser executada uma única vez', async () => {
+            store.generateRandomCharacter = vi.fn().mockResolvedValue('Sucess');
+
+            await store.generateRandomCharacter();
+
+            expect(store.generateRandomCharacter).toHaveBeenCalledTimes(1);
+        });
     });
 });

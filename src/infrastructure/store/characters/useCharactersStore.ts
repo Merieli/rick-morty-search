@@ -19,8 +19,20 @@ interface Search {
 }
 
 export const useCharactersStore = defineStore('characters', () => {
+    const api = new CharactersGatewayHttp();
+
     const allCharacters: Ref<Character[]> = ref([]);
     const charactersPerPage: Ref<Record<number, Character[]>> = ref({});
+
+    interface Random {
+        character: Character[];
+        show: boolean;
+    }
+
+    const random: Random = reactive({
+        character: [],
+        show: false,
+    });
     const search: Search = reactive({
         text: '',
         characters: [],
@@ -45,7 +57,6 @@ export const useCharactersStore = defineStore('characters', () => {
     const getAllCharacters = async (): Promise<void> => {
         try {
             isLoading.value = true;
-            const api = new CharactersGatewayHttp();
             const response = await api.getAll(pagination.currentPage);
 
             Object.defineProperty(charactersPerPage.value, pagination.currentPage, {
@@ -71,7 +82,6 @@ export const useCharactersStore = defineStore('characters', () => {
         try {
             isLoading.value = true;
             search.text = name;
-            const api = new CharactersGatewayHttp();
             const response = await api.findByName(name, 1);
 
             search.characters = response.results;
@@ -84,14 +94,32 @@ export const useCharactersStore = defineStore('characters', () => {
         }
     };
 
+    const generateRandomCharacter = async () => {
+        try {
+            isLoading.value = true;
+            const integerRandomNumberUpTo826 = Math.floor(Math.random() * 826) + 1;
+
+            const response = await api.findByIds(integerRandomNumberUpTo826);
+
+            random.character = response;
+            random.show = true;
+        } catch (error) {
+            const { code } = logError('Action generateRandomCharacter', error);
+        } finally {
+            isLoading.value = false;
+        }
+    };
+
     return {
         allCharacters,
         charactersPerPage,
         search,
         pagination,
+        random,
         isLoading,
         isSearching,
         getAllCharacters,
         findCharacterByName,
+        generateRandomCharacter,
     };
 });

@@ -9,8 +9,12 @@ import { mockListOfCharactersInSearch, mockStoreCharacters } from './__mocks__/m
 import { useCharactersStore } from '@/infrastructure/store/characters';
 
 describe('CharacterList.vue', () => {
+    let pinia: any;
+
     const setupWrapper = () => {
-        const pinia = createTestingPinia({
+        vi.mock('@/infrastructure/gateway/CharactersGatewayHttp');
+
+        pinia = createTestingPinia({
             initialState: {
                 characters: {
                     pagination: {
@@ -19,6 +23,18 @@ describe('CharacterList.vue', () => {
                         results: 10,
                     },
                     charactersPerPage: mockStoreCharacters,
+                    random: {
+                        character: [
+                            {
+                                id: 3,
+                                name: 'Jerry Smith',
+                                image: 'https://image.com/jerry.png',
+                                status: 'live',
+                                gender: 'Male',
+                                species: 'Human',
+                            },
+                        ],
+                    },
                 },
             },
         });
@@ -66,7 +82,7 @@ describe('CharacterList.vue', () => {
         });
         describe('🧠 Comportamento:', () => {
             test('Dado a lista de personagens Quando montado o componente Então deve chamar a action para buscar todos os pesonagens', () => {
-                const { wrapper, store } = setupWrapper();
+                const { store } = setupWrapper();
 
                 expect(store.getAllCharacters).toHaveBeenCalledTimes(1);
             });
@@ -90,6 +106,32 @@ describe('CharacterList.vue', () => {
                 expect(cards).toHaveLength(2);
                 expect(names[0].text()).toBe(mockListOfCharactersInSearch[0].name);
                 expect(names[1].text()).toBe(mockListOfCharactersInSearch[1].name);
+            });
+
+            test('Dado o resultado ao gerar um personagem aleatório Quando clicar para limpar e exibir a lista Então deve exibir a lista com todos personagens na quantidade correta novamente', async () => {
+                const { wrapper, store } = setupWrapper();
+                store.random.show = true;
+                await nextTick();
+                const buttonClearRandom = wrapper.find('[data-list="clear-random-button"]');
+
+                buttonClearRandom.trigger('click');
+
+                const characters = wrapper.findAll('[data-list="card"]');
+
+                expect(characters).toHaveLength(4);
+            });
+
+            test('Dado o resultado de uma pesquisa Quando clicar para limpar e exibir a lista Então deve chamar o método responsável por limpar os valores de search na store', async () => {
+                const { wrapper, store } = setupWrapper();
+                store.search.characters = mockListOfCharactersInSearch;
+                await nextTick();
+                const buttonClearSearch = wrapper.find('[data-list="clear-search-button"]');
+
+                buttonClearSearch.trigger('click');
+
+                const characters = wrapper.findAll('[data-list="card"]');
+
+                expect(characters).toHaveLength(4);
             });
         });
     });

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useSearchActions } from '@/composables/useSearchActions';
 
-const { search, clearSearch, searchInApi } = useSearchActions();
+const { search, clearSearch, searchInApi, searchRandomCharacter } = useSearchActions();
 </script>
 
 <template>
@@ -21,7 +21,13 @@ const { search, clearSearch, searchInApi } = useSearchActions();
             @click:append-inner="searchInApi"
             @click:clear="clearSearch"
         ></v-text-field>
-        <v-btn class="search-actions__button" elevation="1" depressed>
+        <v-btn
+            class="search-actions__button"
+            data-search-actions="button"
+            elevation="1"
+            depressed
+            @click="searchRandomCharacter"
+        >
             Generate random
             <v-icon class="search-actions__icon-button" icon="mdi-reload" right></v-icon>
         </v-btn>
@@ -32,11 +38,17 @@ const { search, clearSearch, searchInApi } = useSearchActions();
 .search-actions {
     @apply px-10 pt-4 
         bg-gray-150
+        grid place-items-center
         w-full;
+
+    &__input {
+        @apply w-full max-w-4xl;
+    }
 
     &__button {
         @apply my-4 bg-meri-mid rounded-2xl
-            text-white font-bold 
+            text-white font-bold
+            max-w-xs
             w-full;
     }
 

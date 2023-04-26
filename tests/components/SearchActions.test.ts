@@ -61,5 +61,17 @@ describe('SearchActions.vue', () => {
                 expect(searchButtonIcon.exists()).toBeTruthy();
             });
         });
+
+        describe('🧠 Comportamento:', () => {
+            test('Dado um botão para gerar um personagem aleatório Quando clicado Então deve chamar a action necessária', async () => {
+                const { wrapper, store } = setupWrapper();
+                const spyRandomCharacter = vi.spyOn(store, 'generateRandomCharacter');
+                const buttonRandom = wrapper.find('[data-search-actions="button"]');
+
+                await buttonRandom.trigger('click');
+
+                expect(spyRandomCharacter).toHaveBeenCalledTimes(1);
+            });
+        });
     });
 });

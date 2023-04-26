@@ -34,7 +34,16 @@ export const useSearchActions = () => {
      * Clears search term and search results
      */
     const clearSearch = () => {
-        store.$patch({ search: { text: '', characters: [] } });
+        store.$patch({
+            search: {
+                text: '',
+                characters: [],
+            },
+            random: {
+                character: [],
+                show: false,
+            },
+        });
     };
 
     /**
@@ -42,14 +51,20 @@ export const useSearchActions = () => {
      * in the store
      */
     const searchInApi = async () => {
-        store.$patch({ isLoading: true });
-
         await store.findCharacterByName(store.search.text);
+    };
+
+    /**
+     * Search for a random character in the api and save in the store
+     */
+    const searchRandomCharacter = async () => {
+        await store.generateRandomCharacter();
     };
 
     return {
         search,
         clearSearch,
         searchInApi,
+        searchRandomCharacter,
     };
 };
