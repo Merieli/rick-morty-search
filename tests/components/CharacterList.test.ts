@@ -35,6 +35,9 @@ describe('CharacterList.vue', () => {
                             },
                         ],
                     },
+                    search: {
+                        characters: [],
+                    },
                 },
             },
         });
@@ -114,7 +117,7 @@ describe('CharacterList.vue', () => {
                 await nextTick();
                 const buttonClearRandom = wrapper.find('[data-list="clear-random-button"]');
 
-                buttonClearRandom.trigger('click');
+                await buttonClearRandom.trigger('click');
 
                 const characters = wrapper.findAll('[data-list="card"]');
 
@@ -127,7 +130,7 @@ describe('CharacterList.vue', () => {
                 await nextTick();
                 const buttonClearSearch = wrapper.find('[data-list="clear-search-button"]');
 
-                buttonClearSearch.trigger('click');
+                await buttonClearSearch.trigger('click');
 
                 const characters = wrapper.findAll('[data-list="card"]');
 

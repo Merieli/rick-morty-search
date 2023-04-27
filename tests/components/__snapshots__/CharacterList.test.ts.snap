@@ -2,7 +2,7 @@
 
 exports[`CharacterList.vue > Integração/Componente > 👀 Renderização: > Dado o componente Quando renderizado Então deve possuir html equivalente ao Snapshot gravado 1`] = `
 "<section class=\\"character-list\\" data-v-c3db22c7=\\"\\">
-  <h4 class=\\"character-list__qtd\\" data-list=\\"results\\" data-v-c3db22c7=\\"\\">10 results </h4>
+  <h4 class=\\"character-list__text\\" data-list=\\"results\\" data-v-c3db22c7=\\"\\">10 results </h4>
   <main class=\\"character-list__cards\\" data-v-c3db22c7=\\"\\">
     <section class=\\"character-card animation-push\\" data-character=\\"card\\" tabindex=\\"0\\" data-list=\\"card\\" data-v-82d09848=\\"\\" data-v-c3db22c7=\\"\\"><img class=\\"character-card__image\\" data-character=\\"image\\" src=\\"https://image.com/rick.png\\" alt=\\"Rick teste of specie Human\\" data-v-82d09848=\\"\\">
       <p class=\\"character-card__id\\" data-character=\\"id\\" data-v-82d09848=\\"\\">#1</p>
