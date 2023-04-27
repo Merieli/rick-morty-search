@@ -54,7 +54,11 @@ const toggleFilter = () => {
 }
 </style>
 <style>
+.base-header .v-toolbar__content {
+    max-width: 1024px;
+}
+
 .base-header .v-toolbar__content > .v-toolbar-title {
-    margin-inline-start: 2.5rem;
+    /* margin-inline-start: 2.5rem; */
 }
 </style>

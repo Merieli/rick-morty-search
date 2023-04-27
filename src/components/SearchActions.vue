@@ -42,7 +42,7 @@ const { search, clearSearch, searchInApi, searchRandomCharacter } = useSearchAct
         w-full;
 
     &__input {
-        @apply w-full max-w-4xl;
+        @apply mx-4 w-full max-w-5xl;
     }
 
     &__button {

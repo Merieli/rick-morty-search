@@ -47,13 +47,27 @@ const changeThePage = async (page: number) => {
             class="character-list__text"
             data-list="clear-random"
         >
-            Clear character and show list <v-btn class="character-list__button-clear" icon="mdi-close"></v-btn>
+            Clear character and show list
+            <v-btn
+                density="comfortable"
+                size="small"
+                variant="tonal"
+                class="character-list__button-clear"
+                icon="mdi-close"
+            ></v-btn>
         </h4>
 
         <h4 v-else-if="store.isSearching && !store.isLoading" class="character-list__text" data-list="results-search">
             1 - {{ store.search.pagination.total }} of more than {{ store.search.pagination.results }} results to "{{
                 store.search.text
-            }}". Clear search and show list <v-btn class="character-list__button-clear" icon="mdi-close"></v-btn>
+            }}". Clear search and show list
+            <v-btn
+                density="comfortable"
+                size="small"
+                variant="tonal"
+                class="character-list__button-clear"
+                icon="mdi-close"
+            ></v-btn>
         </h4>
 
         <h4 v-else-if="!store.isLoading" class="character-list__text" data-list="results">
@@ -99,7 +113,7 @@ const changeThePage = async (page: number) => {
         @apply mt-4 mb-6 p-4
             flex justify-between
             font-semibold text-lg text-gray-500 text-left
-            bg-meri-light
+            /* bg-meri-light */
             rounded-xl
             w-full;
     }
