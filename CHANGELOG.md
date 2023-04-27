@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0](https://github.com/Merieli/rick-morty-search/compare/v0.2.0...v0.3.0) (2023-04-27)
+
+
+### Features
+
+* add function to generate random character ([a8a962a](https://github.com/Merieli/rick-morty-search/commit/a8a962a2d634e37c730d75e2bb24ff486c0b7b71))
+* added clear search ([4a0cb47](https://github.com/Merieli/rick-morty-search/commit/4a0cb471f13de5104de392b12b9076a034f6a040))
+
 ## [0.2.0](https://github.com/Merieli/rick-morty-search/compare/v0.1.0...v0.2.0) (2023-04-23)
 
 
