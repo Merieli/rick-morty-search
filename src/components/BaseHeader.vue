@@ -26,7 +26,7 @@ const toggleFilter = () => {
 <style lang="postcss" scoped>
 .base-header {
     @apply w-full
-        grid place-items-center
+        grid place-items-center grid-cols-1
         bg-gray-150;
 
     &__content {

@@ -38,7 +38,7 @@ const { search, clearSearch, searchInApi, searchRandomCharacter } = useSearchAct
 .search-actions {
     @apply px-10 pt-4 
         bg-gray-150
-        grid place-items-center
+        grid place-items-center grid-cols-1
         w-full;
 
     &__input {

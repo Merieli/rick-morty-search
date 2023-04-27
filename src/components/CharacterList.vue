@@ -54,6 +54,8 @@ const changeThePage = async (page: number) => {
                 variant="tonal"
                 class="character-list__button-clear"
                 icon="mdi-close"
+                data-list="clear-random-button"
+                @click="clearSearch"
             ></v-btn>
         </h4>
 
@@ -67,6 +69,8 @@ const changeThePage = async (page: number) => {
                 variant="tonal"
                 class="character-list__button-clear"
                 icon="mdi-close"
+                data-list="clear-search-button"
+                @click="clearSearch"
             ></v-btn>
         </h4>
 
@@ -107,13 +111,12 @@ const changeThePage = async (page: number) => {
 .character-list {
     @apply px-10 
         w-full max-w-5xl
-        grid place-items-center;
+        grid place-items-center grid-cols-1;
 
     &__text {
         @apply mt-4 mb-6 p-4
             flex justify-between
             font-semibold text-lg text-gray-500 text-left
-            /* bg-meri-light */
             rounded-xl
             w-full;
     }
