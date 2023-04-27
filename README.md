@@ -19,11 +19,10 @@
 
 ## ✨ Features
 
-- Light/dark mode toggle
-- Live previews
-- Fullscreen mode
-- Cross platform
-
+- Mobile First
+- List and open details
+- Search and filter
+- Pagination
 
 ## 📸 Preview
 
@@ -44,10 +43,10 @@
 Run Locally
 ```bash
 # Clone the project
-  git clone https://link-to-project
+  git clone https://github.com/Merieli/rick-morty-search.git
 
 # Go to the project directory
-  cd pokedex
+  cd rick-morty-search
 
 # Install dependencies
   npm install

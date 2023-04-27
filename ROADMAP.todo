@@ -1,11 +1,10 @@
 Tasks:
-    ☐ Lista de Personagens/ filtro
+    ✔ Lista de Personagens @done(23-04-27 07:51)
         ✔ Listar os personagens @started(23-03-21 18:12) @done(23-04-02 16:38) @lasted(1w4d22h26m41s)
-        ✔ Paginação para carregar mais personagens @started(23-04-03 06:31) @done(23-04-09 16:16) @lasted(6d9h45m51s)
-        ☐ Filtrar personagem por categoria
-        ☐ Abrir as características do personagem
+        ✔ Paginação para carregar mais personagens @started(23-04-03 06:31) @done(23-04-09 16:16) @lasted(6d9h45m51s)        
         ✔ Pesquisar pelo nome de um personagem @started(23-04-10 07:06) @done(23-04-23 08:54) @lasted(1w6d1h48m23s)
-        ☐ Gerar um personagem aleatório @started(23-04-24 07:31)
+        ✔ Gerar um personagem aleatório @started(23-04-24 07:31) @done(23-04-27 07:50) @lasted(3d19m12s)
+    ☐ Filtrar personagem por categoria
     ☐ Características do Personagem
     ☐ Notificar usuário de erros
     ☐ Rodapé com informações do projeto
