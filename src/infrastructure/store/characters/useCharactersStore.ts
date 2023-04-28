@@ -78,6 +78,10 @@ export const useCharactersStore = defineStore('characters', () => {
         }
     };
 
+    /**
+     * Search for a character by name in the api and store it in the store
+     * @param name - character's name
+     */
     const findCharacterByName = async (name: string) => {
         try {
             isLoading.value = true;
@@ -94,6 +98,9 @@ export const useCharactersStore = defineStore('characters', () => {
         }
     };
 
+    /**
+     * Searches for a random character and saves it in the store by activating its display
+     */
     const generateRandomCharacter = async () => {
         try {
             isLoading.value = true;
