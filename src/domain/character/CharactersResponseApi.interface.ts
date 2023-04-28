@@ -13,3 +13,7 @@ export interface CharactersResponseApi {
 export interface CharactersResponseDataApi {
     characters: CharactersResponseApi;
 }
+
+export interface CharactersByIdResponseDataApi {
+    charactersByIds: Character[];
+}

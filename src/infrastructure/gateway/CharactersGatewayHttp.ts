@@ -1,6 +1,6 @@
 import { FetchAdapter } from '@http/index';
 
-import { CharactersResponseApi, CharactersResponseDataApi } from '@/domain/';
+import { Character, CharactersByIdResponseDataApi, CharactersResponseApi, CharactersResponseDataApi } from '@/domain/';
 
 export default class CharactersGatewayHttp {
     private baseUrl = import.meta.env.VITE_API_URL;
@@ -103,5 +103,37 @@ export default class CharactersGatewayHttp {
         const charactersData = await this.httpClient.post<CharactersResponseDataApi>(filterCharacterByName);
 
         return charactersData.characters;
+    }
+
+    async findByIds(id: number[] | number): Promise<Character[]> {
+        const filterCharacterByName = `
+            query findCharacterById {
+                charactersByIds(ids: ${id}) {
+                    id
+                    name
+                    image
+                    species
+                    type
+                    gender
+                    episode {
+                    name
+                    episode
+                    air_date
+                    }
+                    location {
+                    id
+                    name
+                    type
+                    dimension
+                    }
+                    origin {
+                    name
+                    }
+                }
+            }
+        `;
+        const charactersData = await this.httpClient.post<CharactersByIdResponseDataApi>(filterCharacterByName);
+
+        return charactersData.charactersByIds;
     }
 }

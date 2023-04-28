@@ -5,21 +5,27 @@ import { useQuantityBasedOnWidth } from '@composables/useQuantityBasedOnWidth';
 import CardLoading from './CardLoading.vue';
 import CharacterCard from './CharacterCard.vue';
 
+import { useSearchActions } from '@/composables/useSearchActions';
 import { Character } from '@/domain';
 import { useCharactersStore } from '@/infrastructure/store/characters';
 
 const store = useCharactersStore();
 const { totalOfCardsLoading, totalOfPagination } = useQuantityBasedOnWidth();
+const { clearSearch } = useSearchActions();
 
 onMounted(async () => {
     await store.getAllCharacters();
 });
 
-const listOfCharacters: ComputedRef<Character[]> = computed(() =>
-    !store.isSearching && !store.isLoading
-        ? store.charactersPerPage[store.pagination.currentPage]
-        : store.search.characters
-);
+const listOfCharacters: ComputedRef<Character[]> = computed(() => {
+    if (store.random.show && !store.isSearching && !store.isLoading) return store.random.character;
+
+    if (store.isSearching && !store.isLoading) return store.search.characters;
+
+    if (!store.isLoading) return store.charactersPerPage[store.pagination.currentPage];
+
+    return [];
+});
 
 const openCharacter = (id: number) => {
     console.warn('Abriu o personagem', id);
@@ -36,9 +42,42 @@ const changeThePage = async (page: number) => {
 
 <template>
     <section class="character-list">
-        <h4 v-if="!store.isSearching && !store.isLoading" class="character-list__qtd" data-list="results">
+        <h4
+            v-if="store.random.show && !store.isSearching && !store.isLoading"
+            class="character-list__text"
+            data-list="clear-random"
+        >
+            Clear character and show list
+            <v-btn
+                density="comfortable"
+                size="small"
+                variant="tonal"
+                class="character-list__button-clear"
+                icon="mdi-close"
+                data-list="clear-random-button"
+                @click="clearSearch"
+            ></v-btn>
+        </h4>
+
+        <h4 v-else-if="store.isSearching && !store.isLoading" class="character-list__text" data-list="results-search">
+            1 - {{ store.search.pagination.total }} of more than {{ store.search.pagination.results }} results to "{{
+                store.search.text
+            }}". Clear search and show list
+            <v-btn
+                density="comfortable"
+                size="small"
+                variant="tonal"
+                class="character-list__button-clear"
+                icon="mdi-close"
+                data-list="clear-search-button"
+                @click="clearSearch"
+            ></v-btn>
+        </h4>
+
+        <h4 v-else-if="!store.isLoading" class="character-list__text" data-list="results">
             {{ store.pagination.results }} results
         </h4>
+
         <main class="character-list__cards">
             <CharacterCard
                 v-for="(character, index) in listOfCharacters"
@@ -55,7 +94,7 @@ const changeThePage = async (page: number) => {
         </main>
 
         <v-pagination
-            v-if="store.pagination.total > 0 && !store.isSearching"
+            v-if="store.pagination.total > 0 && !store.isSearching && !store.random.show"
             v-model="store.pagination.currentPage"
             :length="store.pagination.total"
             :total-visible="totalOfPagination"
@@ -71,12 +110,19 @@ const changeThePage = async (page: number) => {
 <style lang="postcss" scoped>
 .character-list {
     @apply px-10 
-        flex flex-col justify-center items-center;
+        w-full max-w-5xl
+        grid place-items-center grid-cols-1;
 
-    &__qtd {
-        @apply pt-4 pb-6 
+    &__text {
+        @apply mt-4 mb-6 p-4
+            flex justify-between
             font-semibold text-lg text-gray-500 text-left
+            rounded-xl
             w-full;
+    }
+
+    &__button-clear {
+        @apply ml-4;
     }
 
     &__cards {

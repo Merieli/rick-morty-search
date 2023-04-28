@@ -9,12 +9,14 @@ const toggleFilter = () => {
 </script>
 
 <template>
-    <v-app-bar elevation="0" class="base-header">
-        <v-app-bar-title class="base-header__title">Ricky&Morty Search</v-app-bar-title>
-        <v-app-bar-nav-icon class="base-header__button" @click="toggleFilter">
-            <v-icon class="base-header__icon" icon="mdi-reorder-horizontal"></v-icon>
-        </v-app-bar-nav-icon>
-    </v-app-bar>
+    <div class="base-header">
+        <v-app-bar elevation="0" class="base-header__content">
+            <v-app-bar-title class="base-header__title">Ricky&Morty Search</v-app-bar-title>
+            <v-app-bar-nav-icon class="base-header__button" @click="toggleFilter">
+                <v-icon class="base-header__icon" icon="mdi-reorder-horizontal"></v-icon>
+            </v-app-bar-nav-icon>
+        </v-app-bar>
+    </div>
 
     <aside v-if="showFilters">
         <h2>Selecione o filtro desejado</h2>
@@ -23,8 +25,16 @@ const toggleFilter = () => {
 
 <style lang="postcss" scoped>
 .base-header {
-    @apply pl-4 py-7 fixed;
-    display: contents;
+    @apply w-full
+        grid place-items-center grid-cols-1
+        bg-gray-150;
+
+    &__content {
+        @apply pl-4 py-7 
+            fixed
+            w-full max-w-5xl;
+        display: contents;
+    }
 
     &__title {
         @apply font-sans text-xl font-extrabold
@@ -45,10 +55,10 @@ const toggleFilter = () => {
 </style>
 <style>
 .base-header .v-toolbar__content {
-    background-color: theme('colors.gray.150');
+    max-width: 1024px;
 }
 
 .base-header .v-toolbar__content > .v-toolbar-title {
-    margin-inline-start: 2.5rem;
+    /* margin-inline-start: 2.5rem; */
 }
 </style>
