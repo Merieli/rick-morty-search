@@ -4,14 +4,17 @@ import { ComputedRef, computed, onMounted } from 'vue';
 import { useQuantityBasedOnWidth } from '@composables/useQuantityBasedOnWidth';
 import CardLoading from './CardLoading.vue';
 import CharacterCard from './CharacterCard.vue';
+import CharacterTraits from './CharacterTraits.vue';
 
 import { useSearchActions } from '@/composables/useSearchActions';
+import { useSelectedCharacter } from '@/composables/useSelectedCharacter';
 import { Character } from '@/domain';
 import { useCharactersStore } from '@/infrastructure/store/characters';
 
 const store = useCharactersStore();
 const { totalOfCardsLoading, totalOfPagination } = useQuantityBasedOnWidth();
 const { clearSearch } = useSearchActions();
+const { setsSelectedCharacter } = useSelectedCharacter();
 
 onMounted(async () => {
     await store.getAllCharacters();
@@ -26,10 +29,6 @@ const listOfCharacters: ComputedRef<Character[]> = computed(() => {
 
     return [];
 });
-
-const openCharacter = (id: number) => {
-    console.warn('Abriu o personagem', id);
-};
 
 const changeThePage = async (page: number) => {
     store.$patch({ pagination: { currentPage: page } });
@@ -78,6 +77,7 @@ const changeThePage = async (page: number) => {
             {{ store.pagination.results }} results
         </h4>
 
+        <CharacterTraits v-if="store.isSelected" />
         <main class="character-list__cards">
             <CharacterCard
                 v-for="(character, index) in listOfCharacters"
@@ -88,7 +88,7 @@ const changeThePage = async (page: number) => {
                 :image="character.image"
                 :alt-image="`${character.name} of specie ${character.species}`"
                 data-list="card"
-                @click="openCharacter(character.id)"
+                @click="setsSelectedCharacter(character)"
             />
             <CardLoading v-if="store.isLoading" :quantity="totalOfCardsLoading" />
         </main>

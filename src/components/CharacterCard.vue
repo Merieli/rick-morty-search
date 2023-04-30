@@ -33,7 +33,7 @@ const colorToTag: Record<string, string> = {
 </script>
 
 <template>
-    <section class="character-card animation-push" data-character="card" tabindex="0">
+    <v-card class="character-card animation-push" data-character="card" tabindex="0">
         <img class="character-card__image" data-character="image" :src="image" :alt="altImage" />
         <p class="character-card__id" data-character="id">#{{ id }}</p>
         <h2 class="character-card__name" data-character="name">{{ name }}</h2>
@@ -44,7 +44,7 @@ const colorToTag: Record<string, string> = {
         >
             {{ species }}
         </div>
-    </section>
+    </v-card>
 </template>
 
 <style lang="postcss" scoped>

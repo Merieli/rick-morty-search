@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useSearchActions } from '@/composables/useSearchActions';
 
-const { search, clearSearch, searchInApi, searchRandomCharacter } = useSearchActions();
+const { searchByName, clearSearch, searchInApi, searchRandomCharacter } = useSearchActions();
 </script>
 
 <template>
@@ -17,7 +17,7 @@ const { search, clearSearch, searchInApi, searchRandomCharacter } = useSearchAct
             single-line
             hide-details
             clearable
-            @update:model-value="search"
+            @update:model-value="searchByName"
             @click:append-inner="searchInApi"
             @click:clear="clearSearch"
         ></v-text-field>

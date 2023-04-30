@@ -8,7 +8,7 @@ export const useSearchActions = () => {
      * and saves it in the search characters list
      * @param text - name of character
      */
-    const search = (text: string) => {
+    const searchByName = (text: string) => {
         if (text && text.length >= 3) {
             store.$patch((state) => {
                 state.isLoading = true;
@@ -62,7 +62,7 @@ export const useSearchActions = () => {
     };
 
     return {
-        search,
+        searchByName,
         clearSearch,
         searchInApi,
         searchRandomCharacter,

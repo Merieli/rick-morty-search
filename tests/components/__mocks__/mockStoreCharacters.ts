@@ -1,6 +1,6 @@
-import { Character } from '@/domain';
+import { ApiCharacter } from '@/domain';
 
-export const mockListOfCharactersInSearch: Character[] = [
+export const mockListOfCharactersInSearch: ApiCharacter[] = [
     {
         id: 3,
         name: 'Jerry Smith',
@@ -19,7 +19,7 @@ export const mockListOfCharactersInSearch: Character[] = [
     },
 ];
 
-export const mockListOfCharacters: Character[] = [
+export const mockListOfCharacters: ApiCharacter[] = [
     {
         id: 1,
         name: 'Rick teste',
@@ -54,6 +54,6 @@ export const mockListOfCharacters: Character[] = [
     },
 ];
 
-export const mockStoreCharacters: Record<number, Character[]> = {
+export const mockStoreCharacters: Record<number, ApiCharacter[]> = {
     1: mockListOfCharacters,
 };

@@ -1,6 +1,11 @@
 import { FetchAdapter } from '@http/index';
 
-import { Character, CharactersByIdResponseDataApi, CharactersResponseApi, CharactersResponseDataApi } from '@/domain/';
+import {
+    ApiCharacter,
+    ApiCharactersByIdResponseData,
+    ApiCharactersResponse,
+    ApiCharactersResponseData,
+} from '@/domain/';
 
 export default class CharactersGatewayHttp {
     private baseUrl = import.meta.env.VITE_API_URL;
@@ -14,15 +19,16 @@ export default class CharactersGatewayHttp {
      * Get all api characters to list
      *
      * @param page - page looking for characters
-     * @returns {Promise<CharactersResponseApi>} - characters with data to list
+     * @returns {Promise<ApiCharactersResponse>} - characters with data to list
      */
-    async getAll(page?: number): Promise<CharactersResponseApi> {
+    async getAll(page?: number): Promise<ApiCharactersResponse> {
         const queryAllCharacters = `
             query getAllCharacters {
                 characters(page: ${page}) {
                     results {
                         id
                         name
+                        status
                         image
                         species
                         type
@@ -52,7 +58,7 @@ export default class CharactersGatewayHttp {
             }
         `;
 
-        const charactersData = await this.httpClient.post<CharactersResponseDataApi>(queryAllCharacters);
+        const charactersData = await this.httpClient.post<ApiCharactersResponseData>(queryAllCharacters);
 
         return charactersData.characters;
     }
@@ -62,15 +68,16 @@ export default class CharactersGatewayHttp {
      *
      * @param name - text of the name of the character sought
      * @param page - page looking for characters
-     * @returns {Promise<CharactersResponseApi>}
+     * @returns {Promise<ApiCharactersResponse>}
      */
-    async findByName(name: string, page?: number): Promise<CharactersResponseApi> {
+    async findByName(name: string, page?: number): Promise<ApiCharactersResponse> {
         const filterCharacterByName = `
             query filterCharacterByName {
                 characters(page: ${page}, filter: { name: "${name}" }) {
                     results {
                         id
                         name
+                        status
                         image
                         species
                         type
@@ -100,17 +107,18 @@ export default class CharactersGatewayHttp {
             }
         `;
 
-        const charactersData = await this.httpClient.post<CharactersResponseDataApi>(filterCharacterByName);
+        const charactersData = await this.httpClient.post<ApiCharactersResponseData>(filterCharacterByName);
 
         return charactersData.characters;
     }
 
-    async findByIds(id: number[] | number): Promise<Character[]> {
+    async findByIds(id: number[] | number): Promise<ApiCharacter[]> {
         const filterCharacterByName = `
             query findCharacterById {
                 charactersByIds(ids: ${id}) {
                     id
                     name
+                    status
                     image
                     species
                     type
@@ -132,7 +140,7 @@ export default class CharactersGatewayHttp {
                 }
             }
         `;
-        const charactersData = await this.httpClient.post<CharactersByIdResponseDataApi>(filterCharacterByName);
+        const charactersData = await this.httpClient.post<ApiCharactersByIdResponseData>(filterCharacterByName);
 
         return charactersData.charactersByIds;
     }
