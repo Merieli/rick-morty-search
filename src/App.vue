@@ -3,7 +3,7 @@ import PageHome from '@views/PageHome.vue';
 </script>
 
 <template>
-    <v-app>
+    <v-app id="app">
         <PageHome />
     </v-app>
 </template>

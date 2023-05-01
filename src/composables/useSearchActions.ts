@@ -34,15 +34,13 @@ export const useSearchActions = () => {
      * Clears search term and search results
      */
     const clearSearch = () => {
-        store.$patch({
-            search: {
-                text: '',
-                characters: [],
-            },
-            random: {
-                character: [],
-                show: false,
-            },
+        store.$patch((state) => {
+            state.isLoading = true;
+            state.search.text = '';
+            state.search.characters = [];
+            state.random.character = [];
+            state.random.show = false;
+            state.isLoading = false;
         });
     };
 

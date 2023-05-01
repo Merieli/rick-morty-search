@@ -1,1 +1,1 @@
-export type CharacterGender = 'Male' | 'Female' | 'unknown';
+export type CharacterGender = string | 'Male' | 'Female' | 'unknown';

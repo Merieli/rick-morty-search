@@ -72,12 +72,14 @@ export const useCharactersStore = defineStore('characters', () => {
             isLoading.value = true;
             const response = await api.getAll(pagination.currentPage);
 
+            const listOfCharactersPrepared = prepareCharacterData(response.results);
+
+            // FIXME: Ajustar o defineProperty abaixo
             Object.defineProperty(charactersPerPage.value, pagination.currentPage, {
-                get() {
-                    return response.results;
+                get(): Character[] {
+                    return listOfCharactersPrepared;
                 },
             });
-            const listOfCharactersPrepared = prepareCharacterData(response.results);
 
             const newList = allCharacters.value.concat(listOfCharactersPrepared);
             allCharacters.value = newList;
