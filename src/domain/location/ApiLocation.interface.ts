@@ -1,8 +1,8 @@
 import { TextOrUnknown } from '../TextOrUnknow.type';
 
 export interface ApiLocation {
-    id?: string;
+    id: string | null;
     name: TextOrUnknown;
-    type?: string;
-    dimension?: TextOrUnknown;
+    type: string | null;
+    dimension: TextOrUnknown | null;
 }

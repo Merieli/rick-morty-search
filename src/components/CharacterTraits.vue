@@ -11,8 +11,9 @@ const store = useCharactersStore();
 const { clearSelectedCharacter } = useSelectedCharacter();
 
 const { name, episode, gender, id, image, location, origin, species, status, type } = toRefs(store.selectedCharacter);
+// TODO: Location está sumindo ao abrir pela 2° vez validar o porque
 
-const { colorTagSpecie, colorTagStatus } = useColorTags(species.value, status.value);
+const { colorTagSpecie, colorTagStatus } = useColorTags(species.value, status.value || '');
 
 const lastEpisode: ComputedRef<Episode> = computed(() => episode.value[episode.value.length - 1]);
 
@@ -30,14 +31,27 @@ const tab = ref(null);
             >
             </v-btn>
             <v-card-title class="character-traits__title">
-                <h3 class="character-traits__name">{{ name }}</h3>
-                <h4 class="character-traits__id"># {{ id }}</h4>
+                <h3 class="character-traits__name" data-character-traits="name">{{ name }}</h3>
+                <h4 class="character-traits__id" data-character-traits="id"># {{ id }}</h4>
             </v-card-title>
             <v-card-subtitle class="character-traits__tags">
-                <v-chip class="character-traits__tag" :color="colorTagSpecie" variant="elevated">
+                <v-chip
+                    class="character-traits__tag"
+                    :color="colorTagSpecie"
+                    variant="elevated"
+                    data-character-traits="specie"
+                >
                     {{ species }}
                 </v-chip>
-                <v-chip class="character-traits__tag" :color="colorTagStatus" variant="elevated"> {{ status }} </v-chip>
+                <v-chip
+                    v-if="status"
+                    class="character-traits__tag"
+                    :color="colorTagStatus"
+                    variant="elevated"
+                    data-character-traits="status"
+                >
+                    {{ status }}
+                </v-chip>
             </v-card-subtitle>
 
             <v-card-text>
@@ -72,17 +86,18 @@ const tab = ref(null);
                                     </v-col>
                                 </v-row>
                                 <v-list-item title="Type" :subtitle="type"></v-list-item>
-                                <v-list-item title="Location">
+                                <v-list-item title="Location" data-character-traits="location">
                                     <template #prepend>
                                         <v-icon color="green">mdi-earth-box</v-icon>
                                     </template>
+
                                     <template #subtitle>
                                         <p>Name: {{ location.name }}</p>
                                         <p>Dimension: {{ location.dimension }}</p>
                                         <p>Type: {{ location.type }}</p>
                                     </template>
                                 </v-list-item>
-                                <v-list-item title="Last episode">
+                                <v-list-item title="Last episode" data-character-traits="last-episode">
                                     <template #prepend>
                                         <v-icon color="black">mdi-video-box</v-icon>
                                     </template>

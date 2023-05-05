@@ -5,7 +5,7 @@ export interface Character {
     name: string;
     type: string;
     image: string;
-    status: CharacterStatus;
+    status: CharacterStatus | null;
     species: string;
     gender: CharacterGender;
     location: LocationCharacter;

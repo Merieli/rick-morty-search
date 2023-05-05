@@ -1,0 +1,50 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`CharacterTraits.vue > Integração/Componente > 👀 Renderização: > Dado o componente Quando renderizado Então deve possuir html equivalente ao Snapshot gravado 1`] = `
+"<teleport-stub to=\\"body\\" data-v-d87f46a6=\\"\\">
+  <v-card class=\\"character-traits\\" data-v-d87f46a6=\\"\\">
+    <v-btn class=\\"character-traits__back-button\\" variant=\\"text\\" icon=\\"mdi-arrow-left\\" data-v-d87f46a6=\\"\\"></v-btn>
+    <v-card-title class=\\"character-traits__title\\" data-v-d87f46a6=\\"\\">
+      <h3 class=\\"character-traits__name\\" data-character-traits=\\"name\\" data-v-d87f46a6=\\"\\">Rick Sanchez</h3>
+      <h4 class=\\"character-traits__id\\" data-character-traits=\\"id\\" data-v-d87f46a6=\\"\\"># 1</h4>
+    </v-card-title>
+    <v-card-subtitle class=\\"character-traits__tags\\" data-v-d87f46a6=\\"\\">
+      <v-chip class=\\"character-traits__tag\\" color=\\"#f2a38b\\" variant=\\"elevated\\" data-character-traits=\\"specie\\" data-v-d87f46a6=\\"\\">Human</v-chip>
+      <v-chip class=\\"character-traits__tag\\" color=\\"green\\" variant=\\"elevated\\" data-character-traits=\\"status\\" data-v-d87f46a6=\\"\\">Alive</v-chip>
+    </v-card-subtitle>
+    <v-card-text data-v-d87f46a6=\\"\\"><img class=\\"character-traits__image\\" src=\\"https://rickandmortyapi.com/api/character/avatar/1.jpeg\\" alt=\\"\\" data-v-d87f46a6=\\"\\"></v-card-text>
+    <v-card class=\\"character-traits__sheet\\" data-v-d87f46a6=\\"\\">
+      <v-tabs class=\\"character-traits__tabs\\" color=\\"primary\\" align-tabs=\\"center\\" data-v-d87f46a6=\\"\\">
+        <v-tab value=\\"about\\" data-v-d87f46a6=\\"\\">About</v-tab>
+        <v-tab value=\\"episodes\\" data-v-d87f46a6=\\"\\">Episodes</v-tab>
+        <v-tab value=\\"clones\\" data-v-d87f46a6=\\"\\">Clones</v-tab>
+      </v-tabs>
+      <v-card-text class=\\"character-traits__sheet-content\\" data-v-d87f46a6=\\"\\">
+        <v-window data-v-d87f46a6=\\"\\">
+          <v-window-item value=\\"about\\" data-v-d87f46a6=\\"\\">
+            <v-list lines=\\"five\\" data-v-d87f46a6=\\"\\">
+              <v-row no-gutters=\\"\\" data-v-d87f46a6=\\"\\">
+                <v-col cols=\\"5\\" data-v-d87f46a6=\\"\\">
+                  <v-list-item title=\\"Gender\\" subtitle=\\"Male\\" data-v-d87f46a6=\\"\\"></v-list-item>
+                </v-col>
+                <v-col cols=\\"7\\" data-v-d87f46a6=\\"\\">
+                  <v-list-item title=\\"Born in\\" subtitle=\\"Earth (C-137)\\" data-v-d87f46a6=\\"\\"></v-list-item>
+                </v-col>
+              </v-row>
+              <v-list-item title=\\"Type\\" subtitle=\\"Human normal\\" data-v-d87f46a6=\\"\\"></v-list-item>
+              <v-list-item title=\\"Location\\" data-character-traits=\\"location\\" data-v-d87f46a6=\\"\\"></v-list-item>
+              <v-list-item title=\\"Last episode\\" data-character-traits=\\"last-episode\\" data-v-d87f46a6=\\"\\"></v-list-item>
+            </v-list>
+          </v-window-item>
+          <v-window-item value=\\"episodes\\" data-v-d87f46a6=\\"\\">
+            <v-chip class=\\"ma-2\\" data-v-d87f46a6=\\"\\">Pilot</v-chip>
+            <v-chip class=\\"ma-2\\" data-v-d87f46a6=\\"\\">Lawnmower Dog</v-chip>
+            <v-chip class=\\"ma-2\\" data-v-d87f46a6=\\"\\">Anatomy Park</v-chip>
+          </v-window-item>
+          <v-window-item value=\\"clones\\" data-v-d87f46a6=\\"\\"></v-window-item>
+        </v-window>
+      </v-card-text>
+    </v-card>
+  </v-card>
+</teleport-stub>"
+`;

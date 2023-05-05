@@ -1,5 +1,8 @@
 import { ApiCharacter, Character, CharacterGender, CharacterStatus, Episode, LocationCharacter } from '..';
 
+/**
+ *
+ */
 export class CharacterDTO implements Character {
     public name: string;
     public id: string;
@@ -10,7 +13,7 @@ export class CharacterDTO implements Character {
     public location: LocationCharacter;
     public origin: string;
     public species: string;
-    public status: CharacterStatus;
+    public status: CharacterStatus | null;
 
     constructor(character: ApiCharacter) {
         const newListOfEpisodes = character.episode.map((current) => {
@@ -29,16 +32,28 @@ export class CharacterDTO implements Character {
         this.id = character.id;
         this.type = character.type || 'None';
         this.episode = newListOfEpisodes;
-        this.gender = character.gender;
+        this.gender = CharacterDTO.validateTheUnknownReturn(character.gender);
         this.image = character.image;
+
         this.location = {
             id: character.location.id || '0',
-            name: character.location.name,
-            dimension: character.location.dimension || 'Unknown',
+            name: CharacterDTO.validateTheUnknownReturn(character.location.name),
+            dimension: CharacterDTO.validateTheUnknownReturn(character.location.dimension),
             type: character.location.type || 'None',
         };
-        this.origin = character.origin.name || 'Unknown';
+
+        this.origin = CharacterDTO.validateTheUnknownReturn(character.origin.name);
         this.species = character.species;
-        this.status = character.status;
+        this.status = character.status.toLowerCase() === 'unknown' ? null : character.status;
+    }
+
+    static validateTheUnknownReturn(property: string | null) {
+        const unknownText = 'Unknown';
+
+        if (!property) return unknownText;
+
+        if (property === unknownText.toLowerCase()) return unknownText;
+
+        return property;
     }
 }
