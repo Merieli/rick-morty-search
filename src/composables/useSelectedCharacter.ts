@@ -4,6 +4,10 @@ import { useCharactersStore } from '@/infrastructure/store/characters';
 export const useSelectedCharacter = () => {
     const store = useCharactersStore();
 
+    /**
+     * Sets the selected character and changes the isSelected variable to true in the store.
+     * @param character - selected character
+     */
     const setsSelectedCharacter = (character: Character) => {
         store.$patch({
             selectedCharacter: {
@@ -13,7 +17,7 @@ export const useSelectedCharacter = () => {
                 episode: character.episode,
                 gender: character.gender,
                 image: character.image,
-                location: character.location,
+                location: { ...character.location },
                 origin: character.origin,
                 species: character.species,
                 status: character.status,
@@ -22,6 +26,10 @@ export const useSelectedCharacter = () => {
         });
     };
 
+    /**
+     * Changes the variable isSelected to false and clears the data of the selected character in
+     * the store.
+     */
     const clearSelectedCharacter = () => {
         store.$patch({
             isSelected: false,

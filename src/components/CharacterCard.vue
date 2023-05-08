@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { watch } from 'vue';
+
 import { useColorTags } from '@/composables/useColorTags';
 
 const props = defineProps({
@@ -24,7 +26,15 @@ const props = defineProps({
     },
 });
 
-const { colorTagSpecie } = useColorTags(props.species);
+let colorTag = useColorTags(props.species).colorTagSpecie;
+
+/**
+ * Watch that solves problem with updating the color of the vuetify component, which does not
+ * detect the change of props
+ */
+watch(props, () => {
+    colorTag = useColorTags(props.species).colorTagSpecie;
+});
 </script>
 
 <template>
@@ -32,7 +42,7 @@ const { colorTagSpecie } = useColorTags(props.species);
         <img class="character-card__image" data-character="image" :src="image" :alt="altImage" />
         <p class="character-card__id" data-character="id">#{{ id }}</p>
         <h2 class="character-card__name" data-character="name">{{ name }}</h2>
-        <v-chip class="character-card__tag" data-character="species" :color="colorTagSpecie">
+        <v-chip class="character-card__tag" data-character="species" :color="colorTag">
             {{ species }}
         </v-chip>
     </v-card>

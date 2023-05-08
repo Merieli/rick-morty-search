@@ -74,11 +74,11 @@ export const useCharactersStore = defineStore('characters', () => {
 
             const listOfCharactersPrepared = prepareCharacterData(response.results);
 
-            // FIXME: Ajustar o defineProperty abaixo
             Object.defineProperty(charactersPerPage.value, pagination.currentPage, {
-                get(): Character[] {
-                    return listOfCharactersPrepared;
-                },
+                value: listOfCharactersPrepared,
+                writable: false,
+                enumerable: true,
+                configurable: true,
             });
 
             const newList = allCharacters.value.concat(listOfCharactersPrepared);

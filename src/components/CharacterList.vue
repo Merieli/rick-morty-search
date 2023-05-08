@@ -31,11 +31,17 @@ const listOfCharacters: ComputedRef<Character[]> = computed(() => {
 });
 
 const changeThePage = async (page: number) => {
-    store.$patch({ pagination: { currentPage: page } });
+    store.$patch({
+        isLoading: true,
+        pagination: { currentPage: page },
+    });
 
     if (!store.charactersPerPage[store.pagination.currentPage]) {
         await store.getAllCharacters();
     }
+    store.$patch({
+        isLoading: false,
+    });
 };
 </script>
 
@@ -77,14 +83,14 @@ const changeThePage = async (page: number) => {
             {{ store.pagination.results }} results
         </h4>
 
-        <CharacterTraits v-if="store.isSelected" />
+        <CharacterTraits />
         <main class="character-list__cards">
             <CharacterCard
                 v-for="(character, index) in listOfCharacters"
                 :id="Number(character.id)"
                 :key="index"
                 :name="character.name"
-                :species="character.species || ''"
+                :species="character.species"
                 :image="character.image"
                 :alt-image="`${character.name} of specie ${character.species}`"
                 data-list="card"
