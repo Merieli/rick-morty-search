@@ -5,7 +5,7 @@ import { createTestingPinia } from '@pinia/testing';
 import { mount } from '@vue/test-utils';
 import { Pinia } from 'pinia';
 import { createVuetify } from 'vuetify';
-import { mockListOfCharactersInSearch, mockStoreCharacters } from './__mocks__/mockStoreCharacters';
+import { mockListOfCharactersInSearch, mockStoreCharacters } from '../__mocks__/mockStoreCharacters';
 
 import { useCharactersStore } from '@/infrastructure/store/characters';
 

@@ -4,7 +4,7 @@ import { mount } from '@vue/test-utils';
 import { Pinia } from 'pinia';
 import { createVuetify } from 'vuetify';
 
-import { mockSelectedCharacter } from './__mocks__/mockSelectedCharacter';
+import { mockSelectedCharacter } from '../__mocks__/mockSelectedCharacter';
 
 import { useCharactersStore } from '@/infrastructure/store/characters';
 
@@ -12,17 +12,11 @@ describe('CharacterTraits.vue', () => {
     let pinia: Pinia;
 
     const setupWrapper = () => {
-        vi.mock('@/infrastructure/gateway/CharactersGatewayHttp');
-
         pinia = createTestingPinia({
             initialState: {
                 characters: {
-                    pagination: {
-                        currentPage: 1,
-                        total: 1,
-                        results: 10,
-                    },
                     selectedCharacter: mockSelectedCharacter,
+                    isSelected: true,
                 },
             },
         });
@@ -82,11 +76,17 @@ describe('CharacterTraits.vue', () => {
                 expect(location.exists()).toBeTruthy();
             });
         });
-        // describe('🧠 Comportamento:', ()=> {
+        describe('🧠 Comportamento:', () => {
+            test('Dado a lista de características Quando clicar no botão de voltar e a store remover o usuário selecionado Então deve ocultar as características alterando para nenhum personagem selecionado', async () => {
+                const { wrapper, store } = setupWrapper();
+                const spyUpdateStore = vi.spyOn(store, '$patch');
+                const buttonBack = wrapper.find('[data-character-traits="button"]');
 
-        // })
-        // describe('🐕 Navegação:', ()=> {
+                await buttonBack.trigger('click');
 
-        // })
+                expect(spyUpdateStore).toHaveBeenCalledTimes(1);
+                expect(spyUpdateStore.mock.calls[0][0]).toContain({ isSelected: false });
+            });
+        });
     });
 });

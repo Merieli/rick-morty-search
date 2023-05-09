@@ -1,7 +1,7 @@
 import { useSearchActions } from '@composables/useSearchActions';
 import { createTestingPinia } from '@pinia/testing';
 import { setActivePinia } from 'pinia';
-import { mockListOfCharacters, mockStoreCharacters } from 'tests/components/__mocks__/mockStoreCharacters';
+import { mockListOfCharacters, mockStoreCharacters } from 'tests/__mocks__/mockStoreCharacters';
 
 import { useCharactersStore } from '@/infrastructure/store/characters';
 

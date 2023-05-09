@@ -3,8 +3,10 @@
 exports[`CharacterTraits.vue > Integração/Componente > 👀 Renderização: > Dado o componente Quando renderizado Então deve possuir html equivalente ao Snapshot gravado 1`] = `
 "<teleport-stub to=\\"body\\" data-v-d87f46a6=\\"\\">
   <v-card class=\\"character-traits\\" data-v-d87f46a6=\\"\\">
-    <v-btn class=\\"character-traits__back-button\\" variant=\\"text\\" icon=\\"mdi-arrow-left\\" data-v-d87f46a6=\\"\\"></v-btn>
     <v-card-title class=\\"character-traits__title\\" data-v-d87f46a6=\\"\\">
+      <div class=\\"character-traits__button-wrapper\\" data-v-d87f46a6=\\"\\">
+        <v-btn class=\\"character-traits__back-button\\" variant=\\"text\\" icon=\\"mdi-arrow-left\\" data-character-traits=\\"button\\" data-v-d87f46a6=\\"\\"></v-btn>
+      </div>
       <h3 class=\\"character-traits__name\\" data-character-traits=\\"name\\" data-v-d87f46a6=\\"\\">Rick Sanchez</h3>
       <h4 class=\\"character-traits__id\\" data-character-traits=\\"id\\" data-v-d87f46a6=\\"\\"># 1</h4>
     </v-card-title>
@@ -21,27 +23,27 @@ exports[`CharacterTraits.vue > Integração/Componente > 👀 Renderização: > 
       </v-tabs>
       <v-card-text class=\\"character-traits__sheet-content\\" data-v-d87f46a6=\\"\\">
         <v-window data-v-d87f46a6=\\"\\">
-          <v-window-item value=\\"about\\" data-v-d87f46a6=\\"\\">
+          <v-window-item class=\\"character-traits__tab-content\\" data-character-traits=\\"about\\" value=\\"about\\" data-v-d87f46a6=\\"\\">
             <v-list lines=\\"five\\" data-v-d87f46a6=\\"\\">
               <v-row no-gutters=\\"\\" data-v-d87f46a6=\\"\\">
                 <v-col cols=\\"5\\" data-v-d87f46a6=\\"\\">
-                  <v-list-item title=\\"Gender\\" subtitle=\\"Male\\" data-v-d87f46a6=\\"\\"></v-list-item>
+                  <v-list-item class=\\"character-traits__item\\" title=\\"Gender\\" subtitle=\\"Male\\" data-v-d87f46a6=\\"\\"></v-list-item>
                 </v-col>
                 <v-col cols=\\"7\\" data-v-d87f46a6=\\"\\">
-                  <v-list-item title=\\"Born in\\" subtitle=\\"Earth (C-137)\\" data-v-d87f46a6=\\"\\"></v-list-item>
+                  <v-list-item class=\\"character-traits__item\\" title=\\"Born in\\" subtitle=\\"Earth (C-137)\\" data-v-d87f46a6=\\"\\"></v-list-item>
                 </v-col>
               </v-row>
-              <v-list-item title=\\"Type\\" subtitle=\\"Human normal\\" data-v-d87f46a6=\\"\\"></v-list-item>
-              <v-list-item title=\\"Location\\" data-character-traits=\\"location\\" data-v-d87f46a6=\\"\\"></v-list-item>
-              <v-list-item title=\\"Last episode\\" data-character-traits=\\"last-episode\\" data-v-d87f46a6=\\"\\"></v-list-item>
+              <v-list-item class=\\"character-traits__item\\" title=\\"Type\\" subtitle=\\"Human normal\\" data-v-d87f46a6=\\"\\"></v-list-item>
+              <v-list-item class=\\"character-traits__item\\" title=\\"Location\\" data-character-traits=\\"location\\" data-v-d87f46a6=\\"\\"></v-list-item>
+              <v-list-item class=\\"character-traits__item\\" title=\\"Last episode\\" data-character-traits=\\"last-episode\\" data-v-d87f46a6=\\"\\"></v-list-item>
             </v-list>
           </v-window-item>
-          <v-window-item value=\\"episodes\\" data-v-d87f46a6=\\"\\">
-            <v-chip class=\\"ma-2\\" data-v-d87f46a6=\\"\\">Pilot</v-chip>
-            <v-chip class=\\"ma-2\\" data-v-d87f46a6=\\"\\">Lawnmower Dog</v-chip>
-            <v-chip class=\\"ma-2\\" data-v-d87f46a6=\\"\\">Anatomy Park</v-chip>
+          <v-window-item class=\\"character-traits__tab-content\\" value=\\"episodes\\" data-v-d87f46a6=\\"\\">
+            <v-chip class=\\"ma-2\\" data-v-d87f46a6=\\"\\"> S01 - E01: Pilot [December 2, 2013] </v-chip>
+            <v-chip class=\\"ma-2\\" data-v-d87f46a6=\\"\\"> S01 - E01: Lawnmower Dog [December 9, 2013] </v-chip>
+            <v-chip class=\\"ma-2\\" data-v-d87f46a6=\\"\\"> S01 - E01: Anatomy Park [December 16, 2013] </v-chip>
           </v-window-item>
-          <v-window-item value=\\"clones\\" data-v-d87f46a6=\\"\\"></v-window-item>
+          <v-window-item class=\\"character-traits__tab-content\\" value=\\"clones\\" data-v-d87f46a6=\\"\\"></v-window-item>
         </v-window>
       </v-card-text>
     </v-card>
