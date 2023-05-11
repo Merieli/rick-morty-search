@@ -130,52 +130,5 @@ body,
     &__image {
         @apply rounded-3xl sm:max-w-[250px] tablet:max-w-xs m-auto;
     }
-
-    &__sheet {
-        @apply rounded-t-3xl
-            w-full max-w-5xl
-            h-[40%]
-            fixed bottom-0;
-
-        @media (min-width: theme('screens.laptop')) {
-            margin-left: calc((100% - theme('screens.laptop')) / 2);
-            margin-right: calc((100% - theme('screens.laptop')) / 2);
-        }
-    }
-
-    &__sheet-content {
-        @apply overflow-y-scroll;
-
-        &.v-card-text {
-            @apply min-h-fit max-h-72;
-        }
-    }
-
-    &__tabs {
-        @apply text-meri-low
-            pt-8 h-auto;
-    }
-
-    &__item {
-        @apply mb-5;
-
-        p {
-            @apply mb-2;
-        }
-
-        .v-list-item__prepend {
-            @apply items-start h-full;
-        }
-    }
-
-    &__tab-content {
-        @apply sm:px-3 md:px-10 lg:px-10 xl:px-10
-            mb-3;
-    }
-}
-</style>
-<style scoped>
-.character-traits .v-list-item__prepend > .v-icon {
-    margin-right: 8px;
 }
 </style>

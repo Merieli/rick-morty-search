@@ -76,6 +76,7 @@ const changeThePage = async (page: number) => {
                 icon="mdi-close"
                 data-list="clear-search-button"
                 @click="clearSearch"
+                @keyup.enter="clearSearch"
             ></v-btn>
         </h4>
 
@@ -95,8 +96,11 @@ const changeThePage = async (page: number) => {
                 :alt-image="`${character.name} of specie ${character.species}`"
                 data-list="card"
                 @click="setsSelectedCharacter(character)"
+                @keyup.enter="setsSelectedCharacter(character)"
             />
-            <CardLoading v-if="store.isLoading" :quantity="totalOfCardsLoading" />
+            <div v-if="store.isLoading" class="character-list__loading">
+                <CardLoading :quantity="totalOfCardsLoading" />
+            </div>
         </main>
 
         <v-pagination
@@ -135,6 +139,11 @@ const changeThePage = async (page: number) => {
         @apply py-2 
             flex flex-row flex-wrap
             w-full;
+    }
+
+    &__loading {
+        @apply flex flex-row flex-wrap
+            mt-12 w-full h-full;
     }
 }
 </style>
