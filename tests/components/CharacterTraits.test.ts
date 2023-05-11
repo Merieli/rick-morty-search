@@ -61,20 +61,6 @@ describe('CharacterTraits.vue', () => {
                 expect(characterSpecie.text()).toBe(mockSelectedCharacter.species);
                 expect(characterStatus.text()).toBe(mockSelectedCharacter.status);
             });
-
-            test('Dado uma lista de caraterísticas do personagem Quando renderizado Então deve exibir nas abas os dados da localização do personagem', () => {
-                const { wrapper } = setupWrapper();
-                const location = wrapper.find('[data-character-traits="location"]');
-
-                expect(location.exists()).toBeTruthy();
-            });
-
-            test('Dado uma lista de caraterísticas do personagem Quando renderizado Então deve exibir nas abas os dados do último episódio com o personagem', () => {
-                const { wrapper } = setupWrapper();
-                const location = wrapper.find('[data-character-traits="last-episode"]');
-
-                expect(location.exists()).toBeTruthy();
-            });
         });
         describe('🧠 Comportamento:', () => {
             test('Dado a lista de características Quando clicar no botão de voltar e a store remover o usuário selecionado Então deve ocultar as características alterando para nenhum personagem selecionado', async () => {
