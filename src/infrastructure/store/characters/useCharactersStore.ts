@@ -1,39 +1,46 @@
 import { computed, reactive, Ref, ref } from 'vue';
 
-import { Character } from '@domain/index';
+import {
+    ApiCharacter,
+    Character,
+    StorePaginationCharacter,
+    StoreRandomCharacter,
+    StoreSearchCharacter,
+} from '@domain/index';
 import { defineStore } from 'pinia';
 
+import { CharacterDTO } from '@/domain/character/CharacterDTO';
 import { logError } from '@/helpers/logError';
 import CharactersGatewayHttp from '@/infrastructure/gateway/CharactersGatewayHttp';
-
-interface Pagination {
-    currentPage: number;
-    total: number;
-    results: number;
-}
-
-interface Search {
-    text: string;
-    characters: Character[];
-    pagination: Pagination;
-}
 
 export const useCharactersStore = defineStore('characters', () => {
     const api = new CharactersGatewayHttp();
 
     const allCharacters: Ref<Character[]> = ref([]);
     const charactersPerPage: Ref<Record<number, Character[]>> = ref({});
+    const selectedCharacter: Character = reactive({
+        id: '',
+        name: '',
+        episode: [],
+        gender: 'unknown',
+        status: 'unknown',
+        type: '',
+        image: '',
+        species: 'unknown',
+        location: {
+            id: '',
+            name: '',
+            dimension: '',
+            type: '',
+        },
+        origin: '',
+    });
 
-    interface Random {
-        character: Character[];
-        show: boolean;
-    }
-
-    const random: Random = reactive({
+    const random: StoreRandomCharacter = reactive({
         character: [],
         show: false,
     });
-    const search: Search = reactive({
+    const search: StoreSearchCharacter = reactive({
         text: '',
         characters: [],
         pagination: {
@@ -42,14 +49,20 @@ export const useCharactersStore = defineStore('characters', () => {
             results: 0,
         },
     });
-    const pagination: Pagination = reactive({
+    const pagination: StorePaginationCharacter = reactive({
         currentPage: 1,
         total: 0,
         results: 0,
     });
     const isLoading: Ref<boolean> = ref(false);
+    const isSelected: Ref<boolean> = ref(false);
 
     const isSearching = computed(() => search.characters && search.characters.length > 0);
+
+    const prepareCharacterData = (listOfCharacters: ApiCharacter[]): Character[] => {
+        const newList: Character[] = listOfCharacters.map((character) => new CharacterDTO(character));
+        return newList;
+    };
 
     /**
      * Action to get all characters of api and save in state
@@ -59,13 +72,16 @@ export const useCharactersStore = defineStore('characters', () => {
             isLoading.value = true;
             const response = await api.getAll(pagination.currentPage);
 
+            const listOfCharactersPrepared = prepareCharacterData(response.results);
+
             Object.defineProperty(charactersPerPage.value, pagination.currentPage, {
-                get() {
-                    return response.results;
-                },
+                value: listOfCharactersPrepared,
+                writable: false,
+                enumerable: true,
+                configurable: true,
             });
 
-            const newList = allCharacters.value.concat(response.results);
+            const newList = allCharacters.value.concat(listOfCharactersPrepared);
             allCharacters.value = newList;
 
             pagination.total = response.info.pages;
@@ -87,8 +103,9 @@ export const useCharactersStore = defineStore('characters', () => {
             isLoading.value = true;
             search.text = name;
             const response = await api.findByName(name, 1);
+            const listOfCharactersPrepared = prepareCharacterData(response.results);
 
-            search.characters = response.results;
+            search.characters = listOfCharactersPrepared;
             search.pagination.total = response.info.pages;
             search.pagination.results = response.info.count;
         } catch (error) {
@@ -107,8 +124,9 @@ export const useCharactersStore = defineStore('characters', () => {
             const integerRandomNumberUpTo826 = Math.floor(Math.random() * 826) + 1;
 
             const response = await api.findByIds(integerRandomNumberUpTo826);
+            const listOfCharactersPrepared = prepareCharacterData(response);
 
-            random.character = response;
+            random.character = listOfCharactersPrepared;
             random.show = true;
         } catch (error) {
             const { code } = logError('Action generateRandomCharacter', error);
@@ -120,11 +138,13 @@ export const useCharactersStore = defineStore('characters', () => {
     return {
         allCharacters,
         charactersPerPage,
+        selectedCharacter,
         search,
         pagination,
         random,
         isLoading,
         isSearching,
+        isSelected,
         getAllCharacters,
         findCharacterByName,
         generateRandomCharacter,

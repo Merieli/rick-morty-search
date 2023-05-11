@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useSearchActions } from '@/composables/useSearchActions';
 
-const { search, clearSearch, searchInApi, searchRandomCharacter } = useSearchActions();
+const { searchByName, clearSearch, searchInApi, searchRandomCharacter } = useSearchActions();
 </script>
 
 <template>
@@ -10,14 +10,14 @@ const { search, clearSearch, searchInApi, searchRandomCharacter } = useSearchAct
             class="search-actions__input"
             data-search-actions="input"
             append-inner-icon="mdi-magnify"
-            label="Pesquise por um personagem"
+            label="Search for a character"
             placeholder="Ex: Morty Smith"
             density="compact"
             variant="solo"
             single-line
             hide-details
             clearable
-            @update:model-value="search"
+            @update:model-value="searchByName"
             @click:append-inner="searchInApi"
             @click:clear="clearSearch"
         ></v-text-field>

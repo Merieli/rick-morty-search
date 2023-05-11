@@ -1,5 +1,9 @@
 <script setup lang="ts">
-defineProps({
+import { watch } from 'vue';
+
+import { useColorTags } from '@/composables/useColorTags';
+
+const props = defineProps({
     id: {
         type: Number,
         required: true,
@@ -22,29 +26,26 @@ defineProps({
     },
 });
 
-const colorToTag: Record<string, string> = {
-    Human: '#f2a38b',
-    Alien: '#8cafa5',
-    Robot: '#7b464c',
-    Cyborg: '#feffce',
-    Vampire: '#cdc2b3',
-    Other: '#BC98DB',
-};
+let colorTag = useColorTags(props.species).colorTagSpecie;
+
+/**
+ * Watch that solves problem with updating the color of the vuetify component, which does not
+ * detect the change of props
+ */
+watch(props, () => {
+    colorTag = useColorTags(props.species).colorTagSpecie;
+});
 </script>
 
 <template>
-    <section class="character-card animation-push" data-character="card" tabindex="0">
+    <v-card class="character-card animation-push" data-character="card" tabindex="0">
         <img class="character-card__image" data-character="image" :src="image" :alt="altImage" />
         <p class="character-card__id" data-character="id">#{{ id }}</p>
         <h2 class="character-card__name" data-character="name">{{ name }}</h2>
-        <div
-            class="character-card__tag"
-            data-character="species"
-            :style="`background-color: ${colorToTag[species] || colorToTag.Other}`"
-        >
+        <v-chip class="character-card__tag" data-character="species" :color="colorTag">
             {{ species }}
-        </div>
-    </section>
+        </v-chip>
+    </v-card>
 </template>
 
 <style lang="postcss" scoped>
@@ -97,9 +98,7 @@ const colorToTag: Record<string, string> = {
     }
 
     &__tag {
-        @apply px-2 py-1  
-            text-white text-center
-            inline-block rounded-3xl;
+        @apply px-2;
     }
 
     &__name {

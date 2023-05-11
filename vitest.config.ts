@@ -1,5 +1,4 @@
 import { resolve } from 'path';
-
 import { defineConfig } from 'vitest/config';
 
 import vue from '@vitejs/plugin-vue';

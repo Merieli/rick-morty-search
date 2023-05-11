@@ -2,7 +2,7 @@ import SearchActionsVue from '@components/SearchActions.vue';
 import { createTestingPinia } from '@pinia/testing';
 import { mount } from '@vue/test-utils';
 import { createVuetify } from 'vuetify';
-import { mockStoreCharacters } from './__mocks__/mockStoreCharacters';
+import { mockStoreCharacters } from '../__mocks__/mockStoreCharacters';
 
 import { useCharactersStore } from '@/infrastructure/store/characters';
 

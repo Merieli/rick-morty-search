@@ -4,14 +4,17 @@ import { ComputedRef, computed, onMounted } from 'vue';
 import { useQuantityBasedOnWidth } from '@composables/useQuantityBasedOnWidth';
 import CardLoading from './CardLoading.vue';
 import CharacterCard from './CharacterCard.vue';
+import CharacterTraits from './CharacterTraits.vue';
 
 import { useSearchActions } from '@/composables/useSearchActions';
+import { useSelectedCharacter } from '@/composables/useSelectedCharacter';
 import { Character } from '@/domain';
 import { useCharactersStore } from '@/infrastructure/store/characters';
 
 const store = useCharactersStore();
 const { totalOfCardsLoading, totalOfPagination } = useQuantityBasedOnWidth();
 const { clearSearch } = useSearchActions();
+const { setsSelectedCharacter } = useSelectedCharacter();
 
 onMounted(async () => {
     await store.getAllCharacters();
@@ -27,16 +30,18 @@ const listOfCharacters: ComputedRef<Character[]> = computed(() => {
     return [];
 });
 
-const openCharacter = (id: number) => {
-    console.warn('Abriu o personagem', id);
-};
-
 const changeThePage = async (page: number) => {
-    store.$patch({ pagination: { currentPage: page } });
+    store.$patch({
+        isLoading: true,
+        pagination: { currentPage: page },
+    });
 
     if (!store.charactersPerPage[store.pagination.currentPage]) {
         await store.getAllCharacters();
     }
+    store.$patch({
+        isLoading: false,
+    });
 };
 </script>
 
@@ -71,6 +76,7 @@ const changeThePage = async (page: number) => {
                 icon="mdi-close"
                 data-list="clear-search-button"
                 @click="clearSearch"
+                @keyup.enter="clearSearch"
             ></v-btn>
         </h4>
 
@@ -78,19 +84,23 @@ const changeThePage = async (page: number) => {
             {{ store.pagination.results }} results
         </h4>
 
+        <CharacterTraits />
         <main class="character-list__cards">
             <CharacterCard
                 v-for="(character, index) in listOfCharacters"
                 :id="Number(character.id)"
                 :key="index"
                 :name="character.name"
-                :species="character.species || ''"
+                :species="character.species"
                 :image="character.image"
                 :alt-image="`${character.name} of specie ${character.species}`"
                 data-list="card"
-                @click="openCharacter(character.id)"
+                @click="setsSelectedCharacter(character)"
+                @keyup.enter="setsSelectedCharacter(character)"
             />
-            <CardLoading v-if="store.isLoading" :quantity="totalOfCardsLoading" />
+            <div v-if="store.isLoading" class="character-list__loading">
+                <CardLoading :quantity="totalOfCardsLoading" />
+            </div>
         </main>
 
         <v-pagination
@@ -129,6 +139,11 @@ const changeThePage = async (page: number) => {
         @apply py-2 
             flex flex-row flex-wrap
             w-full;
+    }
+
+    &__loading {
+        @apply flex flex-row flex-wrap
+            mt-12 w-full h-full;
     }
 }
 </style>

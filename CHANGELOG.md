@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.4.0](https://github.com/Merieli/rick-morty-search/compare/v0.3.0...v0.4.0) (2023-05-11)
+
+
+### Features
+
+* added character traits ([252d083](https://github.com/Merieli/rick-morty-search/commit/252d083830413bfe3de091b7e5735c0d68e7c073))
+* **charactertraits:** style tweaks for traits ([dfbe54d](https://github.com/Merieli/rick-morty-search/commit/dfbe54dc0e950c1a4e3c53d6fe9d9ddbc5191da3))
+
 ## [0.3.0](https://github.com/Merieli/rick-morty-search/compare/v0.2.0...v0.3.0) (2023-04-27)
 
 

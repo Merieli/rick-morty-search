@@ -3,13 +3,14 @@ import { nextTick } from 'vue';
 import CharacterList from '@components/CharacterList.vue';
 import { createTestingPinia } from '@pinia/testing';
 import { mount } from '@vue/test-utils';
+import { Pinia } from 'pinia';
 import { createVuetify } from 'vuetify';
-import { mockListOfCharactersInSearch, mockStoreCharacters } from './__mocks__/mockStoreCharacters';
+import { mockListOfCharactersInSearch, mockStoreCharacters } from '../__mocks__/mockStoreCharacters';
 
 import { useCharactersStore } from '@/infrastructure/store/characters';
 
 describe('CharacterList.vue', () => {
-    let pinia: any;
+    let pinia: Pinia;
 
     const setupWrapper = () => {
         vi.mock('@/infrastructure/gateway/CharactersGatewayHttp');

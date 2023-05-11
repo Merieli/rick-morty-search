@@ -1,7 +1,7 @@
 import { useSearchActions } from '@composables/useSearchActions';
 import { createTestingPinia } from '@pinia/testing';
 import { setActivePinia } from 'pinia';
-import { mockListOfCharacters, mockStoreCharacters } from 'tests/components/__mocks__/mockStoreCharacters';
+import { mockListOfCharacters, mockStoreCharacters } from 'tests/__mocks__/mockStoreCharacters';
 
 import { useCharactersStore } from '@/infrastructure/store/characters';
 
@@ -33,11 +33,11 @@ describe('useSearchActions', () => {
 
     describe('🧪 Unidade:', () => {
         test('Dado a função de busca Quando pesquisar por um nome existente na lista de personagens Então após três segundos deve incluir todos encontrados na lista de personagens, e o termo pesquisado no campo text', () => {
-            const { search } = useSearchActions();
+            const { searchByName } = useSearchActions();
             const store = useCharactersStore();
             const nameToSearch = 'Rick';
 
-            search(nameToSearch);
+            searchByName(nameToSearch);
             vi.runAllTimers();
 
             expect(setTimeout).toHaveBeenCalledTimes(1);
@@ -46,11 +46,11 @@ describe('useSearchActions', () => {
         });
 
         test('Dado a função de busca Quando pesquisar por um nome que não existe na lista de personagens Então após três segundos a lista deve estar vazia e o campo text deve conter o termo pesquisado', () => {
-            const { search } = useSearchActions();
+            const { searchByName } = useSearchActions();
             const store = useCharactersStore();
             const nameToSearch = 'José';
 
-            search(nameToSearch);
+            searchByName(nameToSearch);
             vi.runAllTimers();
 
             expect(setTimeout).toHaveBeenCalledTimes(1);
@@ -59,11 +59,11 @@ describe('useSearchActions', () => {
         });
 
         test('Dado a função para limpar a pesquisa Quando executada após uma pesquisa Então deve limpar a lista de personagens, o termo pesquisado, a lista de personagens aleatórios e também retornar para false a exibição de random', () => {
-            const { search, clearSearch } = useSearchActions();
+            const { searchByName, clearSearch } = useSearchActions();
             const store = useCharactersStore();
             const nameToSearch = 'Rick';
 
-            search(nameToSearch);
+            searchByName(nameToSearch);
             vi.runAllTimers();
             clearSearch();
 
@@ -74,12 +74,12 @@ describe('useSearchActions', () => {
         });
 
         test('Dado a função de pesquisar na API Quando executada Então deve chamar o método de busca de personagem por nome da store', async () => {
-            const { search, searchInApi } = useSearchActions();
+            const { searchByName, searchInApi } = useSearchActions();
             const store = useCharactersStore();
             const nameToSearch = 'Rick';
             const spyFindCharacterByName = vi.spyOn(store, 'findCharacterByName');
 
-            search(nameToSearch);
+            searchByName(nameToSearch);
             await searchInApi();
 
             expect(spyFindCharacterByName).toHaveBeenCalledTimes(1);

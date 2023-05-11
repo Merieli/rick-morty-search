@@ -2,7 +2,7 @@
 
 exports[`SearchActions.vue > Integração/Componente > 👀 Renderização: > Dado o html do componente quando renderizado então deve ter os mesmos dados do snapshot gravado 1`] = `
 "<div class=\\"search-actions\\" data-v-670007cd=\\"\\">
-  <v-text-field class=\\"search-actions__input\\" data-search-actions=\\"input\\" append-inner-icon=\\"mdi-magnify\\" label=\\"Pesquise por um personagem\\" placeholder=\\"Ex: Morty Smith\\" density=\\"compact\\" variant=\\"solo\\" single-line=\\"\\" hide-details=\\"\\" clearable=\\"\\" data-v-670007cd=\\"\\"></v-text-field>
+  <v-text-field class=\\"search-actions__input\\" data-search-actions=\\"input\\" append-inner-icon=\\"mdi-magnify\\" label=\\"Search for a character\\" placeholder=\\"Ex: Morty Smith\\" density=\\"compact\\" variant=\\"solo\\" single-line=\\"\\" hide-details=\\"\\" clearable=\\"\\" data-v-670007cd=\\"\\"></v-text-field>
   <v-btn class=\\"search-actions__button\\" data-search-actions=\\"button\\" elevation=\\"1\\" depressed=\\"\\" data-v-670007cd=\\"\\"> Generate random <v-icon class=\\"search-actions__icon-button\\" icon=\\"mdi-reload\\" right=\\"\\" data-v-670007cd=\\"\\"></v-icon>
   </v-btn>
 </div>"

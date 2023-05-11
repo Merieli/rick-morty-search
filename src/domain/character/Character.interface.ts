@@ -1,13 +1,14 @@
-export interface Character {
-    id: number;
-    name: string;
-    image: string;
-    status: string;
-    gender?: string;
-    location?: string;
-    species?: string;
-    lastEpisode?: string;
-    origin?: string;
-}
+import { CharacterGender, CharacterStatus, Episode, LocationCharacter } from '..';
 
-export type CharacterCard = Pick<Character, 'id' | 'name' | 'image' | 'species'>;
+export interface Character {
+    id: string;
+    name: string;
+    type: string;
+    image: string;
+    status: CharacterStatus | null;
+    species: string;
+    gender: CharacterGender;
+    location: LocationCharacter;
+    episode: Episode[];
+    origin: string;
+}
