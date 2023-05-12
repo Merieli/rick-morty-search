@@ -7,7 +7,7 @@
 </h1>
 
 <p align="center">
-    A brief description of what this project does and who it's for
+    A study project with design created by myself, integrated with a free API available on the Rick and Morty design. It can be used by artists or curious people to search characters by name, or by category, and learn more about the design and even be surprised by the randomly generated character.
     <br><br>
     <a href="https://opensource.org/licenses/MIT">
         <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License MIT">
@@ -32,9 +32,11 @@
 
 ## ⚡ Tech Stack
 
-**Client:** <img src="https://img.icons8.com/color/48/000000/vue-js.png" width="18px"/> Vue.js, <img src="https://img.icons8.com/color/48/000000/typescript.png" width="18px"/> TypeScript, <img src="https://img.icons8.com/color/48/000000/tailwind_css.png" width="18px"/> Tailwind, <img src="https://vue-styleguidist.github.io/assets/logo.png" width="18px"/> Vue Styleguidist, <img src="https://cdn.vuetifyjs.com/docs/images/logos/vuetify-logo-v3-slim-light.svg" width="18px"/> Vuetify 3
+### Client
+<img src="https://img.icons8.com/color/48/000000/vue-js.png" width="18px"/> Vue.js, <img src="https://img.icons8.com/color/48/000000/typescript.png" width="18px"/> TypeScript, <img src="https://img.icons8.com/color/48/000000/tailwind_css.png" width="18px"/> Tailwind, <img src="https://cdn.vuetifyjs.com/docs/images/logos/vuetify-logo-v3-slim-light.svg" width="18px"/> Vuetify 3
 
-**Server:** API GraphQL - Rick and Morty
+### Server
+[API GraphQL - Rick and Morty](https://rickandmortyapi.com/)
 
 <br>
 

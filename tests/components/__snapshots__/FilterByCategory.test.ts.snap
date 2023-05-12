@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`FilterByCategory.vue > Integração/Componente > 👀 Renderização: > Dado o componente Quando renderizado Então deve possuir html equivalente ao Snapshot gravado 1`] = `
+"<teleport-stub to=\\"body\\">
+  <aside>
+    <h2 data-filter=\\"title\\">Selecione o filtro desejado</h2>
+  </aside>
+</teleport-stub>"
+`;

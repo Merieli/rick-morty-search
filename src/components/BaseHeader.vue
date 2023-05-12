@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import FilterByCategory from './FilterByCategory.vue';
 
 const showFilters = ref(false);
 
@@ -15,12 +16,9 @@ const toggleFilter = () => {
             <v-app-bar-nav-icon class="base-header__button" @click="toggleFilter">
                 <v-icon class="base-header__icon" icon="mdi-reorder-horizontal"></v-icon>
             </v-app-bar-nav-icon>
+            <FilterByCategory :show="showFilters" />
         </v-app-bar>
     </div>
-
-    <aside v-if="showFilters">
-        <h2>Selecione o filtro desejado</h2>
-    </aside>
 </template>
 
 <style lang="postcss" scoped>
