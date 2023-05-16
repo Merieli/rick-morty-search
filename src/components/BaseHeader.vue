@@ -16,8 +16,8 @@ const toggleFilter = () => {
             <v-app-bar-nav-icon class="base-header__button" @click="toggleFilter">
                 <v-icon class="base-header__icon" icon="mdi-reorder-horizontal"></v-icon>
             </v-app-bar-nav-icon>
-            <FilterByCategory :show="showFilters" />
         </v-app-bar>
+        <FilterByCategory :show="showFilters" @close="toggleFilter" />
     </div>
 </template>
 
@@ -54,9 +54,5 @@ const toggleFilter = () => {
 <style>
 .base-header .v-toolbar__content {
     max-width: 1024px;
-}
-
-.base-header .v-toolbar__content > .v-toolbar-title {
-    /* margin-inline-start: 2.5rem; */
 }
 </style>
