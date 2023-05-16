@@ -1,9 +1,35 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`FilterByCategory.vue > Integração/Componente > 👀 Renderização: > Dado o componente Quando renderizado Então deve possuir html equivalente ao Snapshot gravado 1`] = `
-"<teleport-stub to=\\"body\\">
-  <aside>
-    <h2 data-filter=\\"title\\">Selecione o filtro desejado</h2>
+"<v-overlay activator=\\"parent\\" scroll-strategy=\\"block\\" location-strategy=\\"static\\" data-v-ddb84b35=\\"\\">
+  <aside class=\\"filter\\" data-v-ddb84b35=\\"\\">
+    <h2 class=\\"filter__title\\" data-filter=\\"title\\" data-v-ddb84b35=\\"\\">Select the desired filter</h2>
+    <h3 class=\\"filter__subtitle\\" data-filter=\\"subtitle\\" data-v-ddb84b35=\\"\\">Species</h3>
+    <div class=\\"filter__content\\" data-v-ddb84b35=\\"\\">
+      <v-btn class=\\"filter__button\\" rounded=\\"lg\\" variant=\\"tonal\\" data-v-ddb84b35=\\"\\">alien</v-btn>
+      <v-btn class=\\"filter__button\\" rounded=\\"lg\\" variant=\\"tonal\\" data-v-ddb84b35=\\"\\">cronenberg</v-btn>
+      <v-btn class=\\"filter__button\\" rounded=\\"lg\\" variant=\\"tonal\\" data-v-ddb84b35=\\"\\">human</v-btn>
+      <v-btn class=\\"filter__button\\" rounded=\\"lg\\" variant=\\"tonal\\" data-v-ddb84b35=\\"\\">humanoid</v-btn>
+      <v-btn class=\\"filter__button\\" rounded=\\"lg\\" variant=\\"tonal\\" data-v-ddb84b35=\\"\\">cyborg</v-btn>
+      <v-btn class=\\"filter__button\\" rounded=\\"lg\\" variant=\\"tonal\\" data-v-ddb84b35=\\"\\">disease</v-btn>
+      <v-btn class=\\"filter__button\\" rounded=\\"lg\\" variant=\\"tonal\\" data-v-ddb84b35=\\"\\">robot</v-btn>
+      <v-btn class=\\"filter__button\\" rounded=\\"lg\\" variant=\\"tonal\\" data-v-ddb84b35=\\"\\">mytholog</v-btn>
+      <v-btn class=\\"filter__button\\" rounded=\\"lg\\" variant=\\"tonal\\" data-v-ddb84b35=\\"\\">mythological creature</v-btn>
+      <v-btn class=\\"filter__button\\" rounded=\\"lg\\" variant=\\"tonal\\" data-v-ddb84b35=\\"\\">poopybutthole</v-btn>
+      <v-btn class=\\"filter__button\\" rounded=\\"lg\\" variant=\\"tonal\\" data-v-ddb84b35=\\"\\">unknown</v-btn>
+    </div>
+    <h3 class=\\"filter__subtitle\\" data-filter=\\"subtitle\\" data-v-ddb84b35=\\"\\">State of Life</h3>
+    <div class=\\"filter__content--square\\" data-v-ddb84b35=\\"\\">
+      <v-btn class=\\"filter__button\\" rounded=\\"lg\\" variant=\\"tonal\\" data-v-ddb84b35=\\"\\">dead</v-btn>
+      <v-btn class=\\"filter__button\\" rounded=\\"lg\\" variant=\\"tonal\\" data-v-ddb84b35=\\"\\">alive</v-btn>
+      <v-btn class=\\"filter__button\\" rounded=\\"lg\\" variant=\\"tonal\\" data-v-ddb84b35=\\"\\">unknown</v-btn>
+    </div>
+    <h3 class=\\"filter__subtitle\\" data-filter=\\"subtitle\\" data-v-ddb84b35=\\"\\">Gender</h3>
+    <div class=\\"filter__content--square\\" data-v-ddb84b35=\\"\\">
+      <v-btn class=\\"filter__button\\" rounded=\\"lg\\" variant=\\"tonal\\" data-v-ddb84b35=\\"\\">male</v-btn>
+      <v-btn class=\\"filter__button\\" rounded=\\"lg\\" variant=\\"tonal\\" data-v-ddb84b35=\\"\\">female</v-btn>
+      <v-btn class=\\"filter__button\\" rounded=\\"lg\\" variant=\\"tonal\\" data-v-ddb84b35=\\"\\">unknown</v-btn>
+    </div>
   </aside>
-</teleport-stub>"
+</v-overlay>"
 `;

@@ -10,9 +10,6 @@ describe('FilterByCategory.vue', () => {
         wrapper = mount(FilterByCategoryVue, {
             global: {
                 plugins: [vuetify],
-                stubs: {
-                    teleport: true,
-                },
             },
             props: {
                 show: true,
@@ -28,13 +25,25 @@ describe('FilterByCategory.vue', () => {
             test('Dado o filtro de personagens Quando renderizado Então deve possuir um titulo que indique a necessidade de seleção dos filtros', () => {
                 const title = wrapper.find('[data-filter="title"]');
 
-                expect(title.text()).toBe('Selecione o filtro desejado');
+                expect(title.text()).toBe('Select the desired filter');
             });
 
-            test('Dado os filtros de personagem Quando renderizado Então deve possuir um filtro de categoria', () => {
+            test('Dado os filtros de personagem Quando renderizado Então deve possuir um filtro de espécies', () => {
                 const title = wrapper.findAll('[data-filter="subtitle"]');
 
-                expect(title[0].text()).toBe('Categoria');
+                expect(title[0].text()).toBe('Species');
+            });
+
+            test('Dado os filtros de personagem Quando renderizado Então deve possuir um filtro de estado de vida', () => {
+                const title = wrapper.findAll('[data-filter="subtitle"]');
+
+                expect(title[1].text()).toBe('State of Life');
+            });
+
+            test('Dado os filtros de personagem Quando renderizado Então deve possuir um filtro de gênero', () => {
+                const title = wrapper.findAll('[data-filter="subtitle"]');
+
+                expect(title[2].text()).toBe('Gender');
             });
         });
         // describe('🧠 Comportamento:', () => {});
