@@ -1,17 +1,11 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { ref } from 'vue';
 
-export interface FilterByCategory {
-    show: boolean;
-}
+const showFilters = ref(false);
 
-const props = withDefaults(defineProps<FilterByCategory>(), {
-    show: false,
-});
-
-const showFilter = computed(() => props.show);
-
-defineEmits(['close']);
+const toggleFilter = () => {
+    showFilters.value = !showFilters.value;
+};
 
 const filters = {
     species: [
@@ -42,10 +36,19 @@ const iconGender: Record<string, string> = {
     female: 'mdi-gender-female',
     unknown: 'mdi-help',
 };
+
+const colorGender: Record<string, string> = {
+    male: 'indigo-lighten-3',
+    female: 'pink-lighten-3',
+    unknown: 'yellow-lighten-3',
+};
 </script>
 
 <template>
-    <v-overlay activator="parent" scroll-strategy="block" location-strategy="static">
+    <v-app-bar-nav-icon class="filter__button" @click="toggleFilter">
+        <v-icon class="filter__icon" icon="mdi-reorder-horizontal"></v-icon>
+    </v-app-bar-nav-icon>
+    <v-overlay :model-value="showFilters" scroll-strategy="block" location-strategy="static">
         <aside class="filter">
             <v-btn
                 class="filter__back-button"
@@ -53,7 +56,7 @@ const iconGender: Record<string, string> = {
                 density="compact"
                 icon="mdi-arrow-left"
                 size="x-large"
-                @click="$emit('close')"
+                @click="toggleFilter"
             ></v-btn>
             <h2 class="filter__title" data-filter="title">Select the desired filter</h2>
 
@@ -62,7 +65,7 @@ const iconGender: Record<string, string> = {
                 <v-btn
                     v-for="(species, index) in filters.species"
                     :key="index"
-                    class="filter__button"
+                    class="filter__option"
                     rounded="lg"
                     variant="tonal"
                     >{{ species }}</v-btn
@@ -74,7 +77,7 @@ const iconGender: Record<string, string> = {
                 <v-btn
                     v-for="(status, index) in filters.status"
                     :key="index"
-                    class="filter__button"
+                    class="filter__option"
                     rounded="lg"
                     variant="tonal"
                     icon
@@ -92,13 +95,13 @@ const iconGender: Record<string, string> = {
                 <v-btn
                     v-for="(gender, index) in filters.gender"
                     :key="index"
-                    class="filter__button"
+                    class="filter__option"
                     rounded="lg"
                     variant="tonal"
                     icon
                     size="x-large"
                 >
-                    <v-icon style="font-size: 40px">
+                    <v-icon style="font-size: 40px" :color="colorGender[gender]">
                         {{ iconGender[gender] }}
                     </v-icon>
                     <v-tooltip activator="parent" location="bottom">{{ gender }}</v-tooltip>
@@ -115,6 +118,13 @@ const iconGender: Record<string, string> = {
         py-10 px-10
         overflow-y-auto scroll-smooth;
 
+    &__button {
+        @apply bg-meri-light rounded-full
+            cursor-pointer
+            hover:opacity-60 transition-opacity
+            w-10 h-10;
+    }
+
     &__title {
         @apply font-extrabold text-lg
             pb-4;
@@ -128,7 +138,7 @@ const iconGender: Record<string, string> = {
     &__content {
         @apply mb-7;
 
-        .filter__button {
+        .filter__option {
             @apply mr-4 mb-4
                 h-12;
             width: calc((100% - 1rem) / 2);
@@ -136,15 +146,11 @@ const iconGender: Record<string, string> = {
             &:nth-child(2n) {
                 @apply mr-0;
             }
-
-            .v-btn__content {
-                @apply whitespace-normal;
-            }
         }
 
         &--square {
             @apply mb-7;
-            .filter__button {
+            .filter__option {
                 @apply mr-4 h-24;
                 width: calc((100% - 2rem) / 3);
 
@@ -160,5 +166,10 @@ const iconGender: Record<string, string> = {
     @apply w-full h-full
         pr-0
         flex flex-col justify-start items-end;
+}
+</style>
+<style>
+.v-btn .v-btn__content {
+    white-space: normal;
 }
 </style>

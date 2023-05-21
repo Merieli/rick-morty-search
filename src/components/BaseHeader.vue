@@ -1,23 +1,14 @@
 <script setup lang="ts">
-import { ref } from 'vue';
 import FilterByCategory from './FilterByCategory.vue';
-
-const showFilters = ref(false);
-
-const toggleFilter = () => {
-    showFilters.value = !showFilters.value;
-};
 </script>
 
 <template>
     <div class="base-header">
         <v-app-bar elevation="0" class="base-header__content">
             <v-app-bar-title class="base-header__title">Ricky&Morty Search</v-app-bar-title>
-            <v-app-bar-nav-icon class="base-header__button" @click="toggleFilter">
-                <v-icon class="base-header__icon" icon="mdi-reorder-horizontal"></v-icon>
-            </v-app-bar-nav-icon>
+
+            <FilterByCategory />
         </v-app-bar>
-        <FilterByCategory :show="showFilters" @close="toggleFilter" />
     </div>
 </template>
 

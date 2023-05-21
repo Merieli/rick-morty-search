@@ -25,4 +25,4 @@ const vuetify = createVuetify({
 
 const pinia = createPinia();
 
-createApp(App).use(pinia).use(vuetify).mount('#app');
+createApp(App).use(vuetify).use(pinia).mount('#app');
