@@ -112,6 +112,55 @@ export default class CharactersGatewayHttp {
         return charactersData.characters;
     }
 
+    /**
+     * Search for a character by species in the api
+     *
+     * @param category - text of the category of the character sought
+     * @param page - page looking for characters
+     * @returns {Promise<ApiCharactersResponse>}
+     */
+    async findBy(filter: string, category: string, page?: number): Promise<ApiCharactersResponse> {
+        const filterCharacterByCategory = `
+            query filterCharacterByCategory {
+                characters(page: ${page}, filter: { ${filter}: "${category}" }) {
+                    results {
+                        id
+                        name
+                        status
+                        image
+                        species
+                        type
+                        gender
+                        episode {
+                            name
+                            episode
+                            air_date
+                        }
+                        location {
+                            id
+                            name
+                            type
+                            dimension
+                        }
+                        origin {
+                            name
+                        }                      
+                    }
+                    info {
+                        count
+                        pages
+                        next
+                        prev
+                    }
+                }
+            }
+        `;
+
+        const charactersData = await this.httpClient.post<ApiCharactersResponseData>(filterCharacterByCategory);
+
+        return charactersData.characters;
+    }
+
     async findByIds(id: number[] | number): Promise<ApiCharacter[]> {
         const filterCharacterByName = `
             query findCharacterById {

@@ -116,6 +116,27 @@ export const useCharactersStore = defineStore('characters', () => {
     };
 
     /**
+     * Search for a character by name in the api and store it in the store
+     * @param category - character's category
+     */
+    const findCharacterBy = async (filter: string, category: string) => {
+        try {
+            isLoading.value = true;
+            search.text = `${filter} ${category}`;
+            const response = await api.findBy(filter, category, 1);
+            const listOfCharactersPrepared = prepareCharacterData(response.results);
+
+            search.characters = listOfCharactersPrepared;
+            search.pagination.total = response.info.pages;
+            search.pagination.results = response.info.count;
+        } catch (error) {
+            const { code } = logError('Action findCharacterBy', error);
+        } finally {
+            isLoading.value = false;
+        }
+    };
+
+    /**
      * Searches for a random character and saves it in the store by activating its display
      */
     const generateRandomCharacter = async () => {
@@ -147,6 +168,7 @@ export const useCharactersStore = defineStore('characters', () => {
         isSelected,
         getAllCharacters,
         findCharacterByName,
+        findCharacterBy,
         generateRandomCharacter,
     };
 });

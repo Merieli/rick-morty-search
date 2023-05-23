@@ -30,8 +30,8 @@ watch(id, () => {
 </script>
 
 <template>
-    <Teleport to="body">
-        <v-card v-if="store.isSelected" class="character-traits">
+    <v-overlay :model-value="store.isSelected" class="character-traits__overlay" scroll-strategy="block">
+        <v-card class="character-traits">
             <v-card-title class="character-traits__title">
                 <div class="character-traits__button-wrapper">
                     <v-btn
@@ -77,26 +77,12 @@ watch(id, () => {
                 :episode="episode"
             ></CharacterTraitsTabs>
         </v-card>
-    </Teleport>
+    </v-overlay>
 </template>
 
 <style lang="postcss" scoped>
-body,
-#app {
-    /* @apply overflow-hidden overflow-visible; */
-
-    scrollbar-width: 0px;
-    overflow: hidden;
-    overflow-y: hidden;
-
-    &::-webkit-scrollbar {
-        display: none;
-    }
-}
-
 .character-traits {
-    @apply w-full h-full
-        fixed top-0
+    @apply min-w-full h-full
         bg-meri-light;
 
     &__title {
@@ -130,5 +116,11 @@ body,
     &__image {
         @apply rounded-3xl sm:max-w-[250px] tablet:max-w-xs m-auto;
     }
+}
+</style>
+<style>
+.character-traits__overlay .v-overlay__content {
+    width: 100%;
+    height: 100vh;
 }
 </style>

@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
+import { useCharactersStore } from '@/infrastructure/store/characters';
+
+const store = useCharactersStore();
 const showFilters = ref(false);
 
 const toggleFilter = () => {
@@ -37,10 +40,15 @@ const iconGender: Record<string, string> = {
     unknown: 'mdi-help',
 };
 
-const colorGender: Record<string, string> = {
-    male: 'indigo-lighten-3',
-    female: 'pink-lighten-3',
-    unknown: 'yellow-lighten-3',
+const colorIndex: Record<number, string> = {
+    0: 'meri-light',
+    1: 'meri-mid',
+    2: '#73548F',
+};
+
+const filterBy = async (filter: string, species: string) => {
+    await store.findCharacterBy(filter, species);
+    toggleFilter();
 };
 </script>
 
@@ -56,6 +64,7 @@ const colorGender: Record<string, string> = {
                 density="compact"
                 icon="mdi-arrow-left"
                 size="x-large"
+                color="#a1a1aa"
                 @click="toggleFilter"
             ></v-btn>
             <h2 class="filter__title" data-filter="title">Select the desired filter</h2>
@@ -68,8 +77,10 @@ const colorGender: Record<string, string> = {
                     class="filter__option"
                     rounded="lg"
                     variant="tonal"
-                    >{{ species }}</v-btn
+                    @click="filterBy('species', species)"
                 >
+                    {{ species }}
+                </v-btn>
             </div>
 
             <h3 class="filter__subtitle" data-filter="subtitle">State of Life</h3>
@@ -79,11 +90,13 @@ const colorGender: Record<string, string> = {
                     :key="index"
                     class="filter__option"
                     rounded="lg"
-                    variant="tonal"
+                    variant="flat"
+                    :color="colorIndex[index]"
                     icon
                     size="x-large"
+                    @click="filterBy('status', status)"
                 >
-                    <v-icon style="font-size: 40px">
+                    <v-icon style="font-size: 40px" color="white">
                         {{ iconStatus[status] }}
                     </v-icon>
                     <v-tooltip activator="parent" location="bottom">{{ status }}</v-tooltip>
@@ -97,11 +110,13 @@ const colorGender: Record<string, string> = {
                     :key="index"
                     class="filter__option"
                     rounded="lg"
-                    variant="tonal"
+                    variant="flat"
+                    :color="colorIndex[index]"
                     icon
                     size="x-large"
+                    @click="filterBy('gender', gender)"
                 >
-                    <v-icon style="font-size: 40px" :color="colorGender[gender]">
+                    <v-icon style="font-size: 40px" color="white">
                         {{ iconGender[gender] }}
                     </v-icon>
                     <v-tooltip activator="parent" location="bottom">{{ gender }}</v-tooltip>
@@ -114,7 +129,7 @@ const colorGender: Record<string, string> = {
 <style lang="postcss" scoped>
 .filter {
     @apply bg-white
-        h-full max-h-screen min-h-screen w-[400px]
+        h-full max-h-screen min-h-screen sm:w-full w-[450px] 
         py-10 px-10
         overflow-y-auto scroll-smooth;
 
@@ -126,8 +141,8 @@ const colorGender: Record<string, string> = {
     }
 
     &__title {
-        @apply font-extrabold text-lg
-            pb-4;
+        @apply font-extrabold text-xl
+            pb-6;
     }
 
     &__subtitle {
@@ -140,7 +155,7 @@ const colorGender: Record<string, string> = {
 
         .filter__option {
             @apply mr-4 mb-4
-                h-12;
+                h-14;
             width: calc((100% - 1rem) / 2);
 
             &:nth-child(2n) {
