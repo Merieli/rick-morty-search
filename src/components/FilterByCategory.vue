@@ -40,8 +40,8 @@ const iconGender: Record<string, string> = {
     unknown: 'mdi-help',
 };
 
-const filterBy = async (filter: string, species: string) => {
-    await store.findCharacterBy(filter, species);
+const filterBy = async (filter: string, category: string) => {
+    await store.findCharacterBy(filter, category);
     toggleFilter();
 };
 </script>
