@@ -30,8 +30,9 @@ watch(id, () => {
 </script>
 
 <template>
-    <v-overlay :model-value="store.isSelected" class="character-traits__overlay" scroll-strategy="block">
-        <v-card class="character-traits">
+    <!-- <v-overlay activator="parent" class="character-traits__overlay" scroll-strategy="block"> -->
+    <Teleport to="body">
+        <v-card v-if="store.isSelected" class="character-traits">
             <v-card-title class="character-traits__title">
                 <div class="character-traits__button-wrapper">
                     <v-btn
@@ -64,7 +65,6 @@ watch(id, () => {
                     {{ status }}
                 </v-chip>
             </v-card-subtitle>
-
             <v-card-text>
                 <img class="character-traits__image" :src="image" alt="" />
             </v-card-text>
@@ -77,13 +77,14 @@ watch(id, () => {
                 :episode="episode"
             ></CharacterTraitsTabs>
         </v-card>
-    </v-overlay>
+    </Teleport>
 </template>
 
 <style lang="postcss" scoped>
 .character-traits {
     @apply min-w-full h-full
-        bg-meri-light;
+        bg-meri-light
+        absolute left-0 top-0;
 
     &__title {
         @apply flex justify-start items-center flex-wrap;
