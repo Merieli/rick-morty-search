@@ -40,12 +40,6 @@ const iconGender: Record<string, string> = {
     unknown: 'mdi-help',
 };
 
-const colorIndex: Record<number, string> = {
-    0: 'meri-light',
-    1: 'meri-mid',
-    2: '#73548F',
-};
-
 const filterBy = async (filter: string, species: string) => {
     await store.findCharacterBy(filter, species);
     toggleFilter();
@@ -53,7 +47,7 @@ const filterBy = async (filter: string, species: string) => {
 </script>
 
 <template>
-    <v-app-bar-nav-icon class="filter__button" @click="toggleFilter">
+    <v-app-bar-nav-icon class="filter__button" data-filter="button" @click="toggleFilter">
         <v-icon class="filter__icon" icon="mdi-reorder-horizontal"></v-icon>
     </v-app-bar-nav-icon>
     <v-overlay :model-value="showFilters" scroll-strategy="block" location-strategy="static">
@@ -76,7 +70,9 @@ const filterBy = async (filter: string, species: string) => {
                     :key="index"
                     class="filter__option"
                     rounded="lg"
-                    variant="tonal"
+                    variant="flat"
+                    color="gray-150"
+                    data-filter="button-species"
                     @click="filterBy('species', species)"
                 >
                     {{ species }}
@@ -91,12 +87,12 @@ const filterBy = async (filter: string, species: string) => {
                     class="filter__option"
                     rounded="lg"
                     variant="flat"
-                    :color="colorIndex[index]"
+                    color="gray-150"
                     icon
                     size="x-large"
                     @click="filterBy('status', status)"
                 >
-                    <v-icon style="font-size: 40px" color="white">
+                    <v-icon style="font-size: 40px" color="#73548F">
                         {{ iconStatus[status] }}
                     </v-icon>
                     <v-tooltip activator="parent" location="bottom">{{ status }}</v-tooltip>
@@ -111,12 +107,12 @@ const filterBy = async (filter: string, species: string) => {
                     class="filter__option"
                     rounded="lg"
                     variant="flat"
-                    :color="colorIndex[index]"
+                    color="gray-150"
                     icon
                     size="x-large"
                     @click="filterBy('gender', gender)"
                 >
-                    <v-icon style="font-size: 40px" color="white">
+                    <v-icon style="font-size: 40px" color="#73548F">
                         {{ iconGender[gender] }}
                     </v-icon>
                     <v-tooltip activator="parent" location="bottom">{{ gender }}</v-tooltip>
@@ -155,7 +151,8 @@ const filterBy = async (filter: string, species: string) => {
 
         .filter__option {
             @apply mr-4 mb-4
-                h-14;
+                h-14
+                font-bold text-[#73548F];
             width: calc((100% - 1rem) / 2);
 
             &:nth-child(2n) {

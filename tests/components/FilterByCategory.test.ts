@@ -1,21 +1,43 @@
 import { mount, VueWrapper } from '@vue/test-utils';
 import { createVuetify } from 'vuetify';
 
+import { createTestingPinia } from '@pinia/testing';
+import { Pinia } from 'pinia';
+import { mockListOfCharacters } from '../__mocks__/mockStoreCharacters';
+
 import FilterByCategoryVue from '@/components/FilterByCategory.vue';
+import { useCharactersStore } from '@/infrastructure/store/characters';
 
 describe('FilterByCategory.vue', () => {
     let wrapper: VueWrapper;
+    let pinia: Pinia;
+
+    let store: any;
+
+    const mockStore = {
+        characters: {
+            search: {
+                text: '',
+                characters: mockListOfCharacters,
+            },
+        },
+    };
+
     beforeEach(() => {
         const vuetify = createVuetify();
+        pinia = createTestingPinia({
+            initialState: mockStore,
+        });
+
+        store = useCharactersStore();
+
         wrapper = mount(FilterByCategoryVue, {
             global: {
-                plugins: [vuetify],
-            },
-            props: {
-                show: true,
+                plugins: [pinia, vuetify],
             },
         });
     });
+
     describe('Integração/Componente', () => {
         describe('👀 Renderização:', () => {
             test('Dado o componente Quando renderizado Então deve possuir html equivalente ao Snapshot gravado', () => {
@@ -46,7 +68,15 @@ describe('FilterByCategory.vue', () => {
                 expect(title[2].text()).toBe('Gender');
             });
         });
-        // describe('🧠 Comportamento:', () => {});
-        // describe('🐕 Navegação:', () => {});
+        describe('🧠 Comportamento:', () => {
+            test('Dado o botão para filtrar personagens Quando clicado Então deve executar a action necessária', async () => {
+                const button = wrapper.find('[data-filter="button-species"]');
+
+                const spyAction = vi.spyOn(store, 'findCharacterBy');
+                await button.trigger('click');
+
+                expect(spyAction).toHaveBeenCalledTimes(1);
+            });
+        });
     });
 });

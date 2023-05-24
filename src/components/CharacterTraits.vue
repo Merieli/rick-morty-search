@@ -30,7 +30,6 @@ watch(id, () => {
 </script>
 
 <template>
-    <!-- <v-overlay activator="parent" class="character-traits__overlay" scroll-strategy="block"> -->
     <Teleport to="body">
         <v-card v-if="store.isSelected" class="character-traits">
             <v-card-title class="character-traits__title">

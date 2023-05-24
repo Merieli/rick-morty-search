@@ -1,34 +1,56 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`FilterByCategory.vue > Integração/Componente > 👀 Renderização: > Dado o componente Quando renderizado Então deve possuir html equivalente ao Snapshot gravado 1`] = `
-"<v-overlay activator=\\"parent\\" scroll-strategy=\\"block\\" location-strategy=\\"static\\" data-v-ddb84b35=\\"\\">
+"<v-app-bar-nav-icon class=\\"filter__button\\" data-filter=\\"button\\" data-v-ddb84b35=\\"\\">
+  <v-icon class=\\"filter__icon\\" icon=\\"mdi-reorder-horizontal\\" data-v-ddb84b35=\\"\\"></v-icon>
+</v-app-bar-nav-icon>
+<v-overlay model-value=\\"false\\" scroll-strategy=\\"block\\" location-strategy=\\"static\\" data-v-ddb84b35=\\"\\">
   <aside class=\\"filter\\" data-v-ddb84b35=\\"\\">
+    <v-btn class=\\"filter__back-button\\" variant=\\"text\\" density=\\"compact\\" icon=\\"mdi-arrow-left\\" size=\\"x-large\\" color=\\"#a1a1aa\\" data-v-ddb84b35=\\"\\"></v-btn>
     <h2 class=\\"filter__title\\" data-filter=\\"title\\" data-v-ddb84b35=\\"\\">Select the desired filter</h2>
     <h3 class=\\"filter__subtitle\\" data-filter=\\"subtitle\\" data-v-ddb84b35=\\"\\">Species</h3>
     <div class=\\"filter__content\\" data-v-ddb84b35=\\"\\">
-      <v-btn class=\\"filter__button\\" rounded=\\"lg\\" variant=\\"tonal\\" data-v-ddb84b35=\\"\\">alien</v-btn>
-      <v-btn class=\\"filter__button\\" rounded=\\"lg\\" variant=\\"tonal\\" data-v-ddb84b35=\\"\\">cronenberg</v-btn>
-      <v-btn class=\\"filter__button\\" rounded=\\"lg\\" variant=\\"tonal\\" data-v-ddb84b35=\\"\\">human</v-btn>
-      <v-btn class=\\"filter__button\\" rounded=\\"lg\\" variant=\\"tonal\\" data-v-ddb84b35=\\"\\">humanoid</v-btn>
-      <v-btn class=\\"filter__button\\" rounded=\\"lg\\" variant=\\"tonal\\" data-v-ddb84b35=\\"\\">cyborg</v-btn>
-      <v-btn class=\\"filter__button\\" rounded=\\"lg\\" variant=\\"tonal\\" data-v-ddb84b35=\\"\\">disease</v-btn>
-      <v-btn class=\\"filter__button\\" rounded=\\"lg\\" variant=\\"tonal\\" data-v-ddb84b35=\\"\\">robot</v-btn>
-      <v-btn class=\\"filter__button\\" rounded=\\"lg\\" variant=\\"tonal\\" data-v-ddb84b35=\\"\\">mytholog</v-btn>
-      <v-btn class=\\"filter__button\\" rounded=\\"lg\\" variant=\\"tonal\\" data-v-ddb84b35=\\"\\">mythological creature</v-btn>
-      <v-btn class=\\"filter__button\\" rounded=\\"lg\\" variant=\\"tonal\\" data-v-ddb84b35=\\"\\">poopybutthole</v-btn>
-      <v-btn class=\\"filter__button\\" rounded=\\"lg\\" variant=\\"tonal\\" data-v-ddb84b35=\\"\\">unknown</v-btn>
+      <v-btn class=\\"filter__option\\" rounded=\\"lg\\" variant=\\"flat\\" color=\\"gray-150\\" data-filter=\\"button-species\\" data-v-ddb84b35=\\"\\">alien</v-btn>
+      <v-btn class=\\"filter__option\\" rounded=\\"lg\\" variant=\\"flat\\" color=\\"gray-150\\" data-filter=\\"button-species\\" data-v-ddb84b35=\\"\\">cronenberg</v-btn>
+      <v-btn class=\\"filter__option\\" rounded=\\"lg\\" variant=\\"flat\\" color=\\"gray-150\\" data-filter=\\"button-species\\" data-v-ddb84b35=\\"\\">human</v-btn>
+      <v-btn class=\\"filter__option\\" rounded=\\"lg\\" variant=\\"flat\\" color=\\"gray-150\\" data-filter=\\"button-species\\" data-v-ddb84b35=\\"\\">humanoid</v-btn>
+      <v-btn class=\\"filter__option\\" rounded=\\"lg\\" variant=\\"flat\\" color=\\"gray-150\\" data-filter=\\"button-species\\" data-v-ddb84b35=\\"\\">cyborg</v-btn>
+      <v-btn class=\\"filter__option\\" rounded=\\"lg\\" variant=\\"flat\\" color=\\"gray-150\\" data-filter=\\"button-species\\" data-v-ddb84b35=\\"\\">disease</v-btn>
+      <v-btn class=\\"filter__option\\" rounded=\\"lg\\" variant=\\"flat\\" color=\\"gray-150\\" data-filter=\\"button-species\\" data-v-ddb84b35=\\"\\">robot</v-btn>
+      <v-btn class=\\"filter__option\\" rounded=\\"lg\\" variant=\\"flat\\" color=\\"gray-150\\" data-filter=\\"button-species\\" data-v-ddb84b35=\\"\\">mytholog</v-btn>
+      <v-btn class=\\"filter__option\\" rounded=\\"lg\\" variant=\\"flat\\" color=\\"gray-150\\" data-filter=\\"button-species\\" data-v-ddb84b35=\\"\\">mythological creature</v-btn>
+      <v-btn class=\\"filter__option\\" rounded=\\"lg\\" variant=\\"flat\\" color=\\"gray-150\\" data-filter=\\"button-species\\" data-v-ddb84b35=\\"\\">poopybutthole</v-btn>
+      <v-btn class=\\"filter__option\\" rounded=\\"lg\\" variant=\\"flat\\" color=\\"gray-150\\" data-filter=\\"button-species\\" data-v-ddb84b35=\\"\\">unknown</v-btn>
     </div>
     <h3 class=\\"filter__subtitle\\" data-filter=\\"subtitle\\" data-v-ddb84b35=\\"\\">State of Life</h3>
     <div class=\\"filter__content--square\\" data-v-ddb84b35=\\"\\">
-      <v-btn class=\\"filter__button\\" rounded=\\"lg\\" variant=\\"tonal\\" data-v-ddb84b35=\\"\\">dead</v-btn>
-      <v-btn class=\\"filter__button\\" rounded=\\"lg\\" variant=\\"tonal\\" data-v-ddb84b35=\\"\\">alive</v-btn>
-      <v-btn class=\\"filter__button\\" rounded=\\"lg\\" variant=\\"tonal\\" data-v-ddb84b35=\\"\\">unknown</v-btn>
+      <v-btn class=\\"filter__option\\" rounded=\\"lg\\" variant=\\"flat\\" color=\\"gray-150\\" icon=\\"\\" size=\\"x-large\\" data-v-ddb84b35=\\"\\">
+        <v-icon style=\\"font-size: 40px;\\" color=\\"#73548F\\" data-v-ddb84b35=\\"\\">mdi-heart-box</v-icon>
+        <v-tooltip activator=\\"parent\\" location=\\"bottom\\" data-v-ddb84b35=\\"\\">alive</v-tooltip>
+      </v-btn>
+      <v-btn class=\\"filter__option\\" rounded=\\"lg\\" variant=\\"flat\\" color=\\"gray-150\\" icon=\\"\\" size=\\"x-large\\" data-v-ddb84b35=\\"\\">
+        <v-icon style=\\"font-size: 40px;\\" color=\\"#73548F\\" data-v-ddb84b35=\\"\\">mdi-coffin</v-icon>
+        <v-tooltip activator=\\"parent\\" location=\\"bottom\\" data-v-ddb84b35=\\"\\">dead</v-tooltip>
+      </v-btn>
+      <v-btn class=\\"filter__option\\" rounded=\\"lg\\" variant=\\"flat\\" color=\\"gray-150\\" icon=\\"\\" size=\\"x-large\\" data-v-ddb84b35=\\"\\">
+        <v-icon style=\\"font-size: 40px;\\" color=\\"#73548F\\" data-v-ddb84b35=\\"\\">mdi-account-question</v-icon>
+        <v-tooltip activator=\\"parent\\" location=\\"bottom\\" data-v-ddb84b35=\\"\\">unknown</v-tooltip>
+      </v-btn>
     </div>
     <h3 class=\\"filter__subtitle\\" data-filter=\\"subtitle\\" data-v-ddb84b35=\\"\\">Gender</h3>
     <div class=\\"filter__content--square\\" data-v-ddb84b35=\\"\\">
-      <v-btn class=\\"filter__button\\" rounded=\\"lg\\" variant=\\"tonal\\" data-v-ddb84b35=\\"\\">male</v-btn>
-      <v-btn class=\\"filter__button\\" rounded=\\"lg\\" variant=\\"tonal\\" data-v-ddb84b35=\\"\\">female</v-btn>
-      <v-btn class=\\"filter__button\\" rounded=\\"lg\\" variant=\\"tonal\\" data-v-ddb84b35=\\"\\">unknown</v-btn>
+      <v-btn class=\\"filter__option\\" rounded=\\"lg\\" variant=\\"flat\\" color=\\"gray-150\\" icon=\\"\\" size=\\"x-large\\" data-v-ddb84b35=\\"\\">
+        <v-icon style=\\"font-size: 40px;\\" color=\\"#73548F\\" data-v-ddb84b35=\\"\\">mdi-gender-female</v-icon>
+        <v-tooltip activator=\\"parent\\" location=\\"bottom\\" data-v-ddb84b35=\\"\\">female</v-tooltip>
+      </v-btn>
+      <v-btn class=\\"filter__option\\" rounded=\\"lg\\" variant=\\"flat\\" color=\\"gray-150\\" icon=\\"\\" size=\\"x-large\\" data-v-ddb84b35=\\"\\">
+        <v-icon style=\\"font-size: 40px;\\" color=\\"#73548F\\" data-v-ddb84b35=\\"\\">mdi-gender-male</v-icon>
+        <v-tooltip activator=\\"parent\\" location=\\"bottom\\" data-v-ddb84b35=\\"\\">male</v-tooltip>
+      </v-btn>
+      <v-btn class=\\"filter__option\\" rounded=\\"lg\\" variant=\\"flat\\" color=\\"gray-150\\" icon=\\"\\" size=\\"x-large\\" data-v-ddb84b35=\\"\\">
+        <v-icon style=\\"font-size: 40px;\\" color=\\"#73548F\\" data-v-ddb84b35=\\"\\">mdi-help</v-icon>
+        <v-tooltip activator=\\"parent\\" location=\\"bottom\\" data-v-ddb84b35=\\"\\">unknown</v-tooltip>
+      </v-btn>
     </div>
   </aside>
 </v-overlay>"
