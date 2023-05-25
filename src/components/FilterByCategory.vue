@@ -125,7 +125,7 @@ const filterBy = async (filter: string, category: string) => {
 <style lang="postcss" scoped>
 .filter {
     @apply bg-white
-        h-full max-h-screen min-h-screen sm:w-full w-[450px] 
+        h-full max-h-screen min-h-screen w-full mobile:w-[450px] 
         py-10 px-10
         overflow-y-auto scroll-smooth;
 
@@ -152,7 +152,7 @@ const filterBy = async (filter: string, category: string) => {
         .filter__option {
             @apply mr-4 mb-4
                 h-14
-                font-bold text-[#73548F];
+                font-bold text-[#73548F] text-xs mobile:text-sm;
             width: calc((100% - 1rem) / 2);
 
             &:nth-child(2n) {

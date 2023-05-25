@@ -1,10 +1,12 @@
 Tasks:
-    ✔ Filtrar personagem por categoria @started(12-05-23 06:24) @done(24-05-23 20:22) @lasted(1w5d13h58m13s)
     ☐ Rodapé com informações do projeto
     ☐ Notificar usuário de erros
     
+Fix:
+    ☐ Ajustar exibição do componente CharacterTraits 
 -----------
 Done:
+    ✔ Filtrar personagem por categoria @started(12-05-23 06:24) @done(24-05-23 20:22) @lasted(1w5d13h58m13s)
     ✔ Características do Personagem @started(23-04-30 08:29) @done(11-05-23 20:39) @lasted(-6y49w5d11h49m30s)
         
     ✔ Lista de Personagens @done(23-04-27 07:51)
