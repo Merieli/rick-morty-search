@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.5.0](https://github.com/Merieli/rick-morty-search/compare/v0.4.0...v0.5.0) (2023-05-25)
+
+
+### Features
+
+* add icons in character filter ([bc4591d](https://github.com/Merieli/rick-morty-search/commit/bc4591d6103943c37066752249d38ece90de5f51))
+* added character filter ([479f80e](https://github.com/Merieli/rick-morty-search/commit/479f80e51079932a482296ed4a7c89e669201fb3))
+* character filter structure ([359051e](https://github.com/Merieli/rick-morty-search/commit/359051efff3334e8570ae9b9c12f0ac0079b2fbd))
+* filter character by category ([2356e4c](https://github.com/Merieli/rick-morty-search/commit/2356e4ce3dec48c46a10fb0800a4d4f0359289bb))
+* filter character by category and colors to filter options ([571ccb8](https://github.com/Merieli/rick-morty-search/commit/571ccb89beab816d5b31d9a75d4f942849695f38))
+
 ## [0.4.0](https://github.com/Merieli/rick-morty-search/compare/v0.3.0...v0.4.0) (2023-05-11)
 
 

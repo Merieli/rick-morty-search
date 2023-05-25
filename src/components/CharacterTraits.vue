@@ -64,7 +64,6 @@ watch(id, () => {
                     {{ status }}
                 </v-chip>
             </v-card-subtitle>
-
             <v-card-text>
                 <img class="character-traits__image" :src="image" alt="" />
             </v-card-text>
@@ -81,23 +80,10 @@ watch(id, () => {
 </template>
 
 <style lang="postcss" scoped>
-body,
-#app {
-    /* @apply overflow-hidden overflow-visible; */
-
-    scrollbar-width: 0px;
-    overflow: hidden;
-    overflow-y: hidden;
-
-    &::-webkit-scrollbar {
-        display: none;
-    }
-}
-
 .character-traits {
-    @apply w-full h-full
-        fixed top-0
-        bg-meri-light;
+    @apply min-w-full h-full
+        bg-meri-light
+        absolute left-0 top-0;
 
     &__title {
         @apply flex justify-start items-center flex-wrap;
@@ -130,5 +116,11 @@ body,
     &__image {
         @apply rounded-3xl sm:max-w-[250px] tablet:max-w-xs m-auto;
     }
+}
+</style>
+<style>
+.character-traits__overlay .v-overlay__content {
+    width: 100%;
+    height: 100vh;
 }
 </style>

@@ -1,26 +1,15 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-
-const showFilters = ref(false);
-
-const toggleFilter = () => {
-    showFilters.value = !showFilters.value;
-};
+import FilterByCategory from './FilterByCategory.vue';
 </script>
 
 <template>
     <div class="base-header">
         <v-app-bar elevation="0" class="base-header__content">
             <v-app-bar-title class="base-header__title">Ricky&Morty Search</v-app-bar-title>
-            <v-app-bar-nav-icon class="base-header__button" @click="toggleFilter">
-                <v-icon class="base-header__icon" icon="mdi-reorder-horizontal"></v-icon>
-            </v-app-bar-nav-icon>
+
+            <FilterByCategory />
         </v-app-bar>
     </div>
-
-    <aside v-if="showFilters">
-        <h2>Selecione o filtro desejado</h2>
-    </aside>
 </template>
 
 <style lang="postcss" scoped>
@@ -56,9 +45,5 @@ const toggleFilter = () => {
 <style>
 .base-header .v-toolbar__content {
     max-width: 1024px;
-}
-
-.base-header .v-toolbar__content > .v-toolbar-title {
-    /* margin-inline-start: 2.5rem; */
 }
 </style>
