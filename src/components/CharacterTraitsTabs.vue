@@ -32,22 +32,19 @@ const tab = ref(null);
                     data-character-traits-tabs="about"
                 >
                     <v-list lines="five">
-                        <v-row no-gutters>
-                            <v-col cols="5">
-                                <v-list-item class="character-traits-tabs__item" title="Gender" :subtitle="gender">
-                                    <template #prepend>
-                                        <v-icon color="blue">mdi-gender-male-female</v-icon>
-                                    </template>
-                                </v-list-item>
-                            </v-col>
-                            <v-col cols="7">
-                                <v-list-item class="character-traits-tabs__item" title="Born in" :subtitle="origin">
-                                    <template #prepend>
-                                        <v-icon color="red">mdi-heart-pulse</v-icon>
-                                    </template>
-                                </v-list-item>
-                            </v-col>
-                        </v-row>
+                        <div class="character-traits-tabs__content-first">
+                            <v-list-item class="character-traits-tabs__item" title="Gender" :subtitle="gender">
+                                <template #prepend>
+                                    <v-icon color="blue">mdi-gender-male-female</v-icon>
+                                </template>
+                            </v-list-item>
+
+                            <v-list-item class="character-traits-tabs__item" title="Born in" :subtitle="origin">
+                                <template #prepend>
+                                    <v-icon color="red">mdi-heart-pulse</v-icon>
+                                </template>
+                            </v-list-item>
+                        </div>
                         <v-list-item class="character-traits-tabs__item" title="Type" :subtitle="type">
                             <template #prepend>
                                 <v-icon color="purple">mdi-account-search</v-icon>
@@ -86,7 +83,11 @@ const tab = ref(null);
                 </v-window-item>
 
                 <v-window-item class="character-traits-tabs__tab-content" value="episodes">
-                    <v-chip v-for="(currentEpisode, index) in episode" :key="index" class="ma-2">
+                    <v-chip
+                        v-for="(currentEpisode, index) in episode"
+                        :key="index"
+                        class="character-traits-tabs__episode ma-2"
+                    >
                         S{{ currentEpisode.season }} - E{{ currentEpisode.season }}: {{ currentEpisode.name }} [{{
                             currentEpisode.air_date
                         }}]
@@ -128,6 +129,15 @@ const tab = ref(null);
             pt-8 h-auto;
     }
 
+    &__content-first {
+        display: flex;
+        @apply flex justify-between flex-col mobile:flex-row;
+
+        .character-traits-tabs__item {
+            @apply w-full mobile:w-1/2;
+        }
+    }
+
     &__item {
         @apply mb-5;
 
@@ -136,12 +146,12 @@ const tab = ref(null);
         }
 
         .v-list-item__prepend {
-            @apply items-start h-full;
+            @apply items-start h-full mr-2 mobile:mr-4;
         }
     }
 
     &__tab-content {
-        @apply sm:px-3 md:px-10 lg:px-10 xl:px-10
+        @apply px-0 mobile:px-10 
             mb-3;
     }
 }

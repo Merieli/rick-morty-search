@@ -33,7 +33,7 @@
 ## ⚡ Tech Stack
 
 ### Client
-<img src="https://img.icons8.com/color/48/000000/vue-js.png" width="18px"/> Vue.js, <img src="https://img.icons8.com/color/48/000000/typescript.png" width="18px"/> TypeScript, <img src="https://img.icons8.com/color/48/000000/tailwind_css.png" width="18px"/> Tailwind, <img src="https://cdn.vuetifyjs.com/docs/images/logos/vuetify-logo-v3-slim-light.svg" width="18px"/> Vuetify 3
+<img src="https://img.icons8.com/color/48/000000/vue-js.png" width="18px"/> Vue.js 3, <img src="https://img.icons8.com/color/48/000000/typescript.png" width="18px"/> TypeScript, <img src="https://img.icons8.com/color/48/000000/tailwind_css.png" width="18px"/> Tailwind, <img src="https://cdn.vuetifyjs.com/docs/images/logos/vuetify-logo-v3-slim-light.svg" width="18px"/> Vuetify 3
 
 ### Server
 [API GraphQL - Rick and Morty](https://rickandmortyapi.com/)
@@ -57,7 +57,7 @@ Run Locally
   npm run dev
 ```
 
-work
+Work
 ```bash
 # Generate first release:
   npm run release -- --first-release
