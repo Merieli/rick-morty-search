@@ -15,7 +15,7 @@
     <br><br>
 </p>
 
-[*🎯 Roadmap*](./ROADMAP.todo) | [*👀 Project*](https://linktoproject)
+[*🎯 Roadmap*](./ROADMAP.todo) | [*👀 Project*]([https://linktoproject](https://www.youtube.com/watch?v=4GY_2AGyIVw))
 
 ## ✨ Features
 
