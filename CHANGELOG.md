@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0](https://github.com/Merieli/rick-morty-search/compare/v0.5.0...v1.0.0) (2023-05-28)
+
+
+### Features
+
+* add the footer and adjust the CharacterTraits component ([befe3d0](https://github.com/Merieli/rick-morty-search/commit/befe3d04aa3357f0cc4ce4e9377d19ee91fe6f31))
+
 ## [0.5.0](https://github.com/Merieli/rick-morty-search/compare/v0.4.0...v0.5.0) (2023-05-25)
 
 

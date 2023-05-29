@@ -10,14 +10,10 @@ exports[`CharacterTraitsTabs.test.vue > Integração/Componente > 👀 Renderiza
     <v-window data-v-ca6c6aea=\\"\\">
       <v-window-item class=\\"character-traits-tabs__tab-content\\" data-character-traits-tabs=\\"about\\" value=\\"about\\" data-v-ca6c6aea=\\"\\">
         <v-list lines=\\"five\\" data-v-ca6c6aea=\\"\\">
-          <v-row no-gutters=\\"\\" data-v-ca6c6aea=\\"\\">
-            <v-col cols=\\"5\\" data-v-ca6c6aea=\\"\\">
-              <v-list-item class=\\"character-traits-tabs__item\\" title=\\"Gender\\" data-v-ca6c6aea=\\"\\"></v-list-item>
-            </v-col>
-            <v-col cols=\\"7\\" data-v-ca6c6aea=\\"\\">
-              <v-list-item class=\\"character-traits-tabs__item\\" title=\\"Born in\\" data-v-ca6c6aea=\\"\\"></v-list-item>
-            </v-col>
-          </v-row>
+          <div class=\\"character-traits-tabs__content-first\\" data-v-ca6c6aea=\\"\\">
+            <v-list-item class=\\"character-traits-tabs__item\\" title=\\"Gender\\" data-v-ca6c6aea=\\"\\"></v-list-item>
+            <v-list-item class=\\"character-traits-tabs__item\\" title=\\"Born in\\" data-v-ca6c6aea=\\"\\"></v-list-item>
+          </div>
           <v-list-item class=\\"character-traits-tabs__item\\" title=\\"Type\\" data-v-ca6c6aea=\\"\\"></v-list-item>
           <v-list-item class=\\"character-traits-tabs__item\\" title=\\"Location\\" data-character-traits-tabs=\\"location\\" data-v-ca6c6aea=\\"\\"></v-list-item>
           <v-list-item class=\\"character-traits-tabs__item\\" title=\\"Last episode\\" data-character-traits-tabs=\\"last-episode\\" data-v-ca6c6aea=\\"\\"></v-list-item>

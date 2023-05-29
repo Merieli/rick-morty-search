@@ -1,13 +1,13 @@
 
 <h1 align="center">
     <br>
-    <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/th5xamgrr6se0x5ro4g6.png" alt="Logo" width="120">
+    <img src="./src/assets/img/logoProject.png" alt="Logo" width="300">
     <br><br>
     Rick & Morty Search
 </h1>
 
 <p align="center">
-    A study project with design created by myself, integrated with a free API available on the Rick and Morty design. It can be used by artists or curious people to search characters by name, or by category, and learn more about the design and even be surprised by the randomly generated character.
+    A SPA study project with a design created by me, integrated with a free API available from Rick and Morty. It is a site that can be used by artists or curious people to search characters by name, or by category, and learn more about the drawing and even be surprised by the randomly generated character.
     <br><br>
     <a href="https://opensource.org/licenses/MIT">
         <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License MIT">
@@ -15,7 +15,7 @@
     <br><br>
 </p>
 
-[*🎯 Roadmap*](./ROADMAP.todo) | [*📚 Documentation*](https://linktodocumentation) | [*👀 Project*](https://linktoproject)
+[*🎯 Roadmap*](./ROADMAP.todo) | [*👀 Project*](https://linktoproject)
 
 ## ✨ Features
 
@@ -25,9 +25,19 @@
 - Pagination
 
 ## 📸 Preview
+<div align="center">
 
-![App Screenshot](https://via.placeholder.com/728x500.png?text=Imagem+/+Gifs+do+Projeto)
+  ![Giff App tablet](./images/demo-smartphone.gif)
 
+  <br>
+
+  ![Giff App tablet](./images/demo-tablet.gif)
+
+  <br>
+
+  ![Giff App desktop](./images/demo-desktop.gif)
+
+</div>
 <br>
 
 ## ⚡ Tech Stack
@@ -36,7 +46,8 @@
 <img src="https://img.icons8.com/color/48/000000/vue-js.png" width="18px"/> Vue.js 3, <img src="https://img.icons8.com/color/48/000000/typescript.png" width="18px"/> TypeScript, <img src="https://img.icons8.com/color/48/000000/tailwind_css.png" width="18px"/> Tailwind, <img src="https://cdn.vuetifyjs.com/docs/images/logos/vuetify-logo-v3-slim-light.svg" width="18px"/> Vuetify 3
 
 ### Server
-[API GraphQL - Rick and Morty](https://rickandmortyapi.com/)
+
+<img src="https://img.icons8.com/color/48/graphql.png" width="18px"/> [API GraphQL - Rick and Morty](https://rickandmortyapi.com/)
 
 <br>
 
