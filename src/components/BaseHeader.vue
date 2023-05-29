@@ -5,7 +5,9 @@ import FilterByCategory from './FilterByCategory.vue';
 <template>
     <div class="base-header">
         <v-app-bar elevation="0" class="base-header__content">
-            <v-app-bar-title class="base-header__title">Ricky&Morty Search</v-app-bar-title>
+            <v-app-bar-title class="base-header__title">
+                <img class="base-header__logo" src="../assets/img/logoProject.png" alt="Ricky&Morty Search" />
+            </v-app-bar-title>
 
             <FilterByCategory />
         </v-app-bar>
@@ -31,7 +33,8 @@ import FilterByCategory from './FilterByCategory.vue';
     }
 
     &__logo {
-        @apply max-w-sm mr-0;
+        @apply max-w-[180px] mr-0;
+        filter: saturate(100%) contrast(40%) blur(0.05px) grayscale(100%);
     }
 
     &__button {

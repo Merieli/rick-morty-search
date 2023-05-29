@@ -27,6 +27,17 @@ watch(id, () => {
     statusColorOnTag = useColorTags(species.value, status.value || '').colorTagStatus;
     speciesColorOnTag = useColorTags(species.value, status.value || '').colorTagSpecie;
 });
+
+watch(
+    () => store.isSelected,
+    (newValue) => {
+        if (newValue) {
+            document.body.classList.add('fixed-scroll');
+        } else {
+            document.body.classList.remove('fixed-scroll');
+        }
+    }
+);
 </script>
 
 <template>
@@ -114,11 +125,23 @@ watch(id, () => {
     }
 
     &__image {
-        @apply rounded-3xl sm:max-w-[250px] tablet:max-w-xs m-auto;
+        @apply rounded-3xl  max-w-[230px] tablet:max-w-xs m-auto;
     }
 }
 </style>
 <style>
+.fixed-scroll {
+    position: fixed;
+    width: 100%;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.fixed-scroll::-webkit-scrollbar {
+    display: none;
+    width: 0;
+}
+
 .character-traits__overlay .v-overlay__content {
     width: 100%;
     height: 100vh;

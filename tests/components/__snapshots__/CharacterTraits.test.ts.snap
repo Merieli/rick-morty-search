@@ -24,23 +24,19 @@ exports[`CharacterTraits.vue > Integração/Componente > 👀 Renderização: > 
         <v-window data-v-ca6c6aea=\\"\\">
           <v-window-item class=\\"character-traits-tabs__tab-content\\" data-character-traits-tabs=\\"about\\" value=\\"about\\" data-v-ca6c6aea=\\"\\">
             <v-list lines=\\"five\\" data-v-ca6c6aea=\\"\\">
-              <v-row no-gutters=\\"\\" data-v-ca6c6aea=\\"\\">
-                <v-col cols=\\"5\\" data-v-ca6c6aea=\\"\\">
-                  <v-list-item class=\\"character-traits-tabs__item\\" title=\\"Gender\\" subtitle=\\"Male\\" data-v-ca6c6aea=\\"\\"></v-list-item>
-                </v-col>
-                <v-col cols=\\"7\\" data-v-ca6c6aea=\\"\\">
-                  <v-list-item class=\\"character-traits-tabs__item\\" title=\\"Born in\\" subtitle=\\"Earth (C-137)\\" data-v-ca6c6aea=\\"\\"></v-list-item>
-                </v-col>
-              </v-row>
+              <div class=\\"character-traits-tabs__content-first\\" data-v-ca6c6aea=\\"\\">
+                <v-list-item class=\\"character-traits-tabs__item\\" title=\\"Gender\\" subtitle=\\"Male\\" data-v-ca6c6aea=\\"\\"></v-list-item>
+                <v-list-item class=\\"character-traits-tabs__item\\" title=\\"Born in\\" subtitle=\\"Earth (C-137)\\" data-v-ca6c6aea=\\"\\"></v-list-item>
+              </div>
               <v-list-item class=\\"character-traits-tabs__item\\" title=\\"Type\\" subtitle=\\"Human normal\\" data-v-ca6c6aea=\\"\\"></v-list-item>
               <v-list-item class=\\"character-traits-tabs__item\\" title=\\"Location\\" data-character-traits-tabs=\\"location\\" data-v-ca6c6aea=\\"\\"></v-list-item>
               <v-list-item class=\\"character-traits-tabs__item\\" title=\\"Last episode\\" data-character-traits-tabs=\\"last-episode\\" data-v-ca6c6aea=\\"\\"></v-list-item>
             </v-list>
           </v-window-item>
           <v-window-item class=\\"character-traits-tabs__tab-content\\" value=\\"episodes\\" data-v-ca6c6aea=\\"\\">
-            <v-chip class=\\"ma-2\\" data-v-ca6c6aea=\\"\\"> S01 - E01: Pilot [December 2, 2013] </v-chip>
-            <v-chip class=\\"ma-2\\" data-v-ca6c6aea=\\"\\"> S01 - E01: Lawnmower Dog [December 9, 2013] </v-chip>
-            <v-chip class=\\"ma-2\\" data-v-ca6c6aea=\\"\\"> S01 - E01: Anatomy Park [December 16, 2013] </v-chip>
+            <v-chip class=\\"character-traits-tabs__episode ma-2\\" data-v-ca6c6aea=\\"\\"> S01 - E01: Pilot [December 2, 2013] </v-chip>
+            <v-chip class=\\"character-traits-tabs__episode ma-2\\" data-v-ca6c6aea=\\"\\"> S01 - E01: Lawnmower Dog [December 9, 2013] </v-chip>
+            <v-chip class=\\"character-traits-tabs__episode ma-2\\" data-v-ca6c6aea=\\"\\"> S01 - E01: Anatomy Park [December 16, 2013] </v-chip>
           </v-window-item>
         </v-window>
       </v-card-text>

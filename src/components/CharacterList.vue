@@ -119,7 +119,7 @@ const changeThePage = async (page: number) => {
 
 <style lang="postcss" scoped>
 .character-list {
-    @apply px-10 
+    @apply px-10 mb-[230px]
         w-full max-w-5xl
         grid place-items-center grid-cols-1;
 

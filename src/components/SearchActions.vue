@@ -52,7 +52,7 @@ const { searchByName, clearSearch, searchInApi, searchRandomCharacter } = useSea
             w-full;
     }
 
-    &:hover .search-actions__icon-button {
+    .v-btn__content:hover .search-actions__icon-button {
         @apply animate-short-spin;
     }
 

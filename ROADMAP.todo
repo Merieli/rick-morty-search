@@ -1,11 +1,12 @@
 Tasks:
-    ☐ Rodapé com informações do projeto
     ☐ Notificar usuário de erros
-    
+    ☐ Adicionar query parameters da busca a rota do app
+
 Fix:
-    ☐ Ajustar exibição do componente CharacterTraits 
 -----------
 Done:
+    ✔ Ajustar exibição do componente CharacterTraits @started(25-05-23 07:54) @done(25-05-23 13:24) @lasted(5h30m23s)
+    ✔ Rodapé com informações do projeto @started(25-05-23 07:42) @done(25-05-23 07:54) @lasted(12m25s)
     ✔ Filtrar personagem por categoria @started(12-05-23 06:24) @done(24-05-23 20:22) @lasted(1w5d13h58m13s)
     ✔ Características do Personagem @started(23-04-30 08:29) @done(11-05-23 20:39) @lasted(-6y49w5d11h49m30s)
         
