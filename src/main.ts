@@ -9,6 +9,7 @@ import * as directives from 'vuetify/directives';
 import { aliases, mdi } from 'vuetify/iconsets/mdi';
 
 import 'vuetify/styles';
+import { router } from './infrastructure/router/router';
 import './style.css';
 
 const vuetify = createVuetify({
@@ -25,4 +26,4 @@ const vuetify = createVuetify({
 
 const pinia = createPinia();
 
-createApp(App).use(vuetify).use(pinia).mount('#app');
+createApp(App).use(vuetify).use(pinia).use(router).mount('#app');
