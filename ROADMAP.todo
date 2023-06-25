@@ -1,6 +1,7 @@
 Tasks:
     ☐ Notificar usuário de erros
     ☐ Adicionar query parameters da busca a rota do app
+    ☐ Adicionar meta-tags para tornar o site indexavel no google
     ☐ Disponibilizar a opção "Selecionar múltiplos filtros" que quando ativa permite a seleção de vários filtros para depois clicar em buscar
 
 Fix:
