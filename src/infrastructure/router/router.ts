@@ -43,15 +43,17 @@ export const router = createRouter({
 router.beforeEach((to, from, next) => {
     removeAllMetaTags();
     // Defina o título da página
-    document.title = (to.meta.title as string) || 'Rick&Morty Search';
+    document.title = to.meta.title || 'Rick&Morty Search';
 
-    // Adicione as novas meta-tags
+    // Adicione as novas meta-tags com os atributos correspondentes
     if (to.meta.metaTags) {
-        (to.meta.metaTags as any).forEach((tag: any) => {
+        to.meta.metaTags.forEach((tag: any) => {
             const metaTag = document.createElement('meta');
+
             Object.entries(tag).forEach(([key, value]) => {
                 metaTag.setAttribute(key, value as string);
             });
+
             document.head.appendChild(metaTag);
         });
     }

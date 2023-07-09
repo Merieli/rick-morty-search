@@ -1,5 +1,7 @@
 /// <reference types="vite/client" />
 
+import 'vue-router';
+
 declare module '*.vue' {
     import type { DefineComponent } from 'vue';
 
@@ -12,6 +14,8 @@ interface RouteMetaTags {
     content: string;
     property?: string;
 }
+
+export {};
 
 declare module 'vue-router' {
     interface RouteMeta {

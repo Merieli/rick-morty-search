@@ -1,9 +1,11 @@
 export const removeAllMetaTags = () => {
     const { head } = document;
 
-    const metaTags = head.getElementsByTagName('meta');
+    const metaTags = head.getElementsByTagName('meta') as HTMLCollectionOf<HTMLMetaElement>;
 
-    for (let index = metaTags.length - 1; index >= 0; index--) {
-        head.removeChild(metaTags[index]);
-    }
+    if (!metaTags) return;
+
+    Array.from(metaTags).forEach((metaTag) => {
+        head.removeChild(metaTag);
+    });
 };
