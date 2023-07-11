@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ComputedRef, computed, onMounted } from 'vue';
+import { useRouter } from 'vue-router';
 
 import { useQuantityBasedOnWidth } from '@composables/useQuantityBasedOnWidth';
 import CardLoading from './CardLoading.vue';
@@ -8,9 +9,9 @@ import CharacterCard from './CharacterCard.vue';
 import { useSearchActions } from '@/composables/useSearchActions';
 import { useSelectedCharacter } from '@/composables/useSelectedCharacter';
 import { Character } from '@/domain';
-import { router } from '@/infrastructure/router/router';
 import { useCharactersStore } from '@/infrastructure/store/characters';
 
+const router = useRouter();
 const store = useCharactersStore();
 const { totalOfCardsLoading, totalOfPagination } = useQuantityBasedOnWidth();
 const { clearSearch } = useSearchActions();

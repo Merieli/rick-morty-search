@@ -159,6 +159,24 @@ export const useCharactersStore = defineStore('characters', () => {
         }
     };
 
+    const selectCharacterById = async (id: number) => {
+        try {
+            isLoading.value = true;
+            const response = await api.findByIds(id);
+
+            const characters = prepareCharacterData(response);
+            const characterSelected = characters.pop();
+
+            if (!characterSelected) return;
+
+            Object.assign(selectedCharacter, characterSelected);
+
+            isSelected.value = true;
+        } finally {
+            isLoading.value = false;
+        }
+    };
+
     return {
         allCharacters,
         charactersPerPage,
@@ -173,5 +191,6 @@ export const useCharactersStore = defineStore('characters', () => {
         findCharacterByName,
         findCharacterBy,
         generateRandomCharacter,
+        selectCharacterById,
     };
 });

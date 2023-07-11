@@ -2,13 +2,13 @@ import { createRouter, createWebHistory } from 'vue-router';
 import { addMetaTagsAndTitleByRoute } from './middleware/addMetaTagsAndTitleByRoute';
 import { removeAllMetaTags } from './middleware/removeAllMetaTags';
 
-import PageHomeVue from '@/views/PageHome.vue';
+import PageHome from '@/views/PageHome.vue';
 
 const routes = [
     {
         path: '/',
         name: 'home',
-        component: PageHomeVue,
+        component: PageHome,
         meta: {
             title: 'Rick&Morty Search',
             metaTags: [

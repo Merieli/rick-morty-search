@@ -1,16 +1,26 @@
 <script setup lang="ts">
-import { ComputedRef, computed, toRefs, watch } from 'vue';
+import { ComputedRef, computed, onBeforeMount, onUnmounted, toRefs, watch } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 
 import CharacterTraitsTabs from '@components/CharacterTraitsTabs.vue';
 import { Episode } from '@domain/index';
 
 import { useColorTags } from '@/composables/useColorTags';
 import { useSelectedCharacter } from '@/composables/useSelectedCharacter';
-import { router } from '@/infrastructure/router/router';
 import { useCharactersStore } from '@/infrastructure/store/characters';
 
 const store = useCharactersStore();
+const router = useRouter();
+const route = useRoute();
 const { clearSelectedCharacter } = useSelectedCharacter();
+
+onBeforeMount(async () => {
+    document.body.classList.add('fixed-scroll');
+
+    if (!store.isSelected) {
+        await store.selectCharacterById(Number(route.params.id));
+    }
+});
 
 const { name, episode, gender, id, image, location, origin, species, status, type } = toRefs(store.selectedCharacter);
 
@@ -29,26 +39,19 @@ watch(id, () => {
     speciesColorOnTag = useColorTags(species.value, status.value || '').colorTagSpecie;
 });
 
-watch(
-    () => store.isSelected,
-    (newValue) => {
-        if (newValue) {
-            document.body.classList.add('fixed-scroll');
-        } else {
-            document.body.classList.remove('fixed-scroll');
-        }
-    }
-);
-
 const closeCharacter = () => {
     router.push({ name: 'home' });
     clearSelectedCharacter();
 };
+
+onUnmounted(() => {
+    document.body.classList.remove('fixed-scroll');
+});
 </script>
 
 <template>
     <Teleport to="body">
-        <v-card v-if="store.isSelected" class="character-traits">
+        <v-card v-if="store.isSelected && !store.isLoading" class="character-traits">
             <v-card-title class="character-traits__title">
                 <div class="character-traits__button-wrapper">
                     <v-btn
