@@ -6,6 +6,7 @@ import { Episode } from '@domain/index';
 
 import { useColorTags } from '@/composables/useColorTags';
 import { useSelectedCharacter } from '@/composables/useSelectedCharacter';
+import { router } from '@/infrastructure/router/router';
 import { useCharactersStore } from '@/infrastructure/store/characters';
 
 const store = useCharactersStore();
@@ -38,6 +39,11 @@ watch(
         }
     }
 );
+
+const closeCharacter = () => {
+    router.push({ name: 'home' });
+    clearSelectedCharacter();
+};
 </script>
 
 <template>
@@ -50,7 +56,7 @@ watch(
                         variant="text"
                         icon="mdi-arrow-left"
                         data-character-traits="button"
-                        @click="clearSelectedCharacter"
+                        @click="closeCharacter"
                     ></v-btn>
                 </div>
                 <h3 class="character-traits__name" data-character-traits="name">{{ name }}</h3>

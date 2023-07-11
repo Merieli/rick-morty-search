@@ -69,23 +69,26 @@ export const useCharactersStore = defineStore('characters', () => {
      */
     const getAllCharacters = async (): Promise<void> => {
         try {
-            isLoading.value = true;
-            const response = await api.getAll(pagination.currentPage);
+            if (!charactersPerPage.value[pagination.currentPage]) {
+                isLoading.value = true;
 
-            const listOfCharactersPrepared = prepareCharacterData(response.results);
+                const response = await api.getAll(pagination.currentPage);
 
-            Object.defineProperty(charactersPerPage.value, pagination.currentPage, {
-                value: listOfCharactersPrepared,
-                writable: false,
-                enumerable: true,
-                configurable: true,
-            });
+                const listOfCharactersPrepared = prepareCharacterData(response.results);
 
-            const newList = allCharacters.value.concat(listOfCharactersPrepared);
-            allCharacters.value = newList;
+                Object.defineProperty(charactersPerPage.value, pagination.currentPage, {
+                    value: listOfCharactersPrepared,
+                    writable: false,
+                    enumerable: true,
+                    configurable: true,
+                });
 
-            pagination.total = response.info.pages;
-            pagination.results = response.info.count;
+                const newList = allCharacters.value.concat(listOfCharactersPrepared);
+                allCharacters.value = newList;
+
+                pagination.total = response.info.pages;
+                pagination.results = response.info.count;
+            }
         } catch (error) {
             const { code } = logError('Action getAllCharacters', error);
             // notifyUser(code, 'imprimir todos os personagens')  //função para exibir o erro para o usuário

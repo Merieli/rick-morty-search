@@ -1,4 +1,5 @@
-import { createRouter, createWebHashHistory } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
+import { addMetaTagsAndTitleByRoute } from './middleware/addMetaTagsAndTitleByRoute';
 import { removeAllMetaTags } from './middleware/removeAllMetaTags';
 
 import PageHomeVue from '@/views/PageHome.vue';
@@ -6,6 +7,7 @@ import PageHomeVue from '@/views/PageHome.vue';
 const routes = [
     {
         path: '/',
+        name: 'home',
         component: PageHomeVue,
         meta: {
             title: 'Rick&Morty Search',
@@ -31,33 +33,25 @@ const routes = [
             ],
         },
     },
-    //   { path: '/about', component: About },
+    {
+        path: '/characters/:id',
+        name: 'character',
+        component: () => import('@/components/CharacterTraits.vue'),
+    },
 ];
 
 export const router = createRouter({
-    history: createWebHashHistory(),
+    history: createWebHistory(),
     routes,
 });
 
-// Antes de cada rota ser renderizada, atualize as meta-tags
+/**
+ * Antes de cada rota ser renderizada, atualiza as meta-tags de acordo com a rota acessada
+ */
 router.beforeEach((to, from, next) => {
     removeAllMetaTags();
-    // Defina o título da página
-    document.title = to.meta.title || 'Rick&Morty Search';
 
-    // Adicione as novas meta-tags com os atributos correspondentes
-    if (to.meta.metaTags) {
-        to.meta.metaTags.forEach((tag: any) => {
-            const metaTag = document.createElement('meta');
+    addMetaTagsAndTitleByRoute(to);
 
-            Object.entries(tag).forEach(([key, value]) => {
-                metaTag.setAttribute(key, value as string);
-            });
-
-            document.head.appendChild(metaTag);
-        });
-    }
-
-    // Continue para a próxima rota
     next();
 });

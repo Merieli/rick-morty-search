@@ -3,28 +3,16 @@ import { watch } from 'vue';
 
 import { useColorTags } from '@/composables/useColorTags';
 
-const props = defineProps({
-    id: {
-        type: Number,
-        required: true,
-    },
-    name: {
-        type: String,
-        required: true,
-    },
-    species: {
-        type: String,
-        required: true,
-    },
-    image: {
-        type: String,
-        required: true,
-    },
-    altImage: {
-        type: String,
-        required: true,
-    },
-});
+interface CharacterCard {
+    id: number;
+    name: string;
+    species: string;
+    image: string;
+    altImage: string;
+}
+
+const props = defineProps<CharacterCard>();
+const emit = defineEmits(['open']);
 
 let colorTag = useColorTags(props.species).colorTagSpecie;
 
@@ -38,7 +26,13 @@ watch(props, () => {
 </script>
 
 <template>
-    <v-card class="character-card animation-push" data-character="card" tabindex="0">
+    <v-card
+        class="character-card animation-push"
+        data-character="card"
+        tabindex="0"
+        @click="emit('open')"
+        @keyup.enter="emit('open')"
+    >
         <img class="character-card__image" data-character="image" :src="image" :alt="altImage" />
         <p class="character-card__id" data-character="id">#{{ id }}</p>
         <h2 class="character-card__name" data-character="name">{{ name }}</h2>

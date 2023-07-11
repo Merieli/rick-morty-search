@@ -9,12 +9,6 @@ declare module '*.vue' {
     export default component;
 }
 
-interface RouteMetaTags {
-    name?: string;
-    content: string;
-    property?: string;
-}
-
 export {};
 
 declare module 'vue-router' {

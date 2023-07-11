@@ -4,11 +4,11 @@ import { ComputedRef, computed, onMounted } from 'vue';
 import { useQuantityBasedOnWidth } from '@composables/useQuantityBasedOnWidth';
 import CardLoading from './CardLoading.vue';
 import CharacterCard from './CharacterCard.vue';
-import CharacterTraits from './CharacterTraits.vue';
 
 import { useSearchActions } from '@/composables/useSearchActions';
 import { useSelectedCharacter } from '@/composables/useSelectedCharacter';
 import { Character } from '@/domain';
+import { router } from '@/infrastructure/router/router';
 import { useCharactersStore } from '@/infrastructure/store/characters';
 
 const store = useCharactersStore();
@@ -42,6 +42,12 @@ const changeThePage = async (page: number) => {
     store.$patch({
         isLoading: false,
     });
+};
+
+const openCharacter = (character: Character) => {
+    router.push({ name: 'character', params: { id: character.id } });
+
+    setsSelectedCharacter(character);
 };
 </script>
 
@@ -84,7 +90,6 @@ const changeThePage = async (page: number) => {
             {{ store.pagination.results }} results
         </h4>
 
-        <CharacterTraits />
         <main class="character-list__cards">
             <CharacterCard
                 v-for="(character, index) in listOfCharacters"
@@ -95,8 +100,7 @@ const changeThePage = async (page: number) => {
                 :image="character.image"
                 :alt-image="`${character.name} of specie ${character.species}`"
                 data-list="card"
-                @click="setsSelectedCharacter(character)"
-                @keyup.enter="setsSelectedCharacter(character)"
+                @open="openCharacter(character)"
             />
             <div v-if="store.isLoading" class="character-list__loading">
                 <CardLoading :quantity="totalOfCardsLoading" />
