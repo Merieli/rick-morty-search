@@ -15,12 +15,12 @@ const routes = [
                 {
                     name: 'description',
                     content:
-                        'Pesquise os seus personagens Rick and Morty para se divertir relembrando ou se inspirar criando.',
+                        'Pesquise os seus personagens Rick&Morty para se divertir relembrando ou se inspirar criando.',
                 },
                 {
                     property: 'og:description',
                     content:
-                        'Pesquise os seus personagens Rick and Morty para se divertir relembrando ou se inspirar criando.',
+                        'Pesquise os seus personagens Rick&Morty para se divertir relembrando ou se inspirar criando.',
                 },
                 {
                     property: 'og:image',
@@ -37,6 +37,27 @@ const routes = [
         path: '/characters/:id',
         name: 'character',
         component: () => import('@/components/CharacterTraits.vue'),
+        meta: {
+            title: 'Rick&Morty Search - Character',
+            metaTags: [
+                {
+                    name: 'description',
+                    content: 'Saiba mais sobre seu personagem Rick&Morty favorito.',
+                },
+                {
+                    property: 'og:description',
+                    content: 'Saiba mais sobre seu personagem Rick&Morty favorito.',
+                },
+                {
+                    property: 'og:image',
+                    content: 'http://example.com/page-image.jpg',
+                },
+                {
+                    name: 'addsearch-custom-field',
+                    content: 'genre=non-fiction;genre=psychology',
+                },
+            ],
+        },
     },
 ];
 

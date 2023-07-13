@@ -2,7 +2,6 @@
 
 <template>
     <v-app id="app">
-        <!-- <PageHome /> -->
         <RouterView />
     </v-app>
 </template>

@@ -159,7 +159,11 @@ export const useCharactersStore = defineStore('characters', () => {
         }
     };
 
-    const selectCharacterById = async (id: number) => {
+    /**
+     * Select a character by id and save it in the store
+     * @param id - character's id
+     */
+    const selectCharacterById = async (id: number): Promise<void> => {
         try {
             isLoading.value = true;
             const response = await api.findByIds(id);
@@ -172,6 +176,8 @@ export const useCharactersStore = defineStore('characters', () => {
             Object.assign(selectedCharacter, characterSelected);
 
             isSelected.value = true;
+        } catch (error) {
+            const { code } = logError('Action generateRandomCharacter', error);
         } finally {
             isLoading.value = false;
         }

@@ -14,6 +14,10 @@ const router = useRouter();
 const route = useRoute();
 const { clearSelectedCharacter } = useSelectedCharacter();
 
+/**
+ * Add a class to block scroll and if the character is not selected, it is selected by id from the
+ * route
+ */
 onBeforeMount(async () => {
     document.body.classList.add('fixed-scroll');
 
@@ -44,6 +48,9 @@ const closeCharacter = () => {
     clearSelectedCharacter();
 };
 
+/**
+ * Remove the class that blocks the scroll
+ */
 onUnmounted(() => {
     document.body.classList.remove('fixed-scroll');
 });
