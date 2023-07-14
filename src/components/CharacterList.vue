@@ -2,9 +2,9 @@
 import { ComputedRef, computed, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 
+import CardLoading from '@components/CardLoading.vue';
+import CharacterCard from '@components/CharacterCard.vue';
 import { useQuantityBasedOnWidth } from '@composables/useQuantityBasedOnWidth';
-import CardLoading from './CardLoading.vue';
-import CharacterCard from './CharacterCard.vue';
 
 import { useSearchActions } from '@/composables/useSearchActions';
 import { useSelectedCharacter } from '@/composables/useSelectedCharacter';

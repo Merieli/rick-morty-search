@@ -1,14 +1,13 @@
-import CharacterTraits from '@components/CharacterTraits.vue';
 import { createTestingPinia } from '@pinia/testing';
 import { mount } from '@vue/test-utils';
 import { Pinia } from 'pinia';
 import { createVuetify } from 'vuetify';
-
 import { mockSelectedCharacter } from '../__mocks__/mockSelectedCharacter';
 
 import { useCharactersStore } from '@/infrastructure/store/characters';
+import PageCharacter from '@/views/PageCharacter.vue';
 
-describe('CharacterTraits.vue', () => {
+describe('PageCharacter.vue', () => {
     let pinia: Pinia;
 
     const setupWrapper = () => {
@@ -24,7 +23,7 @@ describe('CharacterTraits.vue', () => {
         const vuetify = createVuetify();
 
         return {
-            wrapper: mount(CharacterTraits, {
+            wrapper: mount(PageCharacter, {
                 global: {
                     plugins: [pinia, vuetify],
                     stubs: {

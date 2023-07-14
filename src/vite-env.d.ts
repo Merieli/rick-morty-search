@@ -1,5 +1,6 @@
 /// <reference types="vite/client" />
 
+import { RouteMetaTags } from '@domain/RouteMetaTags.interface';
 import 'vue-router';
 
 declare module '*.vue' {
