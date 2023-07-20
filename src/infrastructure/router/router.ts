@@ -66,6 +66,11 @@ const routes = [
             metaTags: metaTagsCharacter,
         },
     },
+    {
+        path: '/:pathMatch(.*)*',
+        name: 'notFound',
+        component: () => import('@/views/PageNotFound.vue'),
+    },
 ];
 
 export const router = createRouter({
