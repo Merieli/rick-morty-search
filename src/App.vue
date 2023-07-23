@@ -9,6 +9,6 @@
 <style>
 .v-application__wrap {
     align-items: center;
-    width: 100vw;
+    width: 100%;
 }
 </style>

@@ -15,6 +15,15 @@ import './style.css';
 const vuetify = createVuetify({
     components,
     directives,
+    theme: {
+        themes: {
+            light: {
+                colors: {
+                    primary: '#151557',
+                },
+            },
+        },
+    },
     icons: {
         defaultSet: 'mdi',
         aliases,
