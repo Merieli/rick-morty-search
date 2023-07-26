@@ -16,11 +16,8 @@ const metaTagsHome: RouteMetaTags[] = [
     },
     {
         property: 'og:image',
-        content: 'http://example.com/page-image.jpg',
-    },
-    {
-        name: 'addsearch-custom-field',
-        content: 'genre=non-fiction;genre=psychology',
+        content:
+            'https://akns-images.eonline.com/eol_images/Entire_Site/2022418/rs_600x800-220518115746-5164749.jpg-r_1280_720-f_jpg-q_x-xxyxx.jpg',
     },
 ];
 
@@ -31,19 +28,19 @@ const metaTagsCharacter: RouteMetaTags[] = [
     },
     {
         name: 'keywords',
-        content: 'Characters, Details, Episodes, Species, Origin, Gender, Name, Status, Type',
+        content: 'characters,details,episodes,species,animation,adventure,comedy,sci-fi',
     },
     {
         property: 'og:title',
         content: 'Rick&Morty Search - Character',
     },
     {
-        property: 'og:description d',
+        property: 'og:description',
         content: 'Saiba mais sobre seu personagem Rick&Morty favorito.',
     },
     {
         name: 'addsearch-custom-field',
-        content: 'genre=non-fiction;genre=psychology',
+        content: 'author=merieli;genre=animation',
     },
 ];
 

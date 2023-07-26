@@ -100,8 +100,7 @@ onUnmounted(() => insertScrollIs(false));
 <style lang="postcss" scoped>
 .character-traits {
     @apply min-w-full h-full
-        bg-meri-light
-        absolute left-0 top-0;
+        bg-meri-light;
 
     &__title {
         @apply flex justify-start items-center flex-wrap;

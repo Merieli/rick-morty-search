@@ -10,22 +10,6 @@ const goBack = () => {
 const goToHome = () => {
     router.push('/');
 };
-// onBeforeMount(() => {
-//     const script = document.createElement('script');
-//     script.src = 'https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js';
-
-//     const lottiePlayer = document.createElement('lottie-player');
-//     lottiePlayer.setAttribute('src', 'https://lottie.host/ab7a5c4d-d0de-4877-be5e-8cffedab2bf1/f7kJBYBWYz.json');
-//     lottiePlayer.setAttribute('background', 'transparent');
-//     lottiePlayer.setAttribute('speed', '1');
-//     lottiePlayer.setAttribute('style', 'width: 300px; height: 300px');
-//     lottiePlayer.setAttribute('loop', 'true');
-//     lottiePlayer.setAttribute('autoplay', 'true');
-//     lottiePlayer.classList.add('not-found__lottie');
-
-//     document.body.appendChild(script);
-//     document.body.appendChild(lottiePlayer);
-// });
 </script>
 
 <template>
@@ -52,9 +36,14 @@ const goToHome = () => {
                 </div>
             </section>
             <div class="not-found__illustration">
-                <img src="../assets/img/numbers-4-4.png" alt="" />
+                <img
+                    class="not-found__image"
+                    src="../assets/img/numbers-4-4.png"
+                    alt="image representing the error not found"
+                />
                 <iframe
                     class="not-found__planet"
+                    aria-hidden="true"
                     src="https://lottie.host/?file=ab7a5c4d-d0de-4877-be5e-8cffedab2bf1/f7kJBYBWYz.json"
                 ></iframe>
             </div>
@@ -65,18 +54,17 @@ const goToHome = () => {
 <style lang="postcss" scoped>
 .not-found {
     @apply w-full h-full grid place-content-center;
-    background: url('background-stars.png') no-repeat fixed;
-    background-size: cover;
+    background: url('background-stars.png') no-repeat center center/cover;
 
     &__wrapper {
         @apply flex flex-col laptop:flex-row laptop:justify-between laptop:items-center
-        max-w-5xl  h-fit
-        mx-6 laptop:mx-0;
+            max-w-5xl  h-fit
+            mx-6 laptop:mx-0;
     }
 
     &__content {
         @apply mr-16 
-        w-full laptop:w-2/5;
+            w-full laptop:w-2/5;
     }
 
     &__title {
@@ -89,14 +77,24 @@ const goToHome = () => {
 
     &__illustration {
         @apply relative
-        mt-0 laptop:mt-24;
+            mt-24 laptop:mt-0;
+    }
+
+    &__image {
+        @media (max-width: 434px) {
+            width: 180px;
+        }
     }
 
     &__planet {
-        @apply absolute;
+        @apply absolute scale-[1.6] left-[7%] laptop:left-[14%];
         top: -20%;
-        left: 10%;
-        scale: 1.6;
+
+        @media (max-width: 434px) {
+            top: -50px;
+            left: -60px;
+            scale: 0.7;
+        }
     }
 
     &__button {
@@ -111,6 +109,8 @@ html {
     overflow-y: hidden !important;
     scrollbar-width: none;
     -ms-overflow-style: none;
+    position: fixed;
+    width: 100%;
 }
 
 html::-webkit-scrollbar {
