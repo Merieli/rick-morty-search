@@ -14,6 +14,9 @@ const router = useRouter();
 const route = useRoute();
 const { clearSelectedCharacter } = useSelectedCharacter();
 
+/**
+ * Remove or add a class to block the scroll
+ */
 const insertScrollIs = (isScroll: boolean) => {
     const { body } = document;
 
@@ -38,6 +41,9 @@ const lastEpisode: ComputedRef<Episode> = computed(() => episode.value[episode.v
 
 const { colorTagStatus, colorTagSpecie } = useColorTags(species.value, status.value || '');
 
+/**
+ * Close the selected character and go to the home page
+ */
 const closeCharacter = () => {
     router.push({ name: 'home' });
     clearSelectedCharacter();

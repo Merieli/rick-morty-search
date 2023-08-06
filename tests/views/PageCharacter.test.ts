@@ -4,11 +4,24 @@ import { Pinia } from 'pinia';
 import { createVuetify } from 'vuetify';
 import { mockSelectedCharacter } from '../__mocks__/mockSelectedCharacter';
 
+import { useSelectedCharacter } from '@/composables/useSelectedCharacter';
 import { useCharactersStore } from '@/infrastructure/store/characters';
 import PageCharacter from '@/views/PageCharacter.vue';
 
 describe('PageCharacter.vue', () => {
     let pinia: Pinia;
+
+    const mockRoute = {
+        params: {
+            id: 1,
+        },
+    };
+
+    const mockRouter = {
+        push: vi.fn(),
+    };
+
+    vi.mock('@/composables/useSelectedCharacter');
 
     const setupWrapper = () => {
         pinia = createTestingPinia({
@@ -28,6 +41,10 @@ describe('PageCharacter.vue', () => {
                     plugins: [pinia, vuetify],
                     stubs: {
                         teleport: true,
+                    },
+                    mocks: {
+                        $route: mockRoute,
+                        $router: mockRouter,
                     },
                 },
             }),
@@ -62,15 +79,24 @@ describe('PageCharacter.vue', () => {
             });
         });
         describe('🧠 Comportamento:', () => {
-            test('Dado a lista de características Quando clicar no botão de voltar e a store remover o usuário selecionado Então deve ocultar as características alterando para nenhum personagem selecionado', async () => {
+            test('Dado a lista de características Quando clicar no botão de voltar e a store remover o usuário selecionado Então deve ', async () => {
                 const { wrapper, store } = setupWrapper();
-                const spyUpdateStore = vi.spyOn(store, '$patch');
+                const spyUpdateStore = vi.spyOn(useSelectedCharacter, 'clearSelectedCharacter');
                 const buttonBack = wrapper.find('[data-character-traits="button"]');
 
                 await buttonBack.trigger('click');
 
-                expect(spyUpdateStore).toHaveBeenCalledTimes(1);
+                expect(useSelectedCharacter).toHaveBeenCalledTimes(1);
                 expect(spyUpdateStore.mock.calls[0][0]).toContain({ isSelected: false });
+            });
+        });
+
+        describe('🐕 Navegação:', () => {
+            test('Dado a pagina de personagem Quando clicar no botao voltar Então deve ir para pagina inicial', async () => {
+                const { wrapper, store } = setupWrapper();
+                const buttonBack = wrapper.find('[data-character-traits="button"]');
+
+                await buttonBack.trigger('click');
             });
         });
     });

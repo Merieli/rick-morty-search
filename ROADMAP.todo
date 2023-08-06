@@ -1,14 +1,15 @@
 Tasks:
     ☐ Notificar usuário de erros
-    ✔ Criar página de erro 404 @started(20-07-23 07:33) @done(24-07-23 13:25) @lasted(4d5h52m26s)
-    ✔ Adicionar query parameters da busca a rota do app @started(12-07-23 20:50) @done(12-07-23 20:50) @lasted(39s)
-    ✔ Adicionar meta-tags para tornar o site indexavel no google @started(10-07-23 07:33) @done(25-07-23 22:16) @lasted(2w1d14h43m47s)
-    ✔ Adicionar params a rota do app @started(11-07-23 07:28) @done(12-07-23 20:50) @lasted(1d13h22m33s)
+    Corrigir testes
     ☐ Disponibilizar a opção "Selecionar múltiplos filtros" que quando ativa permite a seleção de vários filtros para depois clicar em buscar
 
 Fix:
 -----------
 Done:
+    ✔ Criar página de erro 404 @started(20-07-23 07:33) @done(24-07-23 13:25) @lasted(4d5h52m26s)
+    ✔ Adicionar query parameters da busca a rota do app @started(12-07-23 20:50) @done(12-07-23 20:50) @lasted(39s)
+    ✔ Adicionar meta-tags para tornar o site indexavel no google @started(10-07-23 07:33) @done(25-07-23 22:16) @lasted(2w1d14h43m47s)
+    ✔ Adicionar params a rota do app @started(11-07-23 07:28) @done(12-07-23 20:50) @lasted(1d13h22m33s)
     ✔ Ajustar exibição do componente CharacterTraits @started(25-05-23 07:54) @done(25-05-23 13:24) @lasted(5h30m23s)
     ✔ Rodapé com informações do projeto @started(25-05-23 07:42) @done(25-05-23 07:54) @lasted(12m25s)
     ✔ Filtrar personagem por categoria @started(12-05-23 06:24) @done(24-05-23 20:22) @lasted(1w5d13h58m13s)

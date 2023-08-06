@@ -44,3 +44,46 @@ exports[`CharacterTraits.vue > Integração/Componente > 👀 Renderização: > 
   </v-card>
 </teleport-stub>"
 `;
+
+exports[`PageCharacter.vue > Integração/Componente > 👀 Renderização: > Dado o componente Quando renderizado Então deve possuir html equivalente ao Snapshot gravado 1`] = `
+"<v-card class=\\"character-traits\\" data-v-bc83ff91=\\"\\">
+  <v-card-title class=\\"character-traits__title\\" data-v-bc83ff91=\\"\\">
+    <div class=\\"character-traits__button-wrapper\\" data-v-bc83ff91=\\"\\">
+      <v-btn class=\\"character-traits__back-button\\" variant=\\"text\\" icon=\\"mdi-arrow-left\\" data-character-traits=\\"button\\" data-v-bc83ff91=\\"\\"></v-btn>
+    </div>
+    <h3 class=\\"character-traits__name\\" data-character-traits=\\"name\\" data-v-bc83ff91=\\"\\">Rick Sanchez</h3>
+    <h4 class=\\"character-traits__id\\" data-character-traits=\\"id\\" data-v-bc83ff91=\\"\\"># 1</h4>
+  </v-card-title>
+  <v-card-subtitle class=\\"character-traits__tags\\" data-v-bc83ff91=\\"\\">
+    <v-chip class=\\"character-traits__tag\\" color=\\"#f2a38b\\" variant=\\"elevated\\" data-character-traits=\\"specie\\" data-v-bc83ff91=\\"\\">Human</v-chip>
+    <v-chip class=\\"character-traits__tag\\" color=\\"green\\" variant=\\"elevated\\" data-character-traits=\\"status\\" data-v-bc83ff91=\\"\\">Alive</v-chip>
+  </v-card-subtitle>
+  <v-card-text data-v-bc83ff91=\\"\\"><img class=\\"character-traits__image\\" src=\\"https://rickandmortyapi.com/api/character/avatar/1.jpeg\\" alt=\\"\\" data-v-bc83ff91=\\"\\"></v-card-text>
+  <v-card class=\\"character-traits-tabs__sheet\\" data-v-ca6c6aea=\\"\\" data-v-bc83ff91=\\"\\">
+    <v-tabs class=\\"character-traits-tabs__tabs\\" color=\\"primary\\" align-tabs=\\"center\\" data-v-ca6c6aea=\\"\\">
+      <v-tab value=\\"about\\" data-v-ca6c6aea=\\"\\">About</v-tab>
+      <v-tab value=\\"episodes\\" data-v-ca6c6aea=\\"\\">Episodes</v-tab>
+    </v-tabs>
+    <v-card-text class=\\"character-traits-tabs__sheet-content\\" data-v-ca6c6aea=\\"\\">
+      <v-window data-v-ca6c6aea=\\"\\">
+        <v-window-item class=\\"character-traits-tabs__tab-content\\" data-character-traits-tabs=\\"about\\" value=\\"about\\" data-v-ca6c6aea=\\"\\">
+          <v-list lines=\\"five\\" data-v-ca6c6aea=\\"\\">
+            <div class=\\"character-traits-tabs__content-first\\" data-v-ca6c6aea=\\"\\">
+              <v-list-item class=\\"character-traits-tabs__item\\" title=\\"Gender\\" subtitle=\\"Male\\" data-v-ca6c6aea=\\"\\"></v-list-item>
+              <v-list-item class=\\"character-traits-tabs__item\\" title=\\"Born in\\" subtitle=\\"Earth (C-137)\\" data-v-ca6c6aea=\\"\\"></v-list-item>
+            </div>
+            <v-list-item class=\\"character-traits-tabs__item\\" title=\\"Type\\" subtitle=\\"Human normal\\" data-v-ca6c6aea=\\"\\"></v-list-item>
+            <v-list-item class=\\"character-traits-tabs__item\\" title=\\"Location\\" data-character-traits-tabs=\\"location\\" data-v-ca6c6aea=\\"\\"></v-list-item>
+            <v-list-item class=\\"character-traits-tabs__item\\" title=\\"Last episode\\" data-character-traits-tabs=\\"last-episode\\" data-v-ca6c6aea=\\"\\"></v-list-item>
+          </v-list>
+        </v-window-item>
+        <v-window-item class=\\"character-traits-tabs__tab-content\\" value=\\"episodes\\" data-v-ca6c6aea=\\"\\">
+          <v-chip class=\\"character-traits-tabs__episode ma-2\\" data-v-ca6c6aea=\\"\\"> S01 - E01: Pilot [December 2, 2013] </v-chip>
+          <v-chip class=\\"character-traits-tabs__episode ma-2\\" data-v-ca6c6aea=\\"\\"> S01 - E01: Lawnmower Dog [December 9, 2013] </v-chip>
+          <v-chip class=\\"character-traits-tabs__episode ma-2\\" data-v-ca6c6aea=\\"\\"> S01 - E01: Anatomy Park [December 16, 2013] </v-chip>
+        </v-window-item>
+      </v-window>
+    </v-card-text>
+  </v-card>
+</v-card>"
+`;
