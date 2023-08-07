@@ -20,6 +20,7 @@ describe('PageCharacter.vue', () => {
     const mockRouter = {
         push: vi.fn(),
     };
+    // TODO: corrigir testes
 
     vi.mock('@/composables/useSelectedCharacter');
 
