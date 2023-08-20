@@ -1,4 +1,4 @@
-import { computed, reactive, Ref, ref } from 'vue';
+import { computed, ComputedRef, reactive, Ref, ref } from 'vue';
 
 import {
     ApiCharacter,
@@ -12,6 +12,24 @@ import { defineStore } from 'pinia';
 import { CharacterDTO } from '@/domain/character/CharacterDTO';
 import { logError } from '@/helpers/logError';
 import CharactersGatewayHttp from '@/infrastructure/gateway/CharactersGatewayHttp';
+
+// create a interface to useCharactersStore
+export interface UseCharactersStore {
+    allCharacters: Ref<Character[]>;
+    charactersPerPage: Ref<Record<number, Character[]>>;
+    selectedCharacter: Character;
+    search: StoreSearchCharacter;
+    pagination: StorePaginationCharacter;
+    random: StoreRandomCharacter;
+    isLoading: Ref<boolean>;
+    isSearching: ComputedRef<boolean>;
+    isSelected: Ref<boolean>;
+    getAllCharacters: () => Promise<void>;
+    findCharacterByName: (name: string) => Promise<void>;
+    findCharacterBy: (filter: string, category: string) => Promise<void>;
+    generateRandomCharacter: () => Promise<void>;
+    selectCharacterById: (id: number) => Promise<void>;
+}
 
 export const useCharactersStore = defineStore('characters', () => {
     const api = new CharactersGatewayHttp();
