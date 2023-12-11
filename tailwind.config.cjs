@@ -14,6 +14,10 @@ module.exports = {
             transparent: 'transparent',
             white: '#FFFFFF',
             black: '#000000',
+            purple: '#BF7BFB',
+            'blue-light': '#212187',
+            blue: '#151557',
+            'blue-dark': '#000013',
             meri: {
                 light: '#E6C9FF',
                 mid: '#BC98DB',

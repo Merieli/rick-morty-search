@@ -9,11 +9,21 @@ import * as directives from 'vuetify/directives';
 import { aliases, mdi } from 'vuetify/iconsets/mdi';
 
 import 'vuetify/styles';
+import { router } from './infrastructure/router/router';
 import './style.css';
 
 const vuetify = createVuetify({
     components,
     directives,
+    theme: {
+        themes: {
+            light: {
+                colors: {
+                    primary: '#151557',
+                },
+            },
+        },
+    },
     icons: {
         defaultSet: 'mdi',
         aliases,
@@ -22,7 +32,11 @@ const vuetify = createVuetify({
         },
     },
 });
-
 const pinia = createPinia();
 
-createApp(App).use(vuetify).use(pinia).mount('#app');
+const app = createApp(App);
+
+app.use(router);
+router.isReady().then(() => {
+    app.use(vuetify).use(pinia).mount('#app');
+});

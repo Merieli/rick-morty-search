@@ -1,0 +1,19 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`PageCharacter.vue > Integração/Componente > 👀 Renderização: > Dado o componente Quando renderizado Então deve possuir html equivalente ao Snapshot gravado 1`] = `
+"<v-card class=\\"character-traits\\" data-v-bc83ff91=\\"\\">
+  <v-card-title class=\\"character-traits__title\\" data-v-bc83ff91=\\"\\">
+    <div class=\\"character-traits__button-wrapper\\" data-v-bc83ff91=\\"\\">
+      <v-btn class=\\"character-traits__back-button\\" variant=\\"text\\" icon=\\"mdi-arrow-left\\" data-character-traits=\\"button\\" data-v-bc83ff91=\\"\\"></v-btn>
+    </div>
+    <h3 class=\\"character-traits__name\\" data-character-traits=\\"name\\" data-v-bc83ff91=\\"\\">Rick Sanchez</h3>
+    <h4 class=\\"character-traits__id\\" data-character-traits=\\"id\\" data-v-bc83ff91=\\"\\"># 1</h4>
+  </v-card-title>
+  <v-card-subtitle class=\\"character-traits__tags\\" data-v-bc83ff91=\\"\\">
+    <v-chip class=\\"character-traits__tag\\" color=\\"#f2a38b\\" variant=\\"elevated\\" data-character-traits=\\"specie\\" data-v-bc83ff91=\\"\\">Human</v-chip>
+    <v-chip class=\\"character-traits__tag\\" color=\\"green\\" variant=\\"elevated\\" data-character-traits=\\"status\\" data-v-bc83ff91=\\"\\">Alive</v-chip>
+  </v-card-subtitle>
+  <v-card-text data-v-bc83ff91=\\"\\"><img class=\\"character-traits__image\\" src=\\"https://rickandmortyapi.com/api/character/avatar/1.jpeg\\" alt=\\"\\" data-v-bc83ff91=\\"\\"></v-card-text>
+  <character-traits-tabs-stub gender=\\"Male\\" origin=\\"Earth (C-137)\\" type=\\"Human normal\\" location=\\"[object Object]\\" lastepisode=\\"[object Object]\\" episode=\\"[object Object],[object Object],[object Object]\\" data-v-bc83ff91=\\"\\"></character-traits-tabs-stub>
+</v-card>"
+`;

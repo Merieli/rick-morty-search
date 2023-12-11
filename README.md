@@ -53,7 +53,7 @@
 
 ## 🗂 How to Use
 
-Run Locally
+1. Prepare the project:
 ```bash
 # Clone the project
   git clone https://github.com/Merieli/rick-morty-search.git
@@ -63,12 +63,16 @@ Run Locally
 
 # Install dependencies
   npm install
+```
+2. Prepare the environment variables by creating a **.env.local** file in the root based on **.env.example**
 
+3. Run Locally:
+```bash
 # Start the server
   npm run dev
 ```
 
-Work
+### Work
 ```bash
 # Generate first release:
   npm run release -- --first-release

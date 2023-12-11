@@ -162,7 +162,7 @@ export default class CharactersGatewayHttp {
     }
 
     async findByIds(id: number[] | number): Promise<ApiCharacter[]> {
-        const filterCharacterByName = `
+        const filterCharacterById = `
             query findCharacterById {
                 charactersByIds(ids: ${id}) {
                     id
@@ -173,23 +173,23 @@ export default class CharactersGatewayHttp {
                     type
                     gender
                     episode {
-                    name
-                    episode
-                    air_date
+                        name
+                        episode
+                        air_date
                     }
                     location {
-                    id
-                    name
-                    type
-                    dimension
+                        id
+                        name
+                        type
+                        dimension
                     }
                     origin {
-                    name
+                        name
                     }
                 }
             }
         `;
-        const charactersData = await this.httpClient.post<ApiCharactersByIdResponseData>(filterCharacterByName);
+        const charactersData = await this.httpClient.post<ApiCharactersByIdResponseData>(filterCharacterById);
 
         return charactersData.charactersByIds;
     }

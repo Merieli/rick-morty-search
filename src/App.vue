@@ -1,15 +1,14 @@
-<script setup lang="ts">
-import PageHome from '@views/PageHome.vue';
-</script>
+<script setup lang="ts"></script>
 
 <template>
     <v-app id="app">
-        <PageHome />
+        <RouterView />
     </v-app>
 </template>
 
 <style>
 .v-application__wrap {
     align-items: center;
+    width: 100%;
 }
 </style>

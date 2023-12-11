@@ -1,4 +1,4 @@
-import { computed, reactive, Ref, ref } from 'vue';
+import { computed, ComputedRef, reactive, Ref, ref } from 'vue';
 
 import {
     ApiCharacter,
@@ -12,6 +12,24 @@ import { defineStore } from 'pinia';
 import { CharacterDTO } from '@/domain/character/CharacterDTO';
 import { logError } from '@/helpers/logError';
 import CharactersGatewayHttp from '@/infrastructure/gateway/CharactersGatewayHttp';
+
+// create a interface to useCharactersStore
+export interface UseCharactersStore {
+    allCharacters: Ref<Character[]>;
+    charactersPerPage: Ref<Record<number, Character[]>>;
+    selectedCharacter: Character;
+    search: StoreSearchCharacter;
+    pagination: StorePaginationCharacter;
+    random: StoreRandomCharacter;
+    isLoading: Ref<boolean>;
+    isSearching: ComputedRef<boolean>;
+    isSelected: Ref<boolean>;
+    getAllCharacters: () => Promise<void>;
+    findCharacterByName: (name: string) => Promise<void>;
+    findCharacterBy: (filter: string, category: string) => Promise<void>;
+    generateRandomCharacter: () => Promise<void>;
+    selectCharacterById: (id: number) => Promise<void>;
+}
 
 export const useCharactersStore = defineStore('characters', () => {
     const api = new CharactersGatewayHttp();
@@ -69,23 +87,26 @@ export const useCharactersStore = defineStore('characters', () => {
      */
     const getAllCharacters = async (): Promise<void> => {
         try {
-            isLoading.value = true;
-            const response = await api.getAll(pagination.currentPage);
+            if (!charactersPerPage.value[pagination.currentPage]) {
+                isLoading.value = true;
 
-            const listOfCharactersPrepared = prepareCharacterData(response.results);
+                const response = await api.getAll(pagination.currentPage);
 
-            Object.defineProperty(charactersPerPage.value, pagination.currentPage, {
-                value: listOfCharactersPrepared,
-                writable: false,
-                enumerable: true,
-                configurable: true,
-            });
+                const listOfCharactersPrepared = prepareCharacterData(response.results);
 
-            const newList = allCharacters.value.concat(listOfCharactersPrepared);
-            allCharacters.value = newList;
+                Object.defineProperty(charactersPerPage.value, pagination.currentPage, {
+                    value: listOfCharactersPrepared,
+                    writable: false,
+                    enumerable: true,
+                    configurable: true,
+                });
 
-            pagination.total = response.info.pages;
-            pagination.results = response.info.count;
+                const newList = allCharacters.value.concat(listOfCharactersPrepared);
+                allCharacters.value = newList;
+
+                pagination.total = response.info.pages;
+                pagination.results = response.info.count;
+            }
         } catch (error) {
             const { code } = logError('Action getAllCharacters', error);
             // notifyUser(code, 'imprimir todos os personagens')  //função para exibir o erro para o usuário
@@ -156,6 +177,30 @@ export const useCharactersStore = defineStore('characters', () => {
         }
     };
 
+    /**
+     * Select a character by id and save it in the store
+     * @param id - character's id
+     */
+    const selectCharacterById = async (id: number): Promise<void> => {
+        try {
+            isLoading.value = true;
+            const response = await api.findByIds(id);
+
+            const characters = prepareCharacterData(response);
+            const characterSelected = characters.pop();
+
+            if (!characterSelected) return;
+
+            Object.assign(selectedCharacter, characterSelected);
+
+            isSelected.value = true;
+        } catch (error) {
+            const { code } = logError('Action generateRandomCharacter', error);
+        } finally {
+            isLoading.value = false;
+        }
+    };
+
     return {
         allCharacters,
         charactersPerPage,
@@ -170,5 +215,6 @@ export const useCharactersStore = defineStore('characters', () => {
         findCharacterByName,
         findCharacterBy,
         generateRandomCharacter,
+        selectCharacterById,
     };
 });
