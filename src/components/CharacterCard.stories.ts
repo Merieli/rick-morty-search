@@ -26,7 +26,6 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
     args : {
         id: 1232,
-        /** Nome da especie exibida no titulo do card */
         name: "Aqua Morty",
         species: "Humanoid",
         image : "https://rickandmortyapi.com/api/character/avatar/21.jpeg",

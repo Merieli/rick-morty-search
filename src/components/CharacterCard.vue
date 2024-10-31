@@ -9,8 +9,11 @@ interface CharacterCard {
      * Character name of title
      */
     name: string;
+    /** Specie of character */
     species: string;
+    /** Link of image */
     image: string;
+    /** Alternative text of image */
     altImage: string;
 }
 
