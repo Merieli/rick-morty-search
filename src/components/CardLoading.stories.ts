@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/vue3/*";
 import CardLoading from "./CardLoading.vue";
 
 const meta: Meta<typeof CardLoading> = {
-    title: 'Components/CardLoading',
+    title: 'Design System/Components/CardLoading',
     component: CardLoading,
     render: (args) => ({
         components: { CardLoading },

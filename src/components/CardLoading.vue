@@ -2,6 +2,9 @@
 import SkeletonLoader from './SkeletonLoader.vue';
 
 export interface PropsCardLoading {
+    /**
+     * Quantity of loaders to be displayed
+     */
     quantity: number;
 }
 
@@ -23,10 +26,10 @@ withDefaults(defineProps<PropsCardLoading>(), {
 
     @apply rounded-2xl
         mb-5 mr-0 mobile:mr-[1.2rem]
-        min-h-[9rem] w-full 
-        sm:w-[var(--two-cards)] 
-        md:w-[var(--three-cards)]  
-        lg:w-[var(--four-cards)] 
+        min-h-[9rem] w-full
+        sm:w-[var(--two-cards)]
+        md:w-[var(--three-cards)]
+        lg:w-[var(--four-cards)]
         xl:w-[var(--four-cards)];
 
     &:nth-child(2n) {

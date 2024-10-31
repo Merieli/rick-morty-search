@@ -1,4 +1,5 @@
 import { create } from '@storybook/theming/create';
+
 export const themeDark = create({
     base: 'dark',
     // Typography
@@ -7,7 +8,7 @@ export const themeDark = create({
 
     brandTitle: 'My custom Storybook - Dark',
     brandUrl: 'https://example.com',
-    brandImage: 'https://storybook.js.org/images/placeholders/350x150.png',
+    brandImage: '../src/assets/img/logoProject.png',
     brandTarget: '_self',
 
     //
@@ -28,7 +29,7 @@ export const themeDark = create({
     // Toolbar default and active colors
     barTextColor: '#f8f8f2',
     barSelectedColor: '#ff79c6',
-    barHoverColor: '#bd93f9', // Adjusted to a lighter purple
+    barHoverColor: '#bd93f9',
     barBg: '#44475a',
 
     // Form colors

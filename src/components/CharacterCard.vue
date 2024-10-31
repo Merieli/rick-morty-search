@@ -5,6 +5,9 @@ import { useColorTags } from '@/composables/useColorTags';
 
 interface CharacterCard {
     id: number;
+    /**
+     * Character name of title
+     */
     name: string;
     species: string;
     image: string;
@@ -53,16 +56,16 @@ watch(props, () => {
     --three-cards: calc((100% - (var(--spacing) * 2)) / 3);
     --four-cards: calc((100% - (var(--spacing) * 3)) / 4);
 
-    @apply font-sans text-gray-600 
-        flex flex-col items-start justify-center 
+    @apply font-sans text-gray-600
+        flex flex-col items-start justify-center
         rounded-2xl shadow-sprawled
         p-4 mb-5 mr-0 mobile:mr-[1.2rem]
-        cursor-pointer focus:outline-none focus:ring  
+        cursor-pointer focus:outline-none focus:ring
         hover:shadow-xl
-        min-h-max w-full 
-        sm:w-[var(--two-cards)] 
-        md:w-[var(--three-cards)]  
-        lg:w-[var(--four-cards)] 
+        min-h-max w-full
+        sm:w-[var(--two-cards)]
+        md:w-[var(--three-cards)]
+        lg:w-[var(--four-cards)]
         xl:w-[var(--four-cards)];
 
     &:nth-child(2n) {
@@ -96,7 +99,7 @@ watch(props, () => {
     }
 
     &__name {
-        @apply font-bold text-lg 
+        @apply font-bold text-lg
             pb-2;
     }
 }
