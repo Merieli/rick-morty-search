@@ -8,7 +8,8 @@ const config: StorybookConfig = {
     '@storybook/addon-essentials',
     '@chromatic-com/storybook',
     '@storybook/addon-interactions',
-    '@storybook/addon-backgrounds'
+    '@storybook/addon-backgrounds',
+    '@storybook/addon-a11y'
   ],
   framework: {
     name: '@storybook/vue3-vite',

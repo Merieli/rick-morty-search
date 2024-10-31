@@ -19,7 +19,18 @@ const preview: Preview = {
     initialGlobals: {
         backgrounds: { value: 'light' },
     },
+    options: {
+        storySort: {
+          order: ['Intro', 'Changelog'],
+        },
+    },
   },
+  decorators: [
+    () => ({
+      template: '<div style="margin: 3em;" data-merieli="dev"><story/></div>',
+    }),
+  ],
+  tags: ['autodocs'],
 };
 
 
